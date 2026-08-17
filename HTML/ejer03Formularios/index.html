@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Formularios en HTML5: inputs y validación</title>
+    <meta name="addsearch-category" content="HTML5, formularios, validación" />
+</head>
+
+<body>
+
+    <header>
+        <h1>Ejercicio 3: Formularios</h1>
+        <p>
+            Conviene pensar el contenido de un formulario como una
+            <strong>lista de variables a transferir</strong> al servidor.
+        </p>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <p>
+            La validación de HTML5 no necesita programación, pero
+            <strong>se dispara recién al pulsar el botón de envío</strong>.
+            Probá enviar el formulario vacío o con un email sin arroba para verla.
+        </p>
+
+        <!-- ETIQUETA <form> (pag. 18)
+
+             action  = el recurso que va a recibir los datos y dar la respuesta HTTP.
+             target  = "_blank" abre la respuesta en una pestaña nueva.
+             method  = el verbo del requerimiento HTTP. Puede ser get o post:
+                       * get  -> las variables con sus valores viajan en la URL
+                                 (se ven en la barra de direcciones)
+                       * post -> las variables viajan en el BODY del requerimiento
+                                 (no se ven en la URL)
+             Usamos get a proposito para poder ver los datos viajando. -->
+        <form action="./respuestaFormulario.html" target="_blank" method="get">
+
+            <!-- Pensamos las variables como una lista <ul> (pag. 19) -->
+            <ul>
+
+                <!-- ---------- type="text" ---------- -->
+                <!-- El style margin-top distancia los elementos de la lista -->
+                <li style="margin-top:10px">
+                    <!-- Etiqueta <label>: su nodo de texto es lo que ve el usuario.
+                         El atributo for indica a que input esta asociada, asi al hacer
+                         click sobre el label el cursor se posiciona en ese input -->
+                    <label style="font-weight: bold" for="apellido">Apellido:</label>
+                    <br /> <!-- simple salto de linea para bajar el input debajo del label -->
+                    <!-- id     = identifica al elemento dentro del documento
+                         name   = el NOMBRE que va a llevar la variable en el requerimiento
+                         value  = el valor por defecto de la variable
+                         autofocus = este input tiene el foco al cargar el documento -->
+                    <input type="text" id="apellido" name="apellido" value="" autofocus="autofocus" />
+                </li>
+
+                <!-- ---------- required ---------- -->
+                <li style="margin-top:10px">
+                    <label style="font-weight: bold" for="nombre">Nombre (obligatorio):</label>
+                    <br />
+                    <!-- required: esta entrada no se puede enviar vacia (pag. 22) -->
+                    <input type="text" id="nombre" name="nombre" value="" required="required" />
+                </li>
+
+                <!-- ---------- type="password" ---------- -->
+                <li style="margin-top:10px">
+                    <label style="font-weight: bold" for="clave">Contraseña:</label>
+                    <br />
+                    <!-- password: cuando el usuario tipea se visualizan puntos.
+                         OJO: igual viaja en texto plano si el sitio no usa HTTPS -->
+                    <input type="password" id="clave" name="clave" />
+                </li>
+
+                <!-- ---------- type="email" ---------- -->
+                <li style="margin-top:10px">
+                    <label style="font-weight: bold" for="correo">Correo electrónico:</label>
+                    <br />
+                    <!-- type="email" valida que exista un caracter @ entre dos cadenas.
+                         placeholder NO valida ni le da valor a la variable: es solo
+                         una cadena de ayuda que se ve en gris mientras el campo esta vacio -->
+                    <input type="email" id="correo" name="correo" placeholder="texto@texto" />
+                </li>
+
+                <!-- ---------- type="url" ---------- -->
+                <li style="margin-top:10px">
+                    <label style="font-weight: bold" for="sitio">Sitio web:</label>
+                    <br />
+                    <!-- type="url" valida que la cadena empiece con http:// -->
+                    <input type="url" id="sitio" name="sitio" placeholder="http://xxx" />
+                </li>
+
+                <!-- ---------- type="number" entero ---------- -->
+                <li style="margin-top:10px">
+                    <label style="font-weight: bold" for="numeroEntero">Nota del 1 al 5 (entero):</label>
+                    <br />
+                    <!-- min y max validan el ingreso entre cotas determinadas -->
+                    <input type="number" id="numeroEntero" name="numeroEntero" min="1" max="5" />
+                </li>
+
+                <!-- ---------- type="number" real ---------- -->
+                <li style="margin-top:10px">
+                    <label style="font-weight: bold" for="numeroReal">Valor de 0 a 9 (con decimales):</label>
+                    <br />
+                    <!-- step="0.1" permite valores reales con saltos de 0,1 -->
+                    <input type="number" id="numeroReal" name="numeroReal" min="0" max="9" step="0.1" />
+                </li>
+
+                <!-- ---------- pattern (expresion regular) ---------- -->
+                <li style="margin-top:10px">
+                    <label style="font-weight: bold" for="mascara">Código con máscara:</label>
+                    <br />
+                    <!-- pattern define una mascara con una EXPRESION REGULAR.
+                         [a-z]{3}[1-3]{2} = 3 letras minusculas y 2 numeros que sean 1, 2 o 3.
+                         Ejemplo valido: abc12   -   Ejemplo invalido: ab12
+                         title es una ayuda que se hace visible en el evento "on mouse over" -->
+                    <input type="text" id="mascara" name="mascara"
+                           pattern="[a-z]{3}[1-3]{2}"
+                           title="3 letras y dos numeros que sean 1, 2 o 3"
+                           placeholder="abc12" />
+                </li>
+
+                <!-- ---------- type="checkbox" ---------- -->
+                <li style="margin-top:10px">
+                    <label style="font-weight: bold">Instrumentos que toca:</label>
+                    <br />
+                    <!-- Cada cuadro de chequeo tiene su PROPIO name, porque la eleccion
+                         es INCLUSIVA: cada uno es una variable independiente.
+                         Si el cuadro no se tilda, esa variable NO viaja en el requerimiento -->
+                    <input type="checkbox" id="piano" name="piano" value="si" />
+                    <label for="piano">Piano</label>
+                    <br />
+                    <input type="checkbox" id="guitarra" name="guitarra" value="si" />
+                    <label for="guitarra">Guitarra</label>
+                    <br />
+                    <input type="checkbox" id="trompeta" name="trompeta" value="si" />
+                    <label for="trompeta">Trompeta</label>
+                </li>
+
+                <!-- ---------- type="radio" ---------- -->
+                <li style="margin-top:10px">
+                    <label style="font-weight: bold">Sexo:</label>
+                    <br />
+                    <!-- Los radio representan un chequeo EXCLUSIVO: por eso el name de
+                         todas las opciones del grupo es el MISMO (sexo). Eso es lo que
+                         hace que al marcar uno se desmarque el otro.
+                         checked indica cual esta marcado por defecto -->
+                    <input type="radio" id="masculino" name="sexo" value="m" checked="checked" />
+                    <label for="masculino">Masculino</label>
+                    <br />
+                    <input type="radio" id="femenino" name="sexo" value="f" />
+                    <label for="femenino">Femenino</label>
+                </li>
+
+                <!-- ---------- <select>: cuadro de lista ---------- -->
+                <li style="margin-top:10px">
+                    <label style="font-weight: bold" for="estudios">Nivel de estudios:</label>
+                    <br />
+                    <!-- Etiqueta <select> (pag. 21). Opciones exclusivas.
+                         El name del select es el nombre de la variable -->
+                    <select id="estudios" name="Estudios">
+                        <!-- Cada <option> es un elemento de la lista.
+                             value  = el valor que va a tomar la variable
+                             selected = es la opcion seleccionada por defecto
+                             El nodo de texto es lo que se ve al desplegar la lista -->
+                        <option value="pri" selected="selected">Primarios</option>
+                        <option value="sec">Secundarios</option>
+                        <option value="ter">Terciarios</option>
+                        <option value="uni">Universitarios</option>
+                        <option value="pos">Postgrado</option>
+                    </select>
+                </li>
+
+            </ul>
+
+            <!-- ---------- type="hidden" ---------- -->
+            <!-- Variable oculta: el usuario no la ve, pero viaja igual en el
+                 requerimiento HTTP. Se usa para mandar datos de control -->
+            <input type="hidden" name="codigoDeFormulario" value="ejer03" />
+
+            <!-- ---------- BOTONES (pag. 23) ---------- -->
+            <p>
+                <!-- submit: envia el formulario al recurso indicado en action,
+                     con el metodo indicado en method -->
+                <button type="submit">Envío del formulario</button>
+
+                <!-- reset: devuelve todos los campos a sus valores por defecto -->
+                <button type="reset">Reset del formulario</button>
+            </p>
+
+        </form>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver a la portada</a></p>
+
+        <address>
+            Universidad de Belgrano<br />
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

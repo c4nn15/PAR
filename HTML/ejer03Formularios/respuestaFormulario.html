@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Respuesta del formulario</title>
+</head>
+
+<!-- Este es el recurso indicado en el atributo action del <form>.
+     Es una pagina estatica: no procesa nada, solo recibe el requerimiento.
+     Para leer y mostrar los datos haria falta codigo del lado del servidor
+     (PHP, Node, etc.) o JavaScript del lado del cliente, que son temas
+     de las unidades siguientes. -->
+<body>
+
+    <header>
+        <h1>Formulario recibido</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>&iquest;Dónde están los datos que cargaste?</h2>
+
+            <p>
+                <strong>Mirá la barra de direcciones de esta pestaña.</strong>
+                Vas a ver algo como:
+            </p>
+
+            <p style="background-color:lightyellow;border:solid;padding:8px">
+                respuestaFormulario.html<strong>?</strong>apellido=Perez<strong>&amp;</strong>nombre=Juan<strong>&amp;</strong>correo=juan@mail.com<strong>&amp;</strong>sexo=m<strong>&amp;</strong>Estudios=uni
+            </p>
+
+            <p>
+                Eso pasa porque el formulario se envió con <strong>method="get"</strong>:
+                todas las variables <em>input</em> con sus valores viajan en la
+                <strong>URI del requerimiento</strong>, después del signo de pregunta y
+                separadas por &amp;. El nombre de cada variable es el que pusimos en el
+                atributo <em>name</em> de cada input.
+            </p>
+        </section>
+
+        <section>
+            <h2>Cosas para observar</h2>
+
+            <ul>
+                <li>
+                    <p>
+                        Los <strong>checkbox que no tildaste no aparecen</strong> en la URL:
+                        si no se chequean, esa variable no viaja.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        El input <strong>hidden</strong> (codigoDeFormulario=ejer03)
+                        <strong>si aparece</strong>, aunque nunca lo viste en pantalla.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        De los <strong>radio</strong> viaja una sola variable (sexo), porque
+                        todos comparten el mismo <em>name</em>.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Si el método fuera <strong>post</strong>, la URL se vería limpia:
+                        los datos irían en el <strong>body</strong> del requerimiento y
+                        habría que mirarlos con las herramientas de desarrollador del
+                        navegador (pestaña Network).
+                    </p>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="./index.html">Volver al formulario</a></p>
+        <p><a href="../index.html">Volver a la portada</a></p>
+    </footer>
+
+</body>
+</html>

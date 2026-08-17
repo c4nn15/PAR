@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Tablas en HTML5: bordes y celdas combinadas</title>
+    <meta name="addsearch-category" content="HTML5, tablas, colspan, rowspan" />
+</head>
+
+<!-- ETIQUETAS DE ESTE EJERCICIO (pags. 15, 16 y 17 del apunte):
+     <table> ... </table>   la tabla completa
+     <tr>    ... </tr>      table row: una FILA
+     <td>    ... </td>      table data: una CELDA
+     <th>    ... </th>      table header: celda de encabezado (negrita y centrada)
+     Atributos colspan y rowspan para combinar celdas -->
+<body>
+
+    <header>
+        <h1>Ejercicio 2: Tablas</h1>
+        <p>Tres tablas en progresión: sin estilo, con estilo y con celdas combinadas.</p>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <!-- ============ TABLA 1: LA ESTRUCTURA DESNUDA ============ -->
+        <section>
+            <h2>1) Tabla básica, sin ningún estilo</h2>
+            <p>
+                Una tabla de 2 filas por 3 celdas. Por defecto el navegador
+                <strong>no dibuja bordes</strong>: se ve solo el texto alineado.
+            </p>
+
+            <table>
+                <!-- Primera fila -->
+                <tr>
+                    <!-- El nodo de texto de cada <td> es lo que se ve dentro de la celda -->
+                    <td>Celda 1 Fila 1</td>
+                    <td>Celda 2 Fila 1</td>
+                    <td>Celda 3 Fila 1</td>
+                </tr>
+
+                <!-- Segunda fila: tiene que tener la MISMA cantidad de celdas -->
+                <tr>
+                    <td>Celda 1 Fila 2</td>
+                    <td>Celda 2 Fila 2</td>
+                    <td>Celda 3 Fila 2</td>
+                </tr>
+            </table>
+        </section>
+
+        <hr />
+
+        <!-- ============ TABLA 2: AGREGANDO ESTILO ============ -->
+        <section>
+            <h2>2) La misma tabla con estilo</h2>
+            <p>
+                Ahora sí se ven los bordes. El valor del atributo <em>style</em> es una cadena
+                de parámetros con la forma <em>nombre:valor;nombre:valor;</em>
+            </p>
+
+            <!-- border:solid           dibuja el borde de la tabla
+                 border-collapse:collapse  hace que los bordes de dos celdas contiguas
+                                           colapsen en uno solo (si no, se ven dobles) -->
+            <table style="border:solid;border-collapse: collapse;">
+
+                <tr>
+                    <!-- <th> en lugar de <td> para la fila de encabezado.
+                         El navegador la pone en negrita y centrada automaticamente -->
+                    <th style="width:120px;height:30px;border:solid;background-color:lightsteelblue">Producto</th>
+                    <th style="width:120px;height:30px;border:solid;background-color:lightsteelblue">Cantidad</th>
+                    <th style="width:120px;height:30px;border:solid;background-color:lightsteelblue">Precio</th>
+                </tr>
+
+                <tr>
+                    <!-- width y height fijan el tamaño de la celda
+                         background-color le pone color de fondo -->
+                    <td style="width:120px;height:30px;border:solid;background-color:lightblue">Teclado</td>
+                    <td style="width:120px;height:30px;border:solid;background-color:lightblue">10</td>
+                    <td style="width:120px;height:30px;border:solid;background-color:lightblue">$ 25.000</td>
+                </tr>
+
+                <tr>
+                    <td style="width:120px;height:30px;border:solid;background-color:lightblue">Mouse</td>
+                    <td style="width:120px;height:30px;border:solid;background-color:lightblue">25</td>
+                    <td style="width:120px;height:30px;border:solid;background-color:lightblue">$ 12.500</td>
+                </tr>
+
+                <tr>
+                    <td style="width:120px;height:30px;border:solid;background-color:lightblue">Monitor</td>
+                    <td style="width:120px;height:30px;border:solid;background-color:lightblue">4</td>
+                    <td style="width:120px;height:30px;border:solid;background-color:lightblue">$ 180.000</td>
+                </tr>
+            </table>
+        </section>
+
+        <hr />
+
+        <!-- ============ TABLA 3: CELDAS COMBINADAS ============ -->
+        <section>
+            <h2>3) Celdas combinadas: colspan y rowspan</h2>
+
+            <p>
+                Esta tabla es una matriz de <strong>4 columnas por 4 filas</strong>.
+                La regla de oro: cada vez que una celda se expande, hay que
+                <strong>quitar las celdas que ocupa</strong> para que la matriz siga cerrando.
+                Si sobran celdas, la tabla se deforma y aparecen columnas de más a la derecha.
+            </p>
+
+            <table style="border:solid;border-collapse: collapse;">
+
+                <!-- ---------- FILA 1 ----------
+                     Se escriben 2 celdas en lugar de 4:
+                     la primera vale por 3 (colspan="3"), asi que se quitaron 2 <td> -->
+                <tr>
+                    <td colspan="3" style="height:35px;border:solid;background-color:khaki;text-align:center">
+                        colspan="3" &rarr; esta celda ocupa las columnas 1, 2 y 3
+                    </td>
+                    <td style="width:110px;border:solid">Col 4</td>
+                </tr>
+
+                <!-- ---------- FILA 2 ----------
+                     Se escriben las 4 celdas.
+                     La primera avanza 3 filas hacia abajo (rowspan="3"): ocupa la
+                     columna 1 de las filas 2, 3 y 4. Por eso en las filas 3 y 4
+                     hay que quitar 1 <td> a cada una -->
+                <tr>
+                    <td rowspan="3" style="width:110px;border:solid;background-color:lightgreen;text-align:center">
+                        rowspan="3"<br />ocupa la columna 1<br />de las filas 2, 3 y 4
+                    </td>
+                    <td style="width:110px;height:35px;border:solid">Fila 2 - Col 2</td>
+                    <td style="width:110px;border:solid">Fila 2 - Col 3</td>
+                    <td style="width:110px;border:solid">Fila 2 - Col 4</td>
+                </tr>
+
+                <!-- ---------- FILA 3 ----------
+                     Solo se escriben 2 celdas:
+                     - la columna 1 ya esta ocupada por el rowspan de la fila 2  (-1 td)
+                     - la celda con colspan="2" rowspan="2" toma las columnas 2 y 3
+                       de las filas 3 y 4                                        (-1 td)
+                     - queda escribir la columna 4 -->
+                <tr>
+                    <td colspan="2" rowspan="2" style="border:solid;background-color:lightpink;text-align:center">
+                        colspan="2" rowspan="2"<br />
+                        un bloque de 2 columnas por 2 filas
+                    </td>
+                    <td style="width:110px;height:35px;border:solid">Fila 3 - Col 4</td>
+                </tr>
+
+                <!-- ---------- FILA 4 ----------
+                     Se escribe UNA sola celda:
+                     - columna 1 ocupada por el rowspan="3" de la fila 2
+                     - columnas 2 y 3 ocupadas por el bloque de la fila 3
+                     - entonces solo falta la columna 4 -->
+                <tr>
+                    <td style="width:110px;height:35px;border:solid">Fila 4 - Col 4</td>
+                </tr>
+
+            </table>
+
+            <p>
+                Para verificarlo: contando los <em>td</em> escritos hay 2 + 4 + 2 + 1 = 9 celdas,
+                pero en pantalla se ven las 16 posiciones de la matriz de 4 x 4 completas.
+            </p>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver a la portada</a></p>
+
+        <address>
+            Universidad de Belgrano<br />
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!-- Marca de comienzo del documento. No es una etiqueta (pag. 3 del apunte) -->
+<!DOCTYPE html>
+
+<!-- El atributo lang="es" le avisa al navegador y a los buscadores
+     en que idioma esta escrito el documento -->
+<html lang="es">
+
+<head>
+    <!-- Etiqueta meta con el atributo http-equiv: le dice al navegador que se trata
+         del encabezado HTTP llamado Content-Type y que el juego de caracteres es UTF-8.
+         Gracias a esto los acentos y la ñ se ven bien en cualquier pais (pag. 4) -->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <!-- El title es el texto que aparece sobre la pestaña del navegador.
+         Criterio SEO: no superar los 60 caracteres (pag. 13) -->
+    <title>Ejercicios de HTML5 - Programación en Ambiente de Redes</title>
+
+    <!-- Meta con atributo name: los bots la usan para indexar y categorizar el sitio (pag. 4) -->
+    <meta name="addsearch-category" content="Educación, HTML5, programación web" />
+</head>
+
+<body>
+
+    <!-- ETIQUETA SEMANTICA <header>: anida los encabezados del documento,
+         titulos e imagenes. No define estilo, solo contenido (pag. 11) -->
+    <header>
+        <!-- h1: titulo de nivel 1, para parrafos de menos de una linea (pag. 7) -->
+        <h1>Ejercicios de HTML5</h1>
+        <h2>Programación en Ambiente de Redes - Universidad de Belgrano</h2>
+    </header>
+
+    <!-- La etiqueta <hr /> no lleva nodo de texto y traza una linea
+         de extremo a extremo del view port (pag. 7) -->
+    <hr />
+
+    <!-- ETIQUETA SEMANTICA <main>: debe ser unica y anida lo mas importante
+         del documento en cuanto a conceptos semanticos (pag. 11) -->
+    <main>
+
+        <p>
+            Cada ejercicio está en su propia carpeta y se abre desde su archivo
+            <strong>index.html</strong>. Todos usan únicamente estándares de la W3C:
+            sin librerías, sin frameworks y sin JavaScript.
+        </p>
+
+        <!-- ETIQUETA SEMANTICA <nav>: debe ser unica y contiene la lista
+             de navegacion o enlaces del documento (pag. 11) -->
+        <nav>
+            <h2>Lista de ejercicios</h2>
+
+            <!-- <ol> = order list: lista numerada automaticamente por el navegador.
+                 Si quisieramos viñetas en lugar de numeros usariamos <ul> (pag. 10) -->
+            <ol>
+
+                <!-- Cada <li> anida un elemento de la lista.
+                     Adentro puede llevar parrafos, enlaces, imagenes, etc. -->
+                <li style="margin-top:10px">
+                    <!-- Etiqueta <a> (anchor / ancla).
+                         El atributo href indica cual es el documento enlazado.
+                         Escribimos la ruta completa hasta index.html para que el enlace
+                         funcione tambien abriendo el archivo con doble clic (file://) -->
+                    <a href="./ejer01Texto/index.html">Ejercicio 1: Texto, títulos y listas</a>
+                    <p>Preguntas sobre HTTP con su respuesta debajo de cada enunciado.</p>
+                </li>
+
+                <li style="margin-top:10px">
+                    <a href="./ejer02Tablas/index.html">Ejercicio 2: Tablas</a>
+                    <p>Tabla básica, tabla con estilo y celdas combinadas con colspan y rowspan.</p>
+                </li>
+
+                <li style="margin-top:10px">
+                    <a href="./ejer03Formularios/index.html">Ejercicio 3: Formularios</a>
+                    <p>Tipos de input, cuadro de lista, validación HTML5 y botones de envío.</p>
+                </li>
+
+                <li style="margin-top:10px">
+                    <a href="./ejer04Iframes/index.html">Ejercicio 4: Iframes (marcos)</a>
+                    <p>Un marco que carga los ejercicios anteriores usando el atributo target.</p>
+                </li>
+
+            </ol>
+        </nav>
+
+    </main>
+
+    <hr />
+
+    <!-- ETIQUETA SEMANTICA <footer>: anida la informacion del pie del documento (pag. 12) -->
+    <footer>
+        <!-- ETIQUETA SEMANTICA <address>: informacion puntual de direcciones,
+             telefonos y correos. Puede ir anidada dentro del footer (pag. 12) -->
+        <address>
+            Universidad de Belgrano - Zabala 1837, CABA<br />
+            Materia: Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

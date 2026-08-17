@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<!-- CUESTION DE ESTILO (pag. 27):
+     Trabajar en porcentaje en lugar de pixeles hace el diseño adaptable.
+     Un porcentaje siempre es respecto al CONTENEDOR PADRE, entonces para que el
+     alto del iframe en % signifique algo hay que ir declarando la cadena completa:
+        <html> 100% del viewport  ->  <body> 100% del html  ->  <iframe> 60% del body -->
+<html lang="es" style="height:100%">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Iframes en HTML5: marcos y atributo target</title>
+    <meta name="addsearch-category" content="HTML5, iframes, marcos" />
+</head>
+
+<body style="height:100%">
+
+    <header>
+        <h1>Ejercicio 4: Iframes (marcos)</h1>
+        <p>
+            Un <strong>iframe</strong> enmarca un espacio dentro del documento para
+            insertar ahí otro recurso: otra página HTML, un PDF, un video local
+            o un video de YouTube.
+        </p>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <!-- ETIQUETA SEMANTICA <nav>: la lista de navegacion del documento -->
+        <nav>
+            <h2>Menú</h2>
+
+            <ul>
+                <!-- CLAVE DEL EJERCICIO:
+                     el atributo target de la etiqueta <a> lleva como valor el NAME del
+                     iframe. Entonces el enlace no cambia de pagina: ubica el recurso
+                     ADENTRO del marco (pag. 25) -->
+                <li style="margin-top:8px">
+                    <a href="./bienvenida.html" target="fcontenido">Bienvenida (documento inicial)</a>
+                </li>
+
+                <li style="margin-top:8px">
+                    <!-- ../ sube a la carpeta padre y despues baja a la carpeta del ejercicio 1 -->
+                    <a href="../ejer01Texto/index.html" target="fcontenido">Ejercicio 1: Preguntas de HTTP</a>
+                </li>
+
+                <li style="margin-top:8px">
+                    <a href="../ejer02Tablas/index.html" target="fcontenido">Ejercicio 2: Tablas</a>
+                </li>
+
+                <li style="margin-top:8px">
+                    <a href="../ejer03Formularios/index.html" target="fcontenido">Ejercicio 3: Formularios</a>
+                </li>
+
+                <li style="margin-top:8px">
+                    <!-- Video de YouTube dentro del marco.
+                         OJO: este enlace es el UNICO que necesita conexion a internet.
+                         La URL tiene que ser la de tipo /embed/ (no la de la barra de
+                         direcciones de YouTube), porque las paginas normales de YouTube
+                         no se dejan enmarcar. -->
+                    <a href="https://www.youtube.com/embed/xv9fSIG5i8A" target="fcontenido">
+                        Video de YouTube (requiere internet)
+                    </a>
+                </li>
+
+                <!-- <li style="margin-top:8px">
+                    Sin el atributo target, el enlace reemplaza la pagina COMPLETA.
+                         Sirve para comparar los dos comportamientos 
+                    <a href="../ejer02Tablas/index.html">Ejercicio 2 sin target (cambia toda la página)</a>
+                </li> -->
+            </ul>
+        </nav>
+
+        <hr />
+
+        <!-- ETIQUETA <iframe> (marco)
+             src   = el documento que se ubica por defecto dentro del marco
+             name  = el nombre del marco. Es el que referencian los target de arriba
+             style = height y width en PORCENTAJE para que sea adaptable,
+                     y border:solid para que se vea donde empieza y termina el marco
+             El iframe siempre se cierra con </iframe>, aunque no lleve nodo de texto -->
+        <iframe src="./bienvenida.html"
+                name="fcontenido"
+                style="height:60%;width:90%;border:solid">
+        </iframe>
+
+        <p>
+            Probá <strong>agrandar y achicar la ventana del navegador</strong>: como el marco
+            está dimensionado en porcentaje, conserva su proporción respecto al viewport.
+            Si estuviera dimensionado en píxeles, se recortaría.
+        </p>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver a la portada</a></p>
+
+        <address>
+            Universidad de Belgrano<br />
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

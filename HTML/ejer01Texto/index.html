@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- UTF-8: imprescindible en este ejercicio porque el texto tiene
+         muchos acentos y la letra ñ (pag. 4) -->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Preguntas y respuestas sobre el protocolo HTTP</title>
+    <meta name="addsearch-category" content="HTTP, protocolos, redes" />
+</head>
+
+<!-- Este ejercicio es SOLO TEXTO: no hay tablas, ni formularios, ni imagenes.
+     Etiquetas que se practican aca: h1, h2, p, hr, br, strong, em, ul, li
+     y las etiquetas semanticas header, main, section, footer y address -->
+<body>
+
+    <header>
+        <h1>Preguntas sobre HTTP</h1>
+        <p>
+            Cuestionario de la materia con el enunciado de cada pregunta como subtítulo
+            y la respuesta desarrollada inmediatamente debajo.
+        </p>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <!-- ETIQUETA SEMANTICA <section>: anida el contenido de una seccion
+             del documento. Usamos una seccion por pregunta (pag. 12) -->
+        <section>
+            <!-- El enunciado va en un h2 porque es un titulo de menos de una linea (pag. 7) -->
+            <h2>1) ¿Sobre qué protocolo binario está montado HTTP?</h2>
+
+            <!-- La respuesta va en un parrafo <p> debajo del enunciado -->
+            <p>
+                Sobre TCP (y este sobre IP). El servidor tiene un socket pasivo escuchando
+                en el par IP-puerto 80, y la conexión se establece después de un handshaking
+                de 3 vías (solicitud, aceptación y confirmación). En HTTPS se agrega TLS
+                entre HTTP y TCP. En HTTP/3 esto cambia: va montado sobre QUIC, que corre
+                sobre UDP.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Clientes y servidores HTTP más utilizados</h2>
+            <p>
+                <strong>Clientes:</strong> el navegador, cURL, y las librerías nativas de
+                distintos lenguajes de desarrollo.
+            </p>
+            <p>
+                <strong>Servidores:</strong> los web servers (Apache es el ejemplo del apunte,
+                en el header <em>Server: Apache/1.2</em>). Ojo con la aclaración del final:
+                Tomcat no es un web server, es una JVM que interpreta bytecode Java.
+            </p>
+        </section>
+
+        <section>
+            <h2>3) Verbos que admite el requerimiento</h2>
+
+            <!-- Cuando la respuesta es una enumeracion conviene una lista sin orden <ul>.
+                 El navegador la muestra con viñetas (pag. 10) -->
+            <ul>
+                <li><p><strong>GET</strong> &rarr; solo lectura</p></li>
+                <li><p><strong>POST</strong> &rarr; normalmente para actualizar recursos</p></li>
+                <li><p><strong>PUT</strong> &rarr; para crear recursos en el servidor</p></li>
+                <li><p><strong>DELETE</strong> &rarr; para borrar recursos</p></li>
+                <li><p><strong>CONNECT</strong> &rarr; lo usan los proxies</p></li>
+            </ul>
+
+            <p>
+                Se usan como verbos para manipular recursos remotos en servicios web
+                (DELETE /clientes/marcos HTTP/1.1).
+            </p>
+        </section>
+
+        <section>
+            <h2>4) ¿Qué contenido lleva el body de un requerimiento?</h2>
+            <p>Puede llevar datos en cualquier formato, típicamente:</p>
+
+            <ul>
+                <li><p>datos ingresados en campos de un formulario</p></li>
+                <li><p>archivos enviados en un proceso de upload</p></li>
+            </ul>
+
+            <p>
+                Y va acompañado de headers que lo describen: <em>Content-Type</em>
+                (tipo/charset) y <em>Content-Length</em> (longitud de lo transmitido
+                hacia el servidor).
+            </p>
+        </section>
+
+        <section>
+            <h2>5) Diferencia entre URL y URI</h2>
+            <p>
+                La URI es solo el identificador del recurso dentro del servidor:
+                /path_al_recurso/index.html?var1=valor1&amp;var2=valor2.
+                <!-- Atencion: el signo & se escribe &amp; en HTML -->
+                Es lo que viaja en la línea inicial del requerimiento.
+            </p>
+            <p>
+                La URL es lo que ves en la barra del navegador y es el conjunto:
+                http://nombreHost.dominioHost:puerto + URI. Esa parte extra (protocolo,
+                host, dominio, puerto) es la que el navegador necesita primero para
+                consultar la IP al DNS y después para establecer la conexión TCP.
+            </p>
+        </section>
+
+        <section>
+            <h2>6) ¿Cómo se almacena información relacionada con las respuestas?</h2>
+            <p>Dos mecanismos:</p>
+
+            <ul>
+                <li>
+                    <p>
+                        <strong>Cookies:</strong> el servidor manda <em>Set-cookie:</em> en la
+                        respuesta, el navegador guarda ese dato y lo reenvía con el header
+                        <em>Cookie:</em> en los siguientes requerimientos al mismo servidor/origen.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <strong>Cache del navegador,</strong> controlado por headers de respuesta
+                        (Cache-control, Expires, Last-Modified, ETag) y validado con headers de
+                        requerimiento (If-Modified-Since, If-None-Match).
+                    </p>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>7) ¿Qué significa HTTP sobre conexiones preexistentes?</h2>
+            <p>
+                Son las conexiones persistentes de HTTP/1.1: se abre una sola conexión TCP
+                y sobre ella se hacen múltiples transacciones (se pide el recurso principal
+                y después imágenes, CSS, JS...) hasta el último recurso, sin reabrir conexión
+                cada vez. Se pide con <em>Connection: keep-alive</em>. Esto es lo que habilita
+                el HTTP asincrónico (AJAX). Se corta con <em>Connection: close</em> (lo puede
+                mandar el cliente, por ejemplo al cerrar el navegador, o el servidor tras un
+                time out de inactividad).
+            </p>
+        </section>
+
+        <section>
+            <h2>8) ¿Qué significa Virtual hosting?</h2>
+            <p>
+                Que un mismo web server con una única IP puede atender múltiples dominios.
+                Por eso en HTTP/1.1 el header <em>Host:</em> es obligatorio: es lo único que
+                le dice al servidor a qué host virtual le estás hablando. Requiere declarar
+                el nombre en un DNS público (normalmente lo hace el ISP que hostea) y
+                configurar el web server para host virtuales. Para simularlo localmente se
+                edita \windows\system32\drivers\etc\hosts.
+            </p>
+        </section>
+
+        <section>
+            <h2>9) ¿Qué significa cache por ETag?</h2>
+            <p>
+                El ETag es un identificador tipo fingerprint/hash asociado a cada archivo en
+                el servidor, que cambia cada vez que el recurso se modifica. El navegador lo
+                recibe en la cabecera de la respuesta y lo guarda; en el siguiente acceso a
+                esa URL lo manda como <em>If-None-Match: ead145f</em>. El servidor compara ese
+                header con el ETag actual del recurso: si no cambió, responde
+                <em>304 Not Modified</em> (1KB en vez de 100KB) y el navegador carga desde su cache.
+            </p>
+            <p>
+                <strong>Ventaja sobre el cache por fechas</strong>
+                (If-Modified-Since / Last-Modified): no depende de errores de configuración de
+                fecha entre servidor y cliente, cosa importante porque el desarrollador
+                normalmente no controla el SO del servidor.
+            </p>
+        </section>
+
+        <section>
+            <h2>10) ¿Por qué HTTP se considera stateless?</h2>
+            <p>
+                Porque el protocolo no guarda estado entre requerimientos: cada mensaje es
+                independiente y, al no haber más conexión, cualquier aplicación pierde el
+                estado. El servidor no "recuerda" quién sos entre un pedido y otro. Por eso
+                hacen falta mecanismos externos como las cookies para sostener la sesión.
+            </p>
+        </section>
+
+        <section>
+            <h2>11) ¿Qué nueva versión se está usando para mejorar la velocidad?</h2>
+            <p>
+                HTTP/2 (RFC 7540, desde 2015). Es un protocolo binario que conserva la misma
+                semántica que HTTP/1.1 (mismos verbos y cabeceras) y aporta:
+            </p>
+
+            <ul>
+                <li><p>multiplexación de requerimientos sin esperar respuesta</p></li>
+                <li><p>frames binarios en lugar de texto</p></li>
+                <li><p>compactación/compresión de headers</p></li>
+                <li><p>prioritización programable de los elementos requeridos</p></li>
+                <li><p>server push (entregas multiplexadas)</p></li>
+            </ul>
+
+            <p>
+                Está basado en ideas del SPDY de Google. Requiere TLS en la práctica:
+                sin HTTPS no es viable.
+            </p>
+        </section>
+
+        <section>
+            <h2>12) ¿Cómo mejora una app web en ambientes ruidosos o de conexión débil?</h2>
+            <p>
+                Con HTTP/3 sobre QUIC (2019). QUIC hace sobre UDP el trabajo que hacía TCP
+                (datos fiables y seguros) pero de forma más eficiente, con conexiones mucho
+                más cortas. La mejora ahí no es tanto la velocidad de transmisión sino la
+                capacidad de reconexión inmediata ante caídas por ruido ambiente, exceso de
+                tráfico o baja cobertura (industrias, aeropuertos, zonas alejadas de las
+                ciudades).
+            </p>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <!-- Enlace de vuelta a la portada. El ../ indica la carpeta padre (pag. 7) -->
+        <p><a href="../index.html">Volver a la portada</a></p>
+
+        <address>
+            Universidad de Belgrano<br />
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>
