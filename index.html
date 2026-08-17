@@ -1,0 +1,67 @@
+<!-- Marca de comienzo del documento. No es una etiqueta (pag. 3 del apunte) -->
+<!DOCTYPE html>
+
+<!-- El atributo lang="es" le avisa al navegador y a los buscadores
+     en que idioma esta escrito el documento -->
+<html lang="es">
+
+<head>
+    <!-- Etiqueta meta con el atributo http-equiv: le dice al navegador que se trata
+         del encabezado HTTP llamado Content-Type y que el juego de caracteres es UTF-8.
+         Gracias a esto los acentos y la ñ se ven bien en cualquier pais (pag. 4) -->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <!-- El title es el texto que aparece sobre la pestaña del navegador.
+         Criterio SEO: no superar los 60 caracteres (pag. 13) -->
+    <title>Indice de ejercicios - Programación en Ambiente de Redes</title>
+
+    <!-- Meta con atributo name: los bots la usan para indexar y categorizar el sitio (pag. 4) -->
+    <meta name="addsearch-category" content="Educación, HTML5, programación web" />
+</head>
+
+<body>
+
+    <!-- ETIQUETA SEMANTICA <header>: anida los encabezados del documento,
+         titulos e imagenes. No define estilo, solo contenido (pag. 11) -->
+    <header>
+        <!-- h1: titulo de nivel 1, para parrafos de menos de una linea (pag. 7) -->
+        <h1>Indice</h1>
+    </header>
+
+    <!-- La etiqueta <hr /> no lleva nodo de texto y traza una linea
+         de extremo a extremo del view port (pag. 7) -->
+    <hr />
+
+    <!-- ETIQUETA SEMANTICA <main>: debe ser unica y anida lo mas importante
+         del documento en cuanto a conceptos semanticos (pag. 11) -->
+    <main>
+
+        <!-- ETIQUETA SEMANTICA <nav>: debe ser unica y contiene la lista
+             de navegacion o enlaces del documento (pag. 11) -->
+        <nav>
+            <h2>Secciones de la materia</h2>
+
+            <!-- <ul> = unordered list: lista con viñetas, sin numeracion (pag. 10) -->
+            <ul>
+                <li style="margin-top:10px">
+                    <a href="./HTML/index.html">HTML</a>
+                </li>
+            </ul>
+
+        </nav>
+
+    </main>
+
+    <hr />
+
+    <!-- ETIQUETA SEMANTICA <footer>: anida la informacion del pie del documento (pag. 12) -->
+    <footer>
+        <!-- ETIQUETA SEMANTICA <address>: informacion puntual de direcciones,
+             telefonos y correos. Puede ir anidada dentro del footer (pag. 12) -->
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>
