@@ -13,11 +13,38 @@
 */
 
 
+/*
+    El selector body alcanza a TODO el documento. Como los estilos se
+    aplican en cascada, la tipografia y el color definidos aca los heredan
+    todos los elementos anidados adentro, salvo que tengan uno propio.
+*/
+body {
+    font-family: Verdana, Geneva, sans-serif;
+    background-color: whitesmoke;
+    color: black;
+    max-width: 800px;       /* La columna de texto no se estira de punta a
+                               punta en pantallas anchas */
+    margin: 20px auto;      /* auto en los costados = columna centrada */
+    padding: 0px 20px;
+}
+
 /* Bloque para toda etiqueta h1 del documento que enlace este archivo */
 h1 {
     font-size: 30px;
     color: darkblue;
     text-align: center;
+    letter-spacing: 1px;    /* Un poco de aire entre letra y letra */
+}
+
+/* Los subtitulos van en el mismo azul, con una linea abajo que los separa
+   del texto de la seccion */
+h2 {
+    font-size: 20px;
+    color: darkblue;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-bottom-color: lightsteelblue;
+    padding-bottom: 4px;
 }
 
 /* Bloque para toda etiqueta p */
@@ -25,6 +52,7 @@ p {
     text-align: left;
     font-size: 18px;
     color: black;
+    line-height: 1.5;       /* Separacion entre renglones del parrafo */
 }
 
 /* Selector de clase: solo los parrafos con class="comentarios" */
@@ -45,4 +73,34 @@ div.caja {
     border-color: darkblue;
     background-color: lightyellow;
     padding: 10px;
+}
+
+/* Las lineas separadoras, mas suaves que la gris del navegador */
+hr {
+    border-style: solid;
+    border-width: thin;
+    border-color: lightsteelblue;
+}
+
+/* Los enlaces tambien se pueden formatear: aca van en azul y sin
+   el subrayado que les pone el navegador por defecto */
+a {
+    color: darkblue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* El pie de pagina, en letra mas chica y gris para que no compita con
+   el contenido */
+footer {
+    font-size: 14px;
+    color: gray;
+    text-align: center;
+}
+
+/* El bloque p { } de arriba alinea los parrafos a la izquierda. Este
+   selector es mas especifico ("toda p que este adentro de un footer")
+   asi que le gana y centra el link de volver al indice */
+footer p {
+    text-align: center;
 }

@@ -3,87 +3,123 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <title>css04 - Tamaños de letra (font-size)</title>
-    <meta name="addsearch-category" content="CSS, font-size, px, em, vw, porcentaje" />
+    <title>css04 - Tamaño de los fonts segun la resolucion</title>
+    <meta name="addsearch-category" content="CSS, font-size, em, media, viewport, resolucion" />
 
-    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
-         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7).
+    <!-- El viewport es la ventana de visualizacion del navegador. Esta
+         etiqueta le avisa al celular que use el ancho real de su pantalla
+         y no una pantalla de escritorio simulada. Sin ella, el control de
+         medio @media() de mas abajo no llega a activarse en los moviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
-         type="text/css"     -> de que tipo de archivo se trata
-         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
-    <link rel="stylesheet" type="text/css" href="./estilo.css">
+    <!-- Toda la galeria de estilos de esta pagina esta escrita aca mismo,
+         dentro del etiquetado <style></style> del encabezado (pag. 3).
+         No hay ningun archivo .css aparte ni etiqueta <link> -->
+    <style type="text/css">
+        /*
+            ESTILO DEFAULT PARA EL DOCUMENTO (pag. 11 del apunte)
+
+            El tamaño de letra del body se define UNA sola vez y en pixeles.
+            De ahi en mas todo el documento se expresa en unidades em, que
+            son "cantidad de veces el tamaño de letra base" (pag. 6).
+
+            Asi, cambiando este unico valor cambia de tamaño toda la pagina:
+            es lo que van a hacer los @media() del final del bloque.
+        */
+        body {
+            font-size: 16px;        /* Unidad de referencia: 1em = 16px */
+            font-family: "Times New Roman", Times, serif;
+            margin: 0px;
+        }
+
+        /*
+            UNIDAD em: los textos marcados con h1 miden el doble que los
+            parrafos comunes, porque 2em = 2 veces el tamaño base.
+            Como estan en em, siguen valiendo el doble aunque el @media()
+            cambie el tamaño base del body.
+        */
+        h1 {
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            background-color: gainsboro;
+            margin: 0px;
+            padding: 10px;
+        }
+
+        /* 1em = el tamaño base sin modificar (pag. 11) */
+        p {
+            font-size: 1em;
+            background-color: gainsboro;
+            margin: 20px 0px;
+            padding: 5px;
+        }
+
+        /*
+            CONTROL DE MEDIO @media() (pag. 12 del apunte)
+
+            La resolucion de una pantalla se mide en pixeles de ancho por
+            pixeles de alto. Con @media() se le pregunta al navegador cuanto
+            mide el viewport y se redefine el tamaño de letra base segun el
+            caso. Como todo lo demas esta en em, se reacomoda solo.
+
+            Se escriben de menor a mayor: si un elemento cumple con mas de
+            una condicion, gana la ultima que se haya declarado.
+        */
+
+        /* Pantallas chicas: celulares */
+        @media (max-width: 480px) {
+            body {
+                font-size: 12px;
+            }
+        }
+
+        /* Pantallas medianas: tablets */
+        @media (min-width: 481px) and (max-width: 1024px) {
+            body {
+                font-size: 16px;
+            }
+        }
+
+        /* Pantallas grandes: monitores de escritorio */
+        @media (min-width: 1025px) {
+            body {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
-        <!-- Este h1 mide 1.5em, o sea 24px -->
-        <h1>Tamaños de letra: px, %, vw y em</h1>
-    </header>
+    <h1>Tamaño de los fonts dependiente de la resolución del medio de visualización</h1>
 
-    <hr />
+    <p>
+        Los textos marcados con "H1" tendrán dimensión doble a los párrafos
+        comunes. Corresponderían a títulos.
+    </p>
 
-    <main>
+    <p>
+        En el ejercicio se definirá un tamaño de letra default para el body y
+        luego todo será expresado en unidades em (unidad de referencia)
+    </p>
 
-        <section>
-            <h2>Las unidades de medida disponibles</h2>
+    <p>
+        En este ejercicio se trabajará con control de medio @media() para que
+        el tamaño de letra sea modificado según el tamaño del viewport
+    </p>
 
-            <ul>
-                <li>px: fijo en pixeles (el mas comunmente usado)</li>
-                <li>%: porcentual respecto al tamaño del contenedor padre</li>
-                <li>vw: porcentual respecto al view-port (la ventana del navegador)</li>
-                <li>em: cantidad de veces el tamaño de letra base del documento</li>
-            </ul>
-        </section>
+    <p>
+        La resolución de una pantalla la medimos en pixeles de ancho x pixeles
+        de alto
+    </p>
 
-        <section>
-            <h2>Un parrafo por unidad</h2>
+    <p>
+        Por lo general los dispositivos chicos en tamaño tienen mayor
+        definicion: 500ppi (Pixels/pulgada) en moviles modernos;
+    </p>
 
-            <p class="enPixeles">
-                font-size: 24px &rarr; siempre mide 24 pixeles.
-            </p>
-
-            <p class="enPorcentaje">
-                font-size: 150% &rarr; una vez y media el tamaño del contenedor padre.
-            </p>
-
-            <p class="enViewPort">
-                font-size: 2vw &rarr; el 2% del ancho de la ventana. Agranda y achica
-                la ventana del navegador: este es el unico parrafo que cambia de tamaño.
-            </p>
-
-            <p class="enEm">
-                font-size: 2em &rarr; el doble del tamaño base del documento.
-            </p>
-        </section>
-
-        <section>
-            <h2>Cuidado: el em se acumula en cascada</h2>
-
-            <!-- El div ya es de 2em (32px). El parrafo de adentro pide otros
-                 2em, pero calculados sobre su padre: termina en 64px -->
-            <div class="cajaGrande">
-                Este texto suelto dentro del div mide 2em (32px).
-                <p>
-                    Y este parrafo anidado pide otros 2em, pero medidos sobre el
-                    div, no sobre el documento: termina midiendo 64px.
-                </p>
-            </div>
-        </section>
-
-    </main>
-
-    <hr />
-
-    <footer>
-        <p><a href="../index.html">Volver al indice de CSS</a></p>
-
-        Santiago Cannistra
-        <address>
-            Programación en Ambiente de Redes
-        </address>
-    </footer>
+    <p><a href="../index.html">Volver al indice de CSS</a></p>
 
 </body>
 </html>

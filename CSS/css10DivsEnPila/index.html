@@ -6,13 +6,75 @@
     <title>css10 - Divs en pila</title>
     <meta name="addsearch-category" content="CSS, div, linear-gradient, box-shadow, overflow" />
 
-    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
-         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7).
+    <!-- Toda la galeria de estilos de esta pagina esta escrita aca mismo,
+         dentro del etiquetado <style></style> del encabezado (pag. 3).
+         No hay ningun archivo .css aparte ni etiqueta <link> -->
+    <style type="text/css">
+        /*
+            ELEMENTOS PARA DEFINIR LAYERS CONTENEDORES: <div></div> (pag. 8)
 
-         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
-         type="text/css"     -> de que tipo de archivo se trata
-         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
-    <link rel="stylesheet" type="text/css" href="./estilo.css">
+            Los DIV son etiquetas que anidan contenido html y permiten ubicarlo
+            en cualquier parte del body del documento, en distintas capas o
+            layers, y con el estilo definido para su clase.
+
+            INSERCION DE UN DIV (pag. 13):
+            Naturalmente, al insertar nuevos divs, estos se agregan en la
+            siguiente linea POR DEBAJO, si no se especifica especificamente lo
+            contrario. Por eso los tres divs de este ejercicio quedan apilados
+            uno arriba del otro: ninguno tiene float.
+
+            OJO: dentro del bloque <style> los comentarios son solo del tipo
+            barra-asterisco, como este: los comentarios html aca no valen.
+        */
+
+        /* Declaraciones comunes a las tres cajas.
+           Se pueden agrupar varios selectores separandolos con comas (pag. 14) */
+        div.cajaUno, div.cajaDos, div.cajaTres {
+            width: 40%;
+            margin: auto;              /* Cada caja queda centrada en x (pag. 13) */
+            margin-bottom: 20px;       /* Separacion con la caja de abajo */
+            padding: 10px;
+            box-sizing: border-box;    /* El padding va hacia adentro (pag. 9) */
+
+            /* Parametros y funcion de estilo para producir el sombreado (pag. 13).
+               El orden de los parametros es:
+               offset-x | offset-y | blur-radius | color
+               El cuarto parametro es el resultado de la funcion rgba(), donde
+               rgba(rojo, verde, azul, canal alpha).
+               Por ejemplo rgba(255,0,0,0.5) define un rojo puro con una
+               transparencia de 0,5.
+               OJO: los comentarios de CSS no se pueden anidar uno dentro
+               de otro, el primer cierre corta todo el comentario */
+            box-shadow: 16px 8px 2px rgba(0,0,0,0.3);
+        }
+
+        /* Funcion que otorga un gradiente de color para el fondo de un div.
+           Sus argumentos son (inclinacion en grados, color1, color2, color3).
+           Se puede usar la funcion radial-gradient() para obtener un gradiente
+           radial en lugar de uno lineal (pag. 13) */
+        div.cajaUno {
+            background: linear-gradient(45deg, orange, white, pink);
+        }
+
+        div.cajaDos {
+            /* Sin el argumento de grados, el gradiente va de arriba hacia abajo */
+            background: linear-gradient(lightblue, white);
+        }
+
+        div.cajaTres {
+            /* Gradiente radial: los colores salen desde el centro hacia afuera */
+            background: radial-gradient(white, lightgreen);
+
+            /* Al definir un alto, el div deja de crecer en funcion de su
+               contenido (pag. 8) */
+            height: 150px;
+
+            /* Al definir un overflow en auto, el contenido dentro del div se
+               puede barrer completo agregando una barra de scrolling a la
+               derecha del elemento (pag. 8) */
+            overflow: auto;
+        }
+    </style>
 </head>
 
 <body>

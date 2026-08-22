@@ -6,13 +6,85 @@
     <title>css08 - Centrado, padding y box-sizing</title>
     <meta name="addsearch-category" content="CSS, margin auto, padding, box-sizing" />
 
-    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
-         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7).
+    <!-- Toda la galeria de estilos de esta pagina esta escrita aca mismo,
+         dentro del etiquetado <style></style> del encabezado (pag. 3).
+         No hay ningun archivo .css aparte ni etiqueta <link> -->
+    <style type="text/css">
+        /*
+            OJO: dentro del bloque <style> los comentarios son solo del tipo
+            barra-asterisco, como este: los comentarios html aca no valen.
+        */
 
-         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
-         type="text/css"     -> de que tipo de archivo se trata
-         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
-    <link rel="stylesheet" type="text/css" href="./estilo.css">
+        /*
+            CENTRADO DE ELEMENTOS HTML (pag. 9 del apunte)
+
+            Cualquier elemento html queda centrado en x cuando se le especifica
+            el parametro margin:auto (pag. 13).
+        */
+        div.elementoCentrado {
+            margin: auto;                    /* El elemento queda centrado */
+            width: 50%;                      /* Ocupa el 50% del contenedor */
+            background-color: lightblue;
+
+            /* Al no haber un parametro de altura, el div crece en alto
+               junto con su contenido (pag. 9) */
+
+            border-style: solid;
+            border-width: thin;
+            border-color: darkblue;
+
+            margin-bottom: 20px;             /* Separacion con el div siguiente */
+        }
+
+        /*
+            El parametro de estilo padding produce una separacion del contenido
+            del div (su nodo de texto o sus divs interiores) respecto a los
+            bordes. PERO para lograrlo modifica su propio ancho (pag. 9).
+
+            Este div pidio width:50% igual que el anterior, y sin embargo se ve
+            mas ancho: el navegador le sumo el 10% + 10% de padding al 50%.
+        */
+        div.conPadding {
+            margin: auto;
+            width: 50%;
+            background-color: lightgreen;
+
+            padding-left: 10%;
+            padding-right: 10%;
+
+            border-style: solid;
+            border-width: thin;
+            border-color: darkgreen;
+
+            margin-bottom: 20px;
+        }
+
+        /*
+            El parametro de estilo box-sizing con valor border-box produce que
+            la separacion entre el contenido del div y sus bordes sea hacia su
+            INTERIOR, provocando que el ancho del div original no se modifique
+            (pag. 9).
+
+            Este div tiene el mismo padding que el anterior, pero se ve del
+            mismo ancho que el primero. Es la forma correcta de trabajar.
+        */
+        div.conPaddingCorregido {
+            margin: auto;
+            width: 50%;
+            background-color: lightpink;
+
+            padding-left: 10%;
+            padding-right: 10%;
+
+            box-sizing: border-box;
+
+            border-style: solid;
+            border-width: thin;
+            border-color: darkred;
+
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 
 <body>
