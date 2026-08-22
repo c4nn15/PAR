@@ -1,0 +1,36 @@
+/*
+    estilo.css - Indice de ejercicios de CSS
+
+    Galeria de estilos de este documento (pag. 7 del apunte).
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+/* El caracter "*" representa la definicion de un default
+   para TODOS los elementos del documento (pag. 11).
+   Definimos el tamaño base en pixeles porque el "em" se
+   calcula como una cantidad de veces ese tamaño base (pag. 6) */
+* {
+    font-size: 16px;
+}
+
+/* Bloque de declaraciones para toda etiqueta h1 del documento */
+h1 {
+    font-size: 2em;      /* 2 veces el tamaño base = 32px */
+    color: darkblue;
+}
+
+/* Consigna del enunciado: el h2 del indice va en 1em,
+   es decir, exactamente el tamaño base del documento (16px) */
+h2 {
+    font-size: 1em;
+}
+
+/* Separacion entre los elementos de la lista de enlaces */
+li {
+    margin-top: 10px;
+}

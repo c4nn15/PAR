@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css04 - Tamaños de letra (font-size)</title>
+    <meta name="addsearch-category" content="CSS, font-size, px, em, vw, porcentaje" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7).
+
+         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
+         type="text/css"     -> de que tipo de archivo se trata
+         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <!-- Este h1 mide 1.5em, o sea 24px -->
+        <h1>Tamaños de letra: px, %, vw y em</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>Las unidades de medida disponibles</h2>
+
+            <ul>
+                <li>px: fijo en pixeles (el mas comunmente usado)</li>
+                <li>%: porcentual respecto al tamaño del contenedor padre</li>
+                <li>vw: porcentual respecto al view-port (la ventana del navegador)</li>
+                <li>em: cantidad de veces el tamaño de letra base del documento</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Un parrafo por unidad</h2>
+
+            <p class="enPixeles">
+                font-size: 24px &rarr; siempre mide 24 pixeles.
+            </p>
+
+            <p class="enPorcentaje">
+                font-size: 150% &rarr; una vez y media el tamaño del contenedor padre.
+            </p>
+
+            <p class="enViewPort">
+                font-size: 2vw &rarr; el 2% del ancho de la ventana. Agranda y achica
+                la ventana del navegador: este es el unico parrafo que cambia de tamaño.
+            </p>
+
+            <p class="enEm">
+                font-size: 2em &rarr; el doble del tamaño base del documento.
+            </p>
+        </section>
+
+        <section>
+            <h2>Cuidado: el em se acumula en cascada</h2>
+
+            <!-- El div ya es de 2em (32px). El parrafo de adentro pide otros
+                 2em, pero calculados sobre su padre: termina en 64px -->
+            <div class="cajaGrande">
+                Este texto suelto dentro del div mide 2em (32px).
+                <p>
+                    Y este parrafo anidado pide otros 2em, pero medidos sobre el
+                    div, no sobre el documento: termina midiendo 64px.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de CSS</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

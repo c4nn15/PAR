@@ -1,0 +1,87 @@
+/*
+    estilo.css - css11 - Divs en fila (float)
+
+    Galeria de estilos de este documento (pag. 7 del apunte).
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+/*
+    ESTILO DEFINIDO DE BASE PARA TODOS LOS ELEMENTOS HTML DEL
+    DOCUMENTO (pag. 15 del apunte)
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+    FLOTACION DE ELEMENTOS A LA IZQUIERDA (pag. 14)
+
+    Estilos aplicables tanto a la clase claseDiv1 como a la claseDiv2.
+    Se agrupan los dos selectores separandolos con una coma.
+*/
+div.claseDiv1, div.claseDiv2 {
+
+    /* Parametro que permite hacer FLOTAR a la izquierda al elemento html.
+       Cualquier elemento que venga a continuacion de uno que tenga este
+       estilo se ubicara a su DERECHA, en lugar de bajar a la linea de
+       abajo como pasaria normalmente (pag. 14) */
+    float: left;
+
+    margin: 10px;              /* Separacion hacia afuera del elemento */
+    padding: 10px;
+    width: 25%;
+    height: 120px;
+
+    font-size: 12px;           /* Tamaño de letra general para estas clases */
+
+    border-style: solid;
+    border-width: thin;
+    border-color: gray;
+}
+
+/* Estilo aplicable en cascada solo a la claseDiv1 (pag. 14) */
+div.claseDiv1 {
+    background: linear-gradient(orange, white, pink);
+
+    /* Tamaño de letra DOBLE respecto a la que se viene aplicando en
+       cascada (pag. 14).
+       OJO con el detalle: el em de un font-size se calcula sobre el
+       tamaño de letra del elemento CONTENEDOR (aca el body, 16px por
+       defecto), no sobre los 12px declarados unas lineas mas arriba.
+       Entonces este div termina con letra de 32px */
+    font-size: 2em;
+}
+
+div.claseDiv2 {
+    background: linear-gradient(lightblue, white);
+}
+
+/*
+    Un div con este estilo puede ser usado para ROMPER LA FLOTACION de
+    los elementos anteriores. Con esto me estaria asegurando de que los
+    siguientes elementos bajen a la linea siguiente.
+    El margin-bottom solo esta para asegurar una separacion con el
+    elemento que viene despues (pag. 15).
+*/
+div.nuevaFila {
+    clear: both;
+    margin-bottom: 20px;
+}
+
+/* Un poco de aire para los titulos, ya que el * de arriba
+   les saco todos los margenes */
+h1, h2 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+}

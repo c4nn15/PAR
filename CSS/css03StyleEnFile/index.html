@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css03 - Estilos en un archivo aparte</title>
+    <meta name="addsearch-category" content="CSS, archivo css, link, galeria de estilos" />
+
+    <!--
+        ESTILOS DEFINIDOS EN UN ARCHIVO APARTE DEL DOCUMENTO HTML (pag. 7)
+
+        Esta es la etiqueta <link> que referencia, en su atributo href, el
+        nombre del archivo que contiene la galeria de estilos.
+
+        rel="stylesheet"  -> que relacion tiene ese archivo con el documento
+        type="text/css"   -> de que tipo de archivo se trata
+        href="./estilo.css" -> donde esta. El ./ significa "en esta misma carpeta"
+
+        Fijate que en este documento NO hay ninguna etiqueta <style>:
+        todo el codigo CSS vive en el archivo estilo.css.
+
+        Ventaja: un mismo archivo .css puede ser enlazado por muchas paginas.
+        Si se cambia un color ahi, cambia en todo el sitio de una sola vez.
+    -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <!-- Toma el estilo del bloque h1 { } que esta en estilo.css -->
+        <h1>Estilos en un archivo .css aparte</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>Como funciona</h2>
+
+            <p>
+                Este parrafo se ve con el estilo del bloque p que esta escrito
+                dentro del archivo estilo.css, no en este documento.
+            </p>
+
+            <!-- Las clases definidas en el archivo .css se usan igual que si
+                 estuvieran en un <style>: con el atributo class -->
+            <p class="comentarios">
+                Este parrafo pertenece a la clase comentarios, tambien definida
+                en el archivo estilo.css.
+            </p>
+        </section>
+
+        <section>
+            <h2>Prueba para hacer</h2>
+
+            <div class="caja">
+                <p>
+                    Cambiale el nombre al archivo estilo.css (por ejemplo a
+                    estilo_viejo.css) y volve a cargar esta pagina: se van a
+                    caer todos los estilos y todo se va a ver con el formato por
+                    defecto del navegador. Eso confirma que la etiqueta link es
+                    la que trae la galeria de estilos.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de CSS</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

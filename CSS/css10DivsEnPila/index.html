@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css10 - Divs en pila</title>
+    <meta name="addsearch-category" content="CSS, div, linear-gradient, box-shadow, overflow" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7).
+
+         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
+         type="text/css"     -> de que tipo de archivo se trata
+         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Divs apilados uno debajo del otro</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>Que se practica aca</h2>
+            <p>
+                Ningun div de esta pagina tiene el parametro float, asi que cada
+                uno arranca en una linea nueva, por debajo del anterior. Es el
+                comportamiento natural de los div.
+            </p>
+        </section>
+
+        <!-- Caja 1: gradiente lineal inclinado 45 grados -->
+        <div class="cajaUno">
+            <h2>Caja 1</h2>
+            <p>Fondo con linear-gradient a 45 grados y sombra con box-shadow.</p>
+        </div>
+
+        <!-- Caja 2: gradiente lineal vertical -->
+        <div class="cajaDos">
+            <h2>Caja 2</h2>
+            <p>El mismo tipo de fondo, pero sin indicarle la inclinacion.</p>
+        </div>
+
+        <!-- Caja 3: alto fijo + overflow auto, para ver la barra de scroll -->
+        <div class="cajaTres">
+            <h2>Caja 3</h2>
+            <p>
+                Esta caja tiene un alto fijo de 150px, asi que ya no crece con su
+                contenido.
+            </p>
+            <p>
+                Como el contenido no entra, el overflow en auto le agrega una
+                barra de scrolling a la derecha para poder barrerlo completo.
+            </p>
+            <p>
+                Este ultimo parrafo esta aca justamente para que el contenido no
+                entre y se vea la barra.
+            </p>
+        </div>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de CSS</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

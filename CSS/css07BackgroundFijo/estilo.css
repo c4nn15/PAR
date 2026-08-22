@@ -1,0 +1,85 @@
+/*
+    estilo.css - css07 - Imagen de fondo fija en un div
+
+    Galeria de estilos de este documento (pag. 7 del apunte).
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+/*
+    IMAGEN COMO FONDO DE UN ELEMENTO DIV (pag. 10 del apunte)
+
+    La ventaja de atachar una imagen a un div, en lugar de incluirla
+    con una etiqueta <img>, es que esta queda FIJA respecto a un
+    posible scrolling del contenido del div.
+*/
+div#cajaConImagenDeFondo {
+
+    /* Ruta de la imagen. El ./ significa "en esta misma carpeta" */
+    background-image: url('./css07ImagenFondo.jpg');
+
+    /* Si la imagen es mucho mas pequeña que el div contenedor, esta
+       seria repetida a manera de mosaico. Para evitarlo se usa
+       este parametro (pag. 10) */
+    background-repeat: no-repeat;
+
+    /* Ubicacion de la imagen dentro del div: centrada en x y en y */
+    background-position: center center;
+
+    /* Permite que la imagen entre completa manteniendo la relacion
+       de aspecto de la misma (pag. 10).
+       Con "cover" en lugar de "contain" la imagen taparia todo el div,
+       pero quedaria recortada por alguno de sus lados */
+    background-size: contain;
+
+    /* Color que se ve por detras, mientras la imagen no este
+       o mientras no alcance a cubrir todo el div */
+    background-color: lightyellow;
+
+    /* Al definir un alto, el div deja de crecer en funcion de su
+       contenido (pag. 8) */
+    height: 250px;
+    width: 60%;
+
+    /* Al definir un overflow en auto, el contenido que no entra se
+       puede barrer completo agregando una barra de scrolling a la
+       derecha del elemento (pag. 8) */
+    overflow: auto;
+
+    margin: auto;              /* El elemento queda centrado (pag. 9) */
+    padding: 10px;
+    box-sizing: border-box;    /* El padding va hacia adentro (pag. 9) */
+
+    border-style: solid;
+    border-width: thin;
+    border-color: gray;
+}
+
+/* Segunda caja, para comparar: es la MISMA imagen pero SIN el
+   parametro background-repeat, asi que se repite como mosaico,
+   y con background-size en su tamaño original */
+div#cajaConMosaico {
+    background-image: url('./css07ImagenFondo.jpg');
+    background-color: lightgray;
+
+    height: 250px;
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    box-sizing: border-box;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: gray;
+}
+
+/* Los parrafos que van adentro de la caja con scroll.
+   El fondo blanco semitransparente es para que el texto se lea
+   por encima de la imagen. rgba(rojo, verde, azul, transparencia) */
+div#cajaConImagenDeFondo p {
+    background-color: rgba(255,255,255,0.7);
+}

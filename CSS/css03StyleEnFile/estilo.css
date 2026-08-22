@@ -1,0 +1,48 @@
+/*
+    estilo.css
+
+    Este es el contenido del archivo de estilo, es decir, la GALERIA DE ESTILOS
+    del documento (pag. 7 del apunte).
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>.
+    El archivo entero ya es codigo CSS, asi que se escriben directamente
+    los bloques de declaraciones.
+
+    Solo se pueden usar comentarios del tipo barra-asterisco, como este.
+    Los comentarios de html <!-- --> aca no valen.
+*/
+
+
+/* Bloque para toda etiqueta h1 del documento que enlace este archivo */
+h1 {
+    font-size: 30px;
+    color: darkblue;
+    text-align: center;
+}
+
+/* Bloque para toda etiqueta p */
+p {
+    text-align: left;
+    font-size: 18px;
+    color: black;
+}
+
+/* Selector de clase: solo los parrafos con class="comentarios" */
+p.comentarios {
+    font-size: 16px;
+    color: gray;
+    font-style: italic;
+    border-left-style: solid;
+    border-left-width: thick;
+    border-left-color: lightgray;
+    padding-left: 10px;
+}
+
+/* Selector de clase para los div con class="caja" */
+div.caja {
+    border-style: solid;
+    border-width: thin;
+    border-color: darkblue;
+    background-color: lightyellow;
+    padding: 10px;
+}

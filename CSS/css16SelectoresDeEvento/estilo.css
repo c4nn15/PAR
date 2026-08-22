@@ -1,0 +1,102 @@
+/*
+    estilo.css - css16 - Selectores de evento (pseudoclases)
+
+    Galeria de estilos de este documento (pag. 7 del apunte).
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+/*
+    PSEUDOCLASE (pag. 16 del apunte)
+
+    Una pseudoclase es una palabra clave que se agrega a un selector de
+    clase e indica un ESTADO en el que se encuentra un determinado
+    elemento: tiene el mouse posicionado arriba, tiene el boton
+    izquierdo del mouse activado, ha sido seleccionado, etc.
+
+    Se escribe pegada al selector, con dos puntos: div.btopcion:hover
+
+    Algunas pseudoclases (pag. 17):
+    :active  :checked  :disabled  :empty  :enabled
+    :focus   :hover    :read-only  :root   :visited
+
+    La pseudoclase :root indica el documento completo. Seria equivalente
+    a definir un estilo para todo el documento <html>.
+*/
+
+/* Clase basica definida para un boton de enlace (pag. 16) */
+div.btopcion {
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    text-align: center;
+    background-color: lightgray;
+    color: black;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: gray;
+
+    /* El cursor con forma de manito, para que se note que es un boton */
+    cursor: pointer;
+}
+
+/* Estilo para el boton de enlace frente al evento de posicionar el
+   mouse encima del elemento (on mouse over). Pseudoclase :hover */
+div.btopcion:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+/* Estilo para cuando el elemento esta siendo pulsado con el mouse.
+   Pseudoclase :active. Se ve solo mientras mantenes apretado el boton */
+div.btopcion:active {
+    background-color: darkred;
+}
+
+/* Las pseudoclases tambien se usan sobre las etiquetas de enlace <a>.
+   :visited es un enlace que ya fue visitado por este navegador */
+a:hover {
+    color: red;
+}
+
+a:visited {
+    color: purple;
+}
+
+/*
+    ALGO PRACTICO PARA FORMULARIOS (pag. 18)
+
+    Estilo para un input cuando se desea que no comparta la misma linea
+    con ningun otro elemento.
+*/
+input {
+    display: block;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para un input frente al evento de puesta en foco
+   (seleccionado con un click del mouse). Pseudoclase :focus */
+input:focus {
+    background-color: lightyellow;
+    border-color: darkblue;
+}
+
+/* Estilo para un input que fue deshabilitado con el atributo disabled.
+   Pseudoclase :disabled */
+input:disabled {
+    background-color: gainsboro;
+    color: gray;
+}
+
+/* Estilo para un input de solo lectura, atributo readonly.
+   Pseudoclase :read-only */
+input:read-only {
+    border-style: dashed;
+}

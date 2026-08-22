@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css07 - Imagen de fondo fija en un div</title>
+    <meta name="addsearch-category" content="CSS, background-image, div, overflow" />
+
+    <!--
+        La imagen de fondo de este ejercicio es el archivo
+        css07ImagenFondo.jpg, que esta en ESTA MISMA CARPETA.
+        Es el nombre que figura en el url() del archivo estilo.css.
+    -->
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7).
+
+         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
+         type="text/css"     -> de que tipo de archivo se trata
+         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Imagen de fondo de un div</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Caja con la imagen centrada y sin repetir</h2>
+
+            <p>
+                Scrollea el texto de adentro de la caja: la imagen de fondo se
+                queda quieta mientras el contenido se mueve.
+            </p>
+
+            <!-- El atributo id identifica un unico elemento del documento:
+                 es el que toma el estilo del selector div#cajaConImagenDeFondo -->
+            <div id="cajaConImagenDeFondo">
+                <p>
+                    Primer parrafo dentro de la caja. La caja tiene un alto fijo
+                    de 250px, asi que deja de crecer con el contenido.
+                </p>
+                <p>
+                    Segundo parrafo. Como el contenido no entra en los 250px, el
+                    overflow en auto agrega la barra de scrolling a la derecha.
+                </p>
+                <p>
+                    Tercer parrafo. Fijate que al scrollear la imagen del fondo
+                    no se mueve: esa es la ventaja de atacharla como background
+                    en lugar de ponerla con una etiqueta img.
+                </p>
+                <p>
+                    Cuarto parrafo, para asegurarnos de que haya suficiente
+                    contenido como para tener que scrollear.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>2) La misma imagen, sin no-repeat</h2>
+
+            <p>
+                Esta caja no tiene el parametro background-repeat, asi que si la
+                imagen es mas chica que el div se repite formando un mosaico.
+            </p>
+
+            <div id="cajaConMosaico">
+            </div>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de CSS</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

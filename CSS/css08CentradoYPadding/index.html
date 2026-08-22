@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css08 - Centrado, padding y box-sizing</title>
+    <meta name="addsearch-category" content="CSS, margin auto, padding, box-sizing" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7).
+
+         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
+         type="text/css"     -> de que tipo de archivo se trata
+         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Centrado y padding</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>Tres divs que piden todos width: 50%</h2>
+
+            <p>
+                Los tres divs de abajo piden exactamente el mismo ancho, pero
+                el del medio se ve mas ancho que los otros dos. Compara sus
+                bordes izquierdo y derecho.
+            </p>
+        </section>
+
+        <!-- Div 1: solo margin:auto y width:50%. Es la referencia -->
+        <div class="elementoCentrado">
+            margin:auto y width:50%. Este div esta centrado y ocupa la mitad del
+            ancho de su contenedor. Como no tiene padding, el texto arranca
+            pegado al borde.
+        </div>
+
+        <!-- Div 2: mismo ancho pedido, pero con padding y SIN box-sizing.
+             Termina midiendo 50% + 10% + 10% = 70% del contenedor -->
+        <div class="conPadding">
+            width:50% mas padding de 10% de cada lado y SIN box-sizing. El texto
+            se separo de los bordes, pero el div termino midiendo 70% del ancho
+            del contenedor en lugar del 50% que pidio.
+        </div>
+
+        <!-- Div 3: igual que el 2 pero con box-sizing:border-box.
+             El padding se mete hacia adentro y el ancho sigue siendo 50% -->
+        <div class="conPaddingCorregido">
+            width:50%, el mismo padding de 10% de cada lado, pero ahora con
+            box-sizing:border-box. El texto se separo de los bordes igual que
+            antes, pero el div volvio a medir el 50% que le pedimos.
+        </div>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de CSS</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css01 - Style en el header</title>
+    <meta name="addsearch-category" content="CSS, hojas de estilo, style" />
+
+    <!--
+        CSS = Cascade Style Sheets = Hojas de estilo aplicables en cascada.
+        Es un lenguaje de descripcion de presentacion visual aplicable al
+        etiquetado html (pag. 2 del apunte).
+
+        El codigo CSS puede escribirse dentro del etiquetado de estilo
+        <style></style> en el encabezado del documento (pag. 3), o bien en un
+        archivo .css aparte que se enlaza con <link> (pag. 7). Aca usamos la
+        segunda forma: los bloques de estilo estan en estilo.css.
+    -->
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7).
+
+         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
+         type="text/css"     -> de que tipo de archivo se trata
+         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <!-- No hace falta escribir ningun atributo style aca:
+             el h1 ya toma el estilo definido en el bloque h1 { }
+             del archivo estilo.css -->
+        <h1>Style en el header del documento</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <!-- Este h2 NO tiene bloque de estilo definido, asi que el
+                 navegador lo dibuja con su estilo por defecto.
+                 Sirve para comparar contra el h1 de arriba -->
+            <h2>Que se practica en este ejercicio</h2>
+
+            <p>
+                Todos los parrafos de esta pagina se ven iguales (azules, en
+                italica y con una linea arriba y otra abajo) porque el bloque
+                p { } de estilo.css se aplica a toda etiqueta p del documento.
+            </p>
+
+            <p>
+                Este es un segundo parrafo. No lleva ningun atributo style
+                escrito a mano y sin embargo se ve identico al anterior: esa
+                es la ventaja de definir el estilo una sola vez en estilo.css.
+            </p>
+        </section>
+
+        <section>
+            <h2>Comparacion con el atributo style de la etiqueta</h2>
+
+            <!-- Al atributo style escrito dentro de la etiqueta se le llama
+                 estilo "en linea". Le gana al bloque p { } de estilo.css porque
+                 es mas especifico: por eso este parrafo se ve en rojo.
+                 Es justamente lo que conviene evitar, porque habria que
+                 repetirlo en cada etiqueta del documento (pag. 3) -->
+            <p style="color:red">
+                Este parrafo si lleva el atributo style escrito dentro de la
+                etiqueta. Se ve en rojo porque el estilo en linea pisa al
+                estilo general definido en estilo.css.
+            </p>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de CSS</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

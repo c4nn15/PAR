@@ -1,0 +1,114 @@
+/*
+    estilo.css - css14 - Divs internos en columnas
+
+    Galeria de estilos de este documento (pag. 7 del apunte).
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+/*
+    ESTILO DEFINIDO DE BASE PARA TODOS LOS ELEMENTOS HTML DEL
+    DOCUMENTO (pag. 15 del apunte).
+
+    El box-sizing:border-box es clave en este ejercicio: hace que el
+    padding y el borde de cada columna se cuenten HACIA ADENTRO, asi
+    los tres 33.33% siguen sumando 100% y las columnas entran en la
+    misma fila (pag. 9).
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/*
+    Los elementos div pueden ser ANIDADOS uno dentro del otro (pag. 8).
+    Este es el div contenedor: adentro de el van a vivir las tres
+    columnas.
+*/
+div.contenedor {
+    width: 90%;
+    margin: auto;              /* El contenedor queda centrado (pag. 13) */
+    margin-bottom: 20px;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: gray;
+    background-color: whitesmoke;
+}
+
+/*
+    Estilo comun a las tres columnas.
+
+    Usamos tamaños RELATIVOS respecto al contenedor padre (%) y no
+    fijos en pixeles, para no obligar al usuario a escalar el navegador
+    ni a scrollear horizontalmente. Esas son dos de las caracteristicas
+    de un diseño con capacidad de adaptacion (pag. 20).
+*/
+div.columna {
+    float: left;               /* Las pone una al lado de la otra (pag. 14) */
+    width: 33.33%;             /* Tres columnas iguales: 3 x 33.33% = 100% */
+    padding: 10px;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: lightgray;
+}
+
+/* Cada columna con su propio color de fondo, para distinguirlas */
+div.columnaIzquierda {
+    background-color: lightyellow;
+}
+
+div.columnaCentro {
+    background-color: lightblue;
+}
+
+div.columnaDerecha {
+    background-color: lightpink;
+}
+
+/*
+    Div para ROMPER LA FLOTACION de las columnas anteriores (pag. 15).
+
+    Aca cumple una funcion extra: como las tres columnas flotan, el div
+    contenedor se quedaria sin alto (los elementos flotados no lo hacen
+    crecer) y no se veria su borde. Con este div adentro del contenedor,
+    el contenedor recupera el alto de sus columnas.
+*/
+div.nuevaFila {
+    clear: both;
+}
+
+/* Dos columnas en lugar de tres, para la segunda fila del ejercicio */
+div.columnaMitad {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    background-color: lavender;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: lightgray;
+}
+
+/* Un poco de aire, ya que el * de arriba saco todos los margenes */
+h1 {
+    font-size: 1.5em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+}

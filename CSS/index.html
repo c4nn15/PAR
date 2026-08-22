@@ -1,0 +1,110 @@
+<!-- Marca de comienzo del documento. No es una etiqueta -->
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <title>Ejercicios de CSS - Parte 1</title>
+
+    <meta name="addsearch-category" content="Educación, CSS, programación web" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7).
+
+         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
+         type="text/css"     -> de que tipo de archivo se trata
+         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <!-- ETIQUETA SEMANTICA <header>: anida los encabezados del documento -->
+    <header>
+        <h1>Ejercicios de CSS</h1>
+    </header>
+
+    <!-- La etiqueta <hr /> no lleva nodo de texto y traza una linea
+         de extremo a extremo del view port -->
+    <hr />
+
+    <!-- ETIQUETA SEMANTICA <main>: debe ser unica y anida lo mas importante
+         del documento en cuanto a conceptos semanticos -->
+    <main>
+
+        <!-- ETIQUETA SEMANTICA <nav>: contiene la lista de navegacion
+             o enlaces del documento -->
+        <nav>
+            <h2>Parte 1 (h2 de 1em)</h2>
+
+            <!-- <ul> = unordered list: lista con viñetas, sin numeracion -->
+            <ul>
+
+                <li>
+                    <!-- Etiqueta <a> (anchor / ancla). El atributo href indica
+                         cual es el documento enlazado. Escribimos la ruta completa
+                         hasta index.html para que el enlace funcione tambien
+                         abriendo el archivo con doble clic (file://) -->
+                    <a href="./css01StyleEnHeader/index.html">css01StyleEnHeader</a>
+                </li>
+
+                <li>
+                    <a href="./css02SelectoresDeClase/index.html">css02SelectoresDeClase</a>
+                </li>
+
+                <li>
+                    <a href="./css03StyleEnFile/index.html">css03StyleEnFile</a>
+                </li>
+
+                <li>
+                    <a href="./css04FontSize/index.html">css04FontSize</a>
+                </li>
+
+                <li>
+                    <a href="./css07BackgroundFijo/index.html">css07BackgroundFijo</a>
+                </li>
+
+                <li>
+                    <a href="./css08CentradoYPadding/index.html">css08CentradoYPadding</a>
+                </li>
+
+                <li>
+                    <a href="./css10DivsEnPila/index.html">css10DivsEnPila</a>
+                </li>
+
+                <li>
+                    <a href="./css11DivsEnFila/index.html">css11DivsEnFila</a>
+                </li>
+
+                <li>
+                    <a href="./css14DivsInternosEnColumnas/index.html">css14DivsInternosEnColumnas</a>
+                </li>
+
+                <li>
+                    <a href="./css16SelectoresDeEvento/index.html">css16SelectoresDeEvento</a>
+                </li>
+
+            </ul>
+        </nav>
+
+    </main>
+
+    <hr />
+
+    <!-- ETIQUETA SEMANTICA <footer>: anida la informacion del pie del documento -->
+    <footer>
+        <!-- El ../ indica la carpeta padre -->
+        <p><a href="../index.html">Volver a la portada</a></p>
+
+        <!-- ETIQUETA SEMANTICA <address>: informacion puntual de direcciones,
+             telefonos y correos. Puede ir anidada dentro del footer -->
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

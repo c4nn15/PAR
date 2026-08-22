@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css14 - Divs internos en columnas</title>
+    <meta name="addsearch-category" content="CSS, div anidados, columnas, float, responsive" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7).
+
+         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
+         type="text/css"     -> de que tipo de archivo se trata
+         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Divs internos acomodados en columnas</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>Que se practica aca</h2>
+            <p>
+                Un div contenedor que anida adentro otros divs. Los divs de
+                adentro flotan a la izquierda y ocupan un porcentaje del ancho
+                del contenedor: asi quedan como columnas. Achica la ventana del
+                navegador y vas a ver que las columnas se achican con ella, sin
+                aparecer una barra de scroll horizontal.
+            </p>
+        </section>
+
+        <!-- DIV CONTENEDOR: las tres columnas van ANIDADAS adentro de el -->
+        <div class="contenedor">
+
+            <!-- Cada columna lleva dos clases separadas por un espacio:
+                 la clase comun (columna) y la clase de su color propio.
+                 El navegador le aplica las declaraciones de las dos -->
+            <div class="columna columnaIzquierda">
+                <h2>Columna 1</h2>
+                <p>
+                    Esta columna mide el 33.33% del ancho de su contenedor, no
+                    del ancho de la pantalla.
+                </p>
+            </div>
+
+            <div class="columna columnaCentro">
+                <h2>Columna 2</h2>
+                <p>
+                    Como las tres tienen float:left, se acomodan una al lado de
+                    la otra en la misma fila.
+                </p>
+            </div>
+
+            <div class="columna columnaDerecha">
+                <h2>Columna 3</h2>
+                <p>
+                    Gracias al box-sizing:border-box, el padding de 10px se
+                    cuenta hacia adentro y las tres siguen sumando 100%.
+                </p>
+            </div>
+
+            <!-- Este div rompe la flotacion DENTRO del contenedor, para que el
+                 contenedor recupere el alto de sus columnas y se vea su borde -->
+            <div class="nuevaFila"></div>
+
+        </div>
+
+        <section>
+            <h2>El mismo contenedor, ahora con dos columnas</h2>
+        </section>
+
+        <div class="contenedor">
+
+            <div class="columnaMitad">
+                <h2>Columna A</h2>
+                <p>Esta columna ocupa la mitad del contenedor (50%).</p>
+            </div>
+
+            <div class="columnaMitad">
+                <h2>Columna B</h2>
+                <p>Y esta la otra mitad.</p>
+            </div>
+
+            <div class="nuevaFila"></div>
+
+        </div>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de CSS</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

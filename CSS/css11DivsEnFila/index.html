@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css11 - Divs en fila (float)</title>
+    <meta name="addsearch-category" content="CSS, float, clear, div en fila" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7).
+
+         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
+         type="text/css"     -> de que tipo de archivo se trata
+         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Divs en fila con float</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>Primera fila</h2>
+            <p>
+                Los divs de abajo llevan float:left, por eso se acomodan uno al
+                lado del otro en lugar de apilarse. Si achicas la ventana del
+                navegador vas a ver como el ultimo que no entra baja solo.
+            </p>
+        </section>
+
+        <!-- Estos tres divs flotan a la izquierda: se ubican en fila -->
+        <div class="claseDiv1">Div 1 (claseDiv1, letra de 2em)</div>
+        <div class="claseDiv2">Div 2 (claseDiv2, letra de 12px)</div>
+        <div class="claseDiv2">Div 3 (claseDiv2, letra de 12px)</div>
+
+        <!-- Div separador: rompe la flotacion de los tres divs de arriba.
+             Sin este div, el titulo de la segunda seccion se acomodaria al
+             costado de los divs flotados en lugar de quedar por debajo -->
+        <div class="nuevaFila"></div>
+
+        <section>
+            <h2>Segunda fila</h2>
+            <p>
+                Este titulo y estos parrafos quedaron debajo de la primera fila
+                gracias al div con clear:both que va en el medio.
+            </p>
+        </section>
+
+        <div class="claseDiv2">Div 4</div>
+        <div class="claseDiv2">Div 5</div>
+
+        <!-- Otra vez rompemos la flotacion, esta vez para que el pie de
+             pagina no se acomode al costado de los divs -->
+        <div class="nuevaFila"></div>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de CSS</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

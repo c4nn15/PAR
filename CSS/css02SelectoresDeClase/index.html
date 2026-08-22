@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css02 - Selectores de clase y de id</title>
+    <meta name="addsearch-category" content="CSS, selectores, clases, id" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7).
+
+         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
+         type="text/css"     -> de que tipo de archivo se trata
+         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Selectores de clase y de id</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Parrafo sin clase</h2>
+
+            <!-- Esta etiqueta p no tiene atributo class, asi que no le
+                 corresponde ninguno de los bloques definidos en estilo.css.
+                 Se dibuja con el estilo por defecto del navegador -->
+            <p>
+                Este parrafo no lleva atributo class. Sirve como referencia
+                para comparar contra los que si lo llevan.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Parrafos con el atributo class</h2>
+
+            <!-- El atributo class de una etiqueta permite asignar al elemento
+                 un estilo determinado (pag. 4) -->
+            <p class="claseAcotacion">
+                Este parrafo pertenece a la clase claseAcotacion: va centrado,
+                en italica, en azul y con un borde fino alrededor.
+            </p>
+
+            <!-- La misma clase se puede reutilizar todas las veces que haga
+                 falta: esa es la ventaja de definirla una sola vez -->
+            <p class="claseAcotacion">
+                Este otro parrafo tambien pertenece a claseAcotacion y por eso
+                se ve exactamente igual que el anterior.
+            </p>
+
+            <p class="claseDestacada">
+                Este parrafo pertenece a claseDestacada: otra clase, otro estilo.
+            </p>
+        </section>
+
+        <section>
+            <h2>3) Estilos en cascada</h2>
+
+            <!-- Los parametros de estilo son aplicables al elemento en cuestion
+                 y a TODOS los elementos anidados dentro de el. De ahi el nombre
+                 "hojas de estilo en cascada" (pag. 4) -->
+            <div class="claseCaja">
+                <p>
+                    Este parrafo esta anidado dentro de un div de clase claseCaja.
+                    No tiene ningun class propio, pero igual se ve en violeta:
+                    hereda el color de su elemento contenedor.
+                </p>
+
+                <p class="claseDestacada">
+                    Este otro parrafo tambien esta anidado en el div, pero como
+                    tiene su propia clase, el color verde de claseDestacada le
+                    gana al violeta que venia heredando en cascada.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>4) Selector de id (un unico elemento)</h2>
+
+            <!-- El atributo id identifica un UNICO elemento dentro del
+                 documento html. No se puede repetir el mismo id en otra
+                 etiqueta de la misma pagina (pag. 5) -->
+            <p id="parrafoUnico">
+                Este es el unico parrafo del documento con id="parrafoUnico",
+                por eso es el unico que toma este estilo.
+            </p>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de CSS</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

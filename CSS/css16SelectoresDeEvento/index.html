@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css16 - Selectores de evento (pseudoclases)</title>
+    <meta name="addsearch-category" content="CSS, pseudoclases, hover, active, focus" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7).
+
+         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
+         type="text/css"     -> de que tipo de archivo se trata
+         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Pseudoclases: hover, active y focus</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Botones de enlace</h2>
+
+            <p>
+                Pasa el mouse por encima de los botones (hover) y despues
+                manteneles apretado el boton izquierdo (active).
+            </p>
+
+            <!-- Los tres divs comparten la clase btopcion, asi que los tres
+                 reaccionan igual al mouse -->
+            <div class="btopcion">Opcion 1</div>
+            <div class="btopcion">Opcion 2</div>
+            <div class="btopcion">Opcion 3</div>
+        </section>
+
+        <section>
+            <h2>2) Enlaces</h2>
+
+            <p>
+                Este <a href="../index.html">enlace al indice</a> cambia de color
+                al pasarle el mouse por encima, y queda en violeta despues de
+                haberlo visitado.
+            </p>
+        </section>
+
+        <section>
+            <h2>3) Campos de un formulario</h2>
+
+            <p>
+                Hace click adentro de un campo: el que tiene el foco cambia de
+                color de fondo.
+            </p>
+
+            <!-- Formulario de ejemplo. No envia nada a ningun lado:
+                 lo que interesa aca es el estilo de los campos -->
+            <form>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" />
+
+                <label for="correo">Correo</label>
+                <input type="text" id="correo" name="correo" />
+
+                <label for="legajo">Legajo (solo lectura)</label>
+                <!-- readonly: se puede seleccionar pero no editar -->
+                <input type="text" id="legajo" name="legajo" value="123456" readonly />
+
+                <label for="curso">Curso (deshabilitado)</label>
+                <!-- disabled: ni siquiera toma el foco -->
+                <input type="text" id="curso" name="curso" value="PAR" disabled />
+            </form>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de CSS</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+/*
+    estilo.css - css08 - Centrado, padding y box-sizing
+
+    Galeria de estilos de este documento (pag. 7 del apunte).
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+/*
+    CENTRADO DE ELEMENTOS HTML (pag. 9 del apunte)
+
+    Cualquier elemento html queda centrado en x cuando se le especifica
+    el parametro margin:auto (pag. 13).
+*/
+div.elementoCentrado {
+    margin: auto;                    /* El elemento queda centrado */
+    width: 50%;                      /* Ocupa el 50% del contenedor */
+    background-color: lightblue;
+
+    /* Al no haber un parametro de altura, el div crece en alto
+       junto con su contenido (pag. 9) */
+
+    border-style: solid;
+    border-width: thin;
+    border-color: darkblue;
+
+    margin-bottom: 20px;             /* Separacion con el div siguiente */
+}
+
+/*
+    El parametro de estilo padding produce una separacion del contenido
+    del div (su nodo de texto o sus divs interiores) respecto a los
+    bordes. PERO para lograrlo modifica su propio ancho (pag. 9).
+
+    Este div pidio width:50% igual que el anterior, y sin embargo se ve
+    mas ancho: el navegador le sumo el 10% + 10% de padding al 50%.
+*/
+div.conPadding {
+    margin: auto;
+    width: 50%;
+    background-color: lightgreen;
+
+    padding-left: 10%;
+    padding-right: 10%;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: darkgreen;
+
+    margin-bottom: 20px;
+}
+
+/*
+    El parametro de estilo box-sizing con valor border-box produce que
+    la separacion entre el contenido del div y sus bordes sea hacia su
+    INTERIOR, provocando que el ancho del div original no se modifique
+    (pag. 9).
+
+    Este div tiene el mismo padding que el anterior, pero se ve del
+    mismo ancho que el primero. Es la forma correcta de trabajar.
+*/
+div.conPaddingCorregido {
+    margin: auto;
+    width: 50%;
+    background-color: lightpink;
+
+    padding-left: 10%;
+    padding-right: 10%;
+
+    box-sizing: border-box;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: darkred;
+
+    margin-bottom: 20px;
+}
