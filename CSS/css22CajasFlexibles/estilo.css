@@ -1,0 +1,128 @@
+/*
+    estilo.css - css22 - Cajas flexibles (flexbox)
+
+    Galeria de estilos de este documento (pag. 7 del apunte).
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+/* La lista de la seccion 2: le devolvemos la sangria que le saco el * de arriba */
+ul {
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/*
+    EL CONTENEDOR FLEXIBLE (pag. 5, 6 y 7 del apunte).
+
+    Con display:flex el navegador redistribuye y redimensiona solo todo lo que
+    tiene adentro, segun los parametros que le pasemos.
+*/
+div.cajaFlexible {
+    display: flex;
+
+    /*
+        Eje principal del flexbox. El modelo flexbox siempre trabaja sobre UN eje:
+            row    -> el eje principal es el X (los items van en fila)
+            column -> el eje principal es el Y (los items van en columna)
+    */
+    flex-direction: row;
+
+    /* Centra los items sobre el eje PRINCIPAL (el X, porque pusimos row) */
+    justify-content: center;
+
+    /* Centra los items sobre el eje SECUNDARIO, siempre ortogonal al principal */
+    align-items: center;
+
+    /*
+        Sin flex-wrap los items se apretarian hasta deformarse. Con wrap, el que
+        no entra se manda automaticamente al renglon siguiente cuando disminuye
+        el ancho del viewport del dispositivo. Esto es lo que da la adaptacion
+        al medio de este ejercicio.
+    */
+    flex-wrap: wrap;
+
+    width: 80%;
+    height: 400px;
+    margin: 20px auto;         /* Centrado horizontal de la caja (pag. 13 de la parte I) */
+
+    padding: 10px;
+
+    background-color: cornsilk;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: gray;
+
+    /* Si los items no entran ni siquiera apilados, scrollea la caja (no el documento) */
+    overflow: auto;
+}
+
+/*
+    CADA ITEM DE LA CAJA.
+
+    El alto y el ancho fijos son los que RESERVAN EL HUECO de cada imagen: asi
+    el ejercicio se ve bien aunque los archivos flex1.jpg, flex2.jpg y flex3.jpg
+    todavia no esten copiados en la carpeta. El borde punteado marca ese hueco.
+*/
+div.itemFlex {
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+
+    /* El item tambien es una caja flexible, para centrar la imagen adentro suyo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+
+    border-style: dashed;
+    border-width: 2px;
+    border-color: gray;
+
+    overflow: hidden;
+}
+
+/*
+    La imagen nunca puede pasarse del hueco que la contiene: con max-width y
+    max-height al 100% se achica sola si es mas grande que el item.
+*/
+div.itemFlex img {
+    max-width: 100%;
+    max-height: 100%;
+}

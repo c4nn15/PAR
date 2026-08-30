@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css20 - Divs internos relativos y ventana modal fija</title>
+    <meta name="addsearch-category" content="CSS, position, relative, fixed, ventana modal" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7).
+
+         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
+         type="text/css"     -> de que tipo de archivo se trata
+         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Posicionamiento relativo y posicionamiento fijo</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Con <strong>position:relative</strong> (pag. 2 del apunte) cada contenedor se ubica
+                <em>respecto al contenedor anterior</em>: el margen izquierdo es la coordenada en X
+                respecto al borde del padre, y el margen superior es la coordenada en Y respecto al
+                borde inferior del div que viene antes.
+            </p>
+
+            <p>
+                Con <strong>position:fixed</strong> (pag. 3 del apunte) el contenedor se ata al
+                viewport: no se mueve aunque el resto del documento scrollee. Es la base de una
+                ventana modal. Scrolleá esta página y mirá el recuadro del medio.
+            </p>
+        </section>
+
+        <hr />
+
+        <!-- VENTANA MODAL.
+             Va suelta en el body: no le importa donde este escrita, porque su posicion
+             se mide siempre respecto al viewport y no respecto a ningun padre. -->
+        <div class="paraVentanaModal">
+            <h2>Ventana modal</h2>
+
+            <p>
+                Este contenedor tiene <strong>position:fixed</strong>, asi que queda pegado al
+                viewport mientras todo lo demás scrollea por debajo.
+            </p>
+
+            <p>
+                Tiene además <strong>opacity:0.5</strong>, por eso se transparenta lo que pasa
+                atrás, y un <strong>z-index</strong> alto para quedar por encima de todo.
+            </p>
+        </div>
+
+        <section>
+            <h2>2) Los divs relativos</h2>
+
+            <!-- Los divs de clase 1 arrancan pegados al borde izquierdo del padre
+                 (margin-left:0%) -->
+            <div class="contenedorRelativoClase1">
+                <p>Contenedor relativo clase 1 (primero)</p>
+                <p>
+                    margin-left:0% &rarr; coordenada X: pegado al borde izquierdo del padre.<br />
+                    margin-top:10px &rarr; coordenada Y: 10px por debajo de lo que vino antes.
+                </p>
+            </div>
+
+            <!-- El de clase 2 se corre a la derecha y deja mas aire arriba: se ve que su
+                 coordenada Y se mide desde el borde INFERIOR del div anterior -->
+            <div class="contenedorRelativoClase2">
+                <p>Contenedor relativo clase 2 (segundo)</p>
+                <p>
+                    margin-left:10% &rarr; corrido un 10% del ancho del padre.<br />
+                    margin-top:30px &rarr; 30px por debajo del borde inferior del div clase 1.
+                </p>
+            </div>
+
+            <!-- Los amarillos comparten la clase, pero cada uno lleva su propio margen
+                 izquierdo. Sirven para ver el corrimiento escalonado -->
+            <div class="contenedorRelativoAmarillo corrimiento1">
+                <p>Amarillo con margin-left:5%</p>
+            </div>
+
+            <div class="contenedorRelativoAmarillo corrimiento2">
+                <p>Amarillo con margin-left:15%</p>
+            </div>
+
+            <div class="contenedorRelativoAmarillo corrimiento3">
+                <p>Amarillo con margin-left:25%</p>
+            </div>
+
+            <div class="contenedorRelativoAmarillo corrimiento4">
+                <p>Amarillo con margin-left:35%</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>3) Relleno para poder scrollear</h2>
+
+            <p>
+                Todo lo que sigue está solamente para que el documento sea más alto que el
+                viewport. Mientras scrolleás, la ventana modal se queda quieta en su lugar y estos
+                contenedores pasan por atrás.
+            </p>
+
+            <div class="contenedorRelativoClase1">
+                <p>Contenedor de relleno 1</p>
+            </div>
+
+            <div class="contenedorRelativoClase2">
+                <p>Contenedor de relleno 2</p>
+            </div>
+
+            <div class="contenedorRelativoClase1">
+                <p>Contenedor de relleno 3</p>
+            </div>
+
+            <div class="contenedorRelativoClase2">
+                <p>Contenedor de relleno 4</p>
+            </div>
+
+            <div class="contenedorRelativoClase1">
+                <p>Contenedor de relleno 5</p>
+            </div>
+
+            <div class="contenedorRelativoClase2">
+                <p>Contenedor de relleno 6 (último)</p>
+            </div>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de CSS</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

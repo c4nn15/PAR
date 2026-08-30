@@ -1,0 +1,189 @@
+/*
+    estilo.css - css21 - Divs internos absolutos
+
+    Galeria de estilos de este documento (pag. 7 del apunte).
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+    CADENA DE ALTURAS (pag. 4 del apunte).
+
+    Un porcentaje SIEMPRE se calcula respecto al contenedor padre. Entonces,
+    para que el 80% de alto del contenedor global signifique algo, hay que
+    declarar la cadena completa hacia arriba:
+        html 100% del viewport -> body 100% del html -> contenedorGlobal 80% del body
+
+    El overflow:hidden es lo que garantiza que el documento NO tenga barras de
+    scroll de ningun tipo, que es lo que pide el ejercicio.
+*/
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: whitesmoke;
+    font-family: sans-serif;
+}
+
+/*
+    EL CONTENEDOR PADRE.
+
+    position:relative es la clave del ejercicio: un elemento con
+    position:absolute toma sus coordenadas del ancestro posicionado mas
+    cercano. Al declarar este div como relative, su esquina superior izquierda
+    pasa a ser el ORIGEN DE COORDENADAS (0,0) de los tres internos.
+    Si no lo hicieramos, los internos se medirian contra el viewport.
+*/
+div#contenedorGlobal {
+    position: relative;
+
+    width: 80%;
+    height: 80%;
+
+    /* margin:auto a izquierda y derecha lo centra en horizontal (pag. 13 de la
+       parte I). Para el centrado vertical usamos top:10%: al ser este div
+       relative, ese top lo corre un 10% del ALTO de su padre (el body) sin
+       sacarlo del flujo. Ojo que un margin-top en % no serviria, porque los
+       margenes en porcentaje se calculan siempre contra el ANCHO. */
+    margin: 0 auto;
+    top: 10%;
+
+    padding: 15px;
+
+    background-color: lightsteelblue;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: darkslategray;
+}
+
+div#contenedorGlobal h1 {
+    font-size: 1.6vw;          /* Titulo tambien escalable respecto al viewport */
+    margin-bottom: 8px;
+}
+
+p.explicacion {
+    font-size: 1vw;
+    width: 60%;
+}
+
+/*
+    ESTILO COMUN A LOS TRES CONTENEDORES INTERNOS.
+
+    Escribimos los tres selectores separados por coma para no repetir las
+    declaraciones que comparten.
+
+    position:absolute -> el elemento toma coordenadas absolutas respecto a su
+                         contenedor (el contenedorGlobal, que es relative).
+    overflow:auto     -> el contenido sobrante produce barra de scroll DENTRO
+                         del propio contenedor, no en el documento.
+    font-size:1vw     -> letra responsiva o escalable (1% del ancho del viewport).
+*/
+div#contenedorInterno1,
+div#contenedorInterno2,
+div#contenedorInterno3 {
+    position: absolute;
+
+    overflow: auto;
+    font-size: 1vw;
+
+    padding: 10px;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+}
+
+div#contenedorInterno1 h2,
+div#contenedorInterno2 h2,
+div#contenedorInterno3 h2 {
+    font-size: 1.2vw;
+    margin-bottom: 6px;
+}
+
+div#contenedorInterno1 p,
+div#contenedorInterno2 p,
+div#contenedorInterno3 p {
+    margin-bottom: 6px;
+}
+
+/*
+    INTERNO 1: coordenadas (left,top) = (8%,20%) respecto al origen del padre.
+    z-index:1 -> es el que queda mas abajo en el eje z.
+*/
+div#contenedorInterno1 {
+    top: 20%;
+    left: 8%;
+
+    width: 40%;
+    height: 45%;
+
+    /* rgba: los tres primeros valores son rojo, verde y azul; el cuarto es el
+       canal alfa, o sea la transparencia (1 = opaco, 0 = invisible) */
+    background-color: rgba(255, 220, 120, 0.9);
+
+    z-index: 1;
+}
+
+/*
+    INTERNO 2: el rotado.
+
+    transform: rotateZ(20deg) gira el contenedor 20 grados en sentido horario
+    respecto al eje perpendicular al plano de la pantalla (pag. 18 del apunte).
+*/
+div#contenedorInterno2 {
+    top: 45%;
+    left: 45%;
+
+    width: 40%;
+    height: 40%;
+
+    background-color: rgba(140, 220, 160, 0.85);
+
+    transform: rotateZ(20deg);
+
+    z-index: 2;
+}
+
+/*
+    INTERNO 3: el mas alto en el eje z.
+    Su alfa de 0.6 es bien bajo, asi que por debajo de el se ven los otros dos.
+*/
+div#contenedorInterno3 {
+    top: 30%;
+    left: 35%;
+
+    width: 38%;
+    height: 42%;
+
+    background-color: rgba(200, 140, 220, 0.6);
+
+    z-index: 3;
+}
+
+/*
+    Pie anclado al fondo del contenedor global.
+    bottom en lugar de top: la coordenada se mide desde el borde INFERIOR del padre.
+*/
+div#pieGlobal {
+    position: absolute;
+
+    bottom: 5px;
+    left: 15px;
+
+    font-size: 0.9vw;
+
+    z-index: 4;
+}

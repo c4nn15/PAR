@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css25 - Menú desplegable</title>
+    <meta name="addsearch-category" content="CSS, menues desplegables, hover, listas anidadas" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7) -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <!--
+        TODO EL MENU VIVE ADENTRO DE ESTE <nav id="menu"> (pag. 8 del apunte).
+
+        La estructura HTML es una pavada: dos listas ANIDADAS.
+            - El primer <ul> es la lista de opciones del menu HORIZONTAL.
+            - Adentro de cada <li> de esa lista va otro <ul>, que es el
+              desplegable VERTICAL de esa opcion.
+            - Cada opcion es un <li> con un <a href> adentro.
+
+        Todo el trabajo lo hace el CSS: los desplegables arrancan con
+        display:none y aparecen con el :hover del li que los contiene.
+    -->
+    <nav id="menu">
+
+        <ul>
+
+            <li>
+                <!-- La cabecera tambien es un enlace: lleva al indice de HTML -->
+                <a href="../../HTML/index.html">HTML</a>
+
+                <!-- Esta lista anidada es el desplegable de HTML -->
+                <ul>
+                    <li><a href="../../HTML/ejer01Texto/index.html">Texto</a></li>
+                    <li><a href="../../HTML/ejer02Tablas/index.html">Tablas</a></li>
+                    <li><a href="../../HTML/ejer03Formularios/index.html">Formularios</a></li>
+                    <li><a href="../../HTML/ejer04Iframes/index.html">Iframes</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <!-- El ../ sube a la carpeta CSS, donde esta su indice principal -->
+                <a href="../index.html">CSS</a>
+
+                <ul>
+                    <li><a href="../css01StyleEnHeader/index.html">Style en el header</a></li>
+                    <li><a href="../css02SelectoresDeClase/index.html">Selectores de clase</a></li>
+                    <li><a href="../css03StyleEnFile/index.html">Style en el file</a></li>
+                    <li><a href="../css04FontSize/index.html">Font size</a></li>
+                    <li><a href="../css07BackgroundFijo/index.html">Background fijo</a></li>
+                    <li><a href="../css08CentradoYPadding/index.html">Centrado y padding</a></li>
+                    <li><a href="../css10DivsEnPila/index.html">Divs en pila</a></li>
+                    <li><a href="../css11DivsEnFila/index.html">Divs en fila</a></li>
+                    <li><a href="../css14DivsInternosEnColumnas/index.html">Divs en columnas</a></li>
+                    <li><a href="../css16SelectoresDeEvento/index.html">Selectores de evento</a></li>
+                    <li><a href="../css20DivsInternosRelativos/index.html">Divs relativos</a></li>
+                    <li><a href="../css21DivsInternosAbsolutos/index.html">Divs absolutos</a></li>
+                    <li><a href="../css22CajasFlexibles/index.html">Cajas flexibles</a></li>
+                    <li><a href="../css27FormularioResponsive/index.html">Formulario RWD</a></li>
+                    <li><a href="../css29TablaResponsive/index.html">Tabla RWD</a></li>
+                    <li><a href="../css30LayoutBasico/index.html">Layout básico</a></li>
+                </ul>
+            </li>
+
+            <!--
+                Estas tres opciones todavia NO tienen desplegable: son los temas
+                que aun no vimos en la materia. Cuando existan los ejercicios se
+                les agrega adentro el <ul>/<ul> con sus <li>, igual que arriba.
+            -->
+            <li>
+                <a href="#">JavaScript</a>
+            </li>
+
+            <li>
+                <a href="#">Especiales</a>
+            </li>
+
+            <li>
+                <a href="#">PHP</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!--
+        El div de corte es NECESARIO: los li del menu horizontal estan flotados
+        (float:left), asi que no le dan alto al nav. Sin este clear, todo lo que
+        sigue se treparia por encima del menu (pag. 15 de la parte I).
+    -->
+    <div class="nuevaFila"></div>
+
+    <header>
+        <h1>Menú de opciones desplegable</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Este menú es un índice alternativo de toda la materia, armado únicamente con dos
+                listas anidadas y CSS: no hay una sola línea de JavaScript.
+            </p>
+
+            <p>
+                Pasá el mouse por encima de <strong>HTML</strong> o de <strong>CSS</strong> y se
+                despliega la lista vertical. El fondo de cada opción cambia con el
+                <strong>:hover</strong>, tanto en el menú horizontal como en los desplegables.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Como funciona</h2>
+
+            <ul class="listaTeoria">
+                <li>
+                    <strong>#menu ul li { float:left }</strong> &rarr; los ítems del menú principal
+                    se acomodan en fila (pag. 8).
+                </li>
+
+                <li>
+                    <strong>#menu ul li { position:relative }</strong> &rarr; como el desplegable se
+                    ubica de manera absoluta, el <em>li</em> que lo contiene tiene que ser relative
+                    para actuar como padre y darle el origen de coordenadas.
+                </li>
+
+                <li>
+                    <strong>#menu ul ul { display:none }</strong> &rarr; toda lista dentro de otra
+                    lista es un submenú, y por default no está visible ni ocupa lugar (pag. 9).
+                </li>
+
+                <li>
+                    <strong>#menu ul ul { top:100%; left:0 }</strong> &rarr; el desplegable arranca
+                    justo por debajo del ítem horizontal y alineado con su borde izquierdo.
+                </li>
+
+                <li>
+                    <strong>#menu ul li:hover ul { display:block }</strong> &rarr; se lee: toda
+                    lista que esté dentro de un <em>li</em> con el mouse encima, y que a su vez esté
+                    dentro de una lista del menú principal (pag. 10).
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de CSS</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

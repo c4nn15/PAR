@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css29 - Tabla responsive (RWD)</title>
+    <meta name="addsearch-category" content="CSS, tablas responsive, selector de atributos, media queries" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7) -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+<div class="contenedorTabla">
+
+    <!-- ZONA FIJA DE ARRIBA -->
+    <header class="cabeceraTabla">
+        <h1>Catálogo de videojuegos</h1>
+    </header>
+
+    <!--
+        LA TABLA (pag. 15 del apunte).
+
+        Se divide en dos partes:
+            <thead> -> el encabezado, con el nombre de cada campo en un <th>
+            <tbody> -> el cuerpo, con un <tr> por cada registro de datos
+
+        ATRIBUTO GENERICO campo-dato:
+        cada <th> y cada <td> lleva un atributo inventado por nosotros
+        (campo-dato) con el valor de la columna a la que pertenece. Ese atributo
+        es el que despues nos permite, desde el CSS, agrupar en un solo selector
+        todas las celdas de una misma columna: anchos, colores y hasta esconder
+        la columna entera en pantallas chicas.
+    -->
+    <table>
+
+        <thead>
+            <tr>
+                <th campo-dato="id">Id</th>
+                <th campo-dato="titulo">Título</th>
+                <th campo-dato="genero">Género</th>
+                <th campo-dato="plataforma">Plataforma</th>
+                <th campo-dato="anio">Año</th>
+                <th campo-dato="puntaje">Puntaje</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td campo-dato="id">1</td>
+                <td campo-dato="titulo">Sombras del Puerto</td>
+                <td campo-dato="genero">Aventura</td>
+                <td campo-dato="plataforma">PC</td>
+                <td campo-dato="anio">2019</td>
+                <td campo-dato="puntaje">8.4</td>
+            </tr>
+
+            <tr>
+                <td campo-dato="id">2</td>
+                <td campo-dato="titulo">Ruta 40</td>
+                <td campo-dato="genero">Carreras</td>
+                <td campo-dato="plataforma">PlayStation</td>
+                <td campo-dato="anio">2021</td>
+                <td campo-dato="puntaje">7.9</td>
+            </tr>
+
+            <tr>
+                <td campo-dato="id">3</td>
+                <td campo-dato="titulo">El Último Andén</td>
+                <td campo-dato="genero">Terror</td>
+                <td campo-dato="plataforma">PC</td>
+                <td campo-dato="anio">2018</td>
+                <td campo-dato="puntaje">9.1</td>
+            </tr>
+
+            <tr>
+                <td campo-dato="id">4</td>
+                <td campo-dato="titulo">Colonia Orbital</td>
+                <td campo-dato="genero">Estrategia</td>
+                <td campo-dato="plataforma">PC</td>
+                <td campo-dato="anio">2022</td>
+                <td campo-dato="puntaje">8.7</td>
+            </tr>
+
+            <tr>
+                <td campo-dato="id">5</td>
+                <td campo-dato="titulo">Pampa Salvaje</td>
+                <td campo-dato="genero">Mundo abierto</td>
+                <td campo-dato="plataforma">Xbox</td>
+                <td campo-dato="anio">2020</td>
+                <td campo-dato="puntaje">8.0</td>
+            </tr>
+
+            <tr>
+                <td campo-dato="id">6</td>
+                <td campo-dato="titulo">Torneo de Barrio</td>
+                <td campo-dato="genero">Deportes</td>
+                <td campo-dato="plataforma">Nintendo Switch</td>
+                <td campo-dato="anio">2023</td>
+                <td campo-dato="puntaje">7.2</td>
+            </tr>
+
+            <tr>
+                <td campo-dato="id">7</td>
+                <td campo-dato="titulo">Laberinto de Cristal</td>
+                <td campo-dato="genero">Puzzle</td>
+                <td campo-dato="plataforma">Móvil</td>
+                <td campo-dato="anio">2017</td>
+                <td campo-dato="puntaje">6.8</td>
+            </tr>
+
+            <tr>
+                <td campo-dato="id">8</td>
+                <td campo-dato="titulo">Cordillera Perdida</td>
+                <td campo-dato="genero">Aventura</td>
+                <td campo-dato="plataforma">PlayStation</td>
+                <td campo-dato="anio">2024</td>
+                <td campo-dato="puntaje">9.4</td>
+            </tr>
+
+            <tr>
+                <td campo-dato="id">9</td>
+                <td campo-dato="titulo">Motores del Sur</td>
+                <td campo-dato="genero">Carreras</td>
+                <td campo-dato="plataforma">Xbox</td>
+                <td campo-dato="anio">2016</td>
+                <td campo-dato="puntaje">7.5</td>
+            </tr>
+
+            <tr>
+                <td campo-dato="id">10</td>
+                <td campo-dato="titulo">Guardianes del Delta</td>
+                <td campo-dato="genero">Rol</td>
+                <td campo-dato="plataforma">PC</td>
+                <td campo-dato="anio">2023</td>
+                <td campo-dato="puntaje">8.9</td>
+            </tr>
+
+            <tr>
+                <td campo-dato="id">11</td>
+                <td campo-dato="titulo">Estación Austral</td>
+                <td campo-dato="genero">Supervivencia</td>
+                <td campo-dato="plataforma">PC</td>
+                <td campo-dato="anio">2021</td>
+                <td campo-dato="puntaje">8.2</td>
+            </tr>
+
+            <tr>
+                <td campo-dato="id">12</td>
+                <td campo-dato="titulo">Ecos de Neón</td>
+                <td campo-dato="genero">Acción</td>
+                <td campo-dato="plataforma">Nintendo Switch</td>
+                <td campo-dato="anio">2025</td>
+                <td campo-dato="puntaje">9.0</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <!-- ZONA FIJA DE ABAJO -->
+    <footer class="pieTabla">
+        <p>
+            Pie de tabla &mdash;
+            <a href="../index.html">Volver al indice de CSS</a> &mdash;
+            Santiago Cannistra
+        </p>
+    </footer>
+
+</div>
+
+</body>
+</html>

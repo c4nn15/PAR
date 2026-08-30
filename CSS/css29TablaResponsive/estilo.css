@@ -1,0 +1,315 @@
+/*
+    estilo.css - css29 - Tabla responsive (RWD)
+
+    Galeria de estilos de este documento (pag. 7 del apunte).
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+    Igual que en el formulario RWD: cadena completa de alturas y overflow:hidden
+    para que el DOCUMENTO no tenga ninguna barra de scroll. La unica barra de
+    todo el ejercicio va a ser la del <tbody>.
+*/
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-size: 16px;
+    font-family: sans-serif;
+    background-color: whitesmoke;
+}
+
+div.contenedorTabla {
+    height: 100%;
+    width: 100%;
+
+    background-color: white;
+}
+
+/* ZONA FIJA DE ARRIBA: un 10% del alto del contenedor padre */
+header.cabeceraTabla {
+    height: 10%;
+
+    padding: 10px;
+
+    background-color: #2a2d34;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header.cabeceraTabla h1 {
+    font-size: 1.3em;
+}
+
+/* ZONA FIJA DE ABAJO: otro 10% */
+footer.pieTabla {
+    height: 10%;
+
+    padding: 10px;
+
+    background-color: #2a2d34;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 0.9em;
+}
+
+footer.pieTabla a {
+    color: #f0a202;
+}
+
+/* ------------------------------------------------------------------------
+   LA TABLA (pag. 15 del apunte)
+   ------------------------------------------------------------------------ */
+
+/*
+    EL TRUCO PARA QUE SCROLLEE SOLO EL TBODY.
+
+    Por default una tabla se dibuja entera y no scrollea por partes: si no
+    entra, la barra termina apareciendo en el documento. Para separar el
+    encabezado del cuerpo convertimos la tabla en una CAJA FLEXIBLE en columna
+    (pag. 5 y 7 del apunte): asi el thead y el tbody pasan a ser dos bloques
+    independientes, uno arriba del otro.
+
+        flex-direction:column -> el eje principal es el Y
+        thead flex: 0 0 auto  -> ocupa lo que necesita y NO se estira: queda fijo
+        tbody flex: 1 1 auto  -> se queda con todo el alto sobrante
+
+    El precio de este truco es que las filas de adentro dejan de repartirse el
+    ancho solas, por eso los tr llevan display:table + width:100% mas abajo.
+*/
+table {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 80%;               /* Lo que queda entre la cabecera y el pie */
+}
+
+thead {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+tbody {
+    flex: 1 1 auto;
+    width: 100%;
+
+    /*
+        min-height:0 es imprescindible: por default un item flexible NO se
+        achica por debajo del alto de su contenido, asi que sin esto el tbody
+        se pasaria de largo y la barra de scroll volveria al documento en vez
+        de quedarse adentro del cuerpo de la tabla.
+    */
+    min-height: 0;
+
+    overflow-y: auto;          /* LA UNICA barra de scroll del documento */
+    overflow-x: hidden;
+}
+
+/*
+    Cada fila vuelve a comportarse como fila de tabla, ocupando todo el ancho.
+
+    table-layout:fixed  -> se respetan los anchos en % que declaramos por
+                           columna; una palabra larga no puede ensanchar la suya.
+    border-collapse     -> los bordes de celdas contiguas se funden en uno solo.
+                           Va aca y no en <table>, porque ahora la caja de tabla
+                           es el <tr>.
+*/
+thead tr,
+tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+/*
+    COMPENSACION DEL ANCHO DE LA BARRA DE SCROLL.
+
+    Como el tbody tiene barra y el thead no, el encabezado quedaria unos pixeles
+    mas ancho y las descripciones de los campos se desfasarian respecto a los
+    datos. scrollbar-gutter:stable le reserva al thead ese mismo espacio, asi
+    las columnas quedan alineadas (es la "barrita" que se ve a la derecha del
+    encabezado).
+*/
+thead {
+    scrollbar-gutter: stable;
+    overflow-y: scroll;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+
+    /* Si el texto no entra, se corta con puntos suspensivos en lugar de
+       desarmar la columna */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cccccc;
+}
+
+th {
+    background-color: #4f5d75;
+    color: white;
+    font-size: 0.95em;
+}
+
+/*
+    Estilo para las filas IMPARES del tbody: el fondo alternado hace mucho mas
+    facil seguir un renglon con la vista.
+*/
+tbody tr:nth-child(odd) {
+    background: rgba(0, 0, 0, .2);
+}
+
+/* ------------------------------------------------------------------------
+   SELECTOR POR ATRIBUTO (pag. 16 del apunte)
+
+   Se lee: "todas las etiquetas HTML que tengan un atributo campo-dato con
+   este valor toman este estilo". Como el atributo esta tanto en el <th> como
+   en los <td>, con una sola regla le damos ancho a la COLUMNA COMPLETA.
+   ------------------------------------------------------------------------ */
+
+[campo-dato='id'] {
+    width: 8%;
+}
+
+[campo-dato='titulo'] {
+    width: 30%;
+}
+
+[campo-dato='genero'] {
+    width: 15%;
+}
+
+[campo-dato='plataforma'] {
+    width: 17%;
+}
+
+[campo-dato='anio'] {
+    width: 12%;
+}
+
+[campo-dato='puntaje'] {
+    width: 18%;
+}
+
+/*
+    El mismo selector sirve para cambiarle el color de letra a una columna
+    entera. Aca el puntaje va en otro color para que se destaque del resto.
+*/
+td[campo-dato='puntaje'] {
+    color: #b5651d;
+    font-weight: bold;
+}
+
+th[campo-dato='puntaje'] {
+    color: #ffd166;
+}
+
+/* ------------------------------------------------------------------------
+   CONSULTA DE MEDIOS (pag. 16 del apunte)
+
+   Combinamos el selector por atributo con la media query: asi decidimos que
+   columnas se ven y cuales no, segun el tamaño del dispositivo.
+
+        mas de 1000px  -> se ven las 6 columnas
+        menos de 1000px -> desaparecen "anio" y "plataforma"  -> 4 columnas
+        menos de 700px  -> desaparece ademas "puntaje"        -> 3 columnas
+
+   Ademas la letra se achica junto con la media.
+   ------------------------------------------------------------------------ */
+
+@media (max-width: 1000px) {
+
+    /*
+        display:none hace que la columna no se visualice NI ocupe lugar en
+        pantalla: ni el th del encabezado ni ninguno de sus td.
+    */
+    [campo-dato='anio'] {
+        display: none;
+    }
+
+    [campo-dato='plataforma'] {
+        display: none;
+    }
+
+    /* Los anchos se reparten de nuevo entre las 4 columnas que quedan */
+    [campo-dato='id'] {
+        width: 10%;
+    }
+
+    [campo-dato='titulo'] {
+        width: 45%;
+    }
+
+    [campo-dato='genero'] {
+        width: 25%;
+    }
+
+    [campo-dato='puntaje'] {
+        width: 20%;
+    }
+
+    th, td {
+        font-size: 0.9em;
+        padding: 6px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    [campo-dato='puntaje'] {
+        display: none;
+    }
+
+    /* Ahora quedan solo tres columnas: id, titulo y genero */
+    [campo-dato='id'] {
+        width: 15%;
+    }
+
+    [campo-dato='titulo'] {
+        width: 55%;
+    }
+
+    [campo-dato='genero'] {
+        width: 30%;
+    }
+
+    th, td {
+        font-size: 0.8em;
+        padding: 5px;
+    }
+
+    header.cabeceraTabla h1 {
+        font-size: 1em;
+    }
+
+    footer.pieTabla {
+        font-size: 0.75em;
+    }
+}

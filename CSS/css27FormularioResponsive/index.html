@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css27 - Formulario responsive (RWD)</title>
+    <meta name="addsearch-category" content="CSS, responsive web design, formularios, media queries" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7) -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+<!--
+    TODA LA MAQUETA VIVE ADENTRO DE ESTE CONTENEDOR.
+
+    El documento NO debe tener barras de scroll de ningun tipo: tiene que verse
+    como un tablero de control. Lo unico scrolleable es la zona de entradas.
+    Por eso el contenedor tiene alto fijo en % y adentro se reparte:
+        cabecera 12% - formulario 76% - pie 12%
+-->
+<div class="contenedorFormulario">
+
+    <!-- ZONA FIJA DE ARRIBA: encabezado del formulario -->
+    <header class="cabeceraFormulario">
+        <h1>Formulario de inscripción a materias</h1>
+    </header>
+
+    <!--
+        EL FORMULARIO.
+        No envia nada a ningun lado (no lleva action): lo que interesa aca es
+        como se reacomodan las entradas al cambiar el tamaño del viewport.
+    -->
+    <form>
+
+        <!--
+            CADA "ENTRADA" ES UNA CUADRICULA = label + input (pag. 13 del apunte).
+
+            El label lleva display:block, asi el input NO flota a su derecha y
+            cae solo en el renglon de abajo. Esa es la forma mas razonable de
+            lograr la responsividad cuando se achica el viewport.
+        -->
+        <div class="entrada">
+            <label for="legajo">Legajo</label>
+            <input type="text" id="legajo" name="legajo" />
+        </div>
+
+        <div class="entrada">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" />
+        </div>
+
+        <div class="entrada">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" />
+        </div>
+
+        <div class="entrada">
+            <label for="documento">Documento</label>
+            <input type="text" id="documento" name="documento" />
+        </div>
+
+        <div class="entrada">
+            <label for="nacimiento">Fecha de nacimiento</label>
+            <input type="date" id="nacimiento" name="nacimiento" />
+        </div>
+
+        <div class="entrada">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" />
+        </div>
+
+        <div class="entrada">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" />
+        </div>
+
+        <div class="entrada">
+            <label for="domicilio">Domicilio</label>
+            <input type="text" id="domicilio" name="domicilio" />
+        </div>
+
+        <div class="entrada">
+            <label for="localidad">Localidad</label>
+            <input type="text" id="localidad" name="localidad" />
+        </div>
+
+        <div class="entrada">
+            <label for="codigoPostal">Código postal</label>
+            <input type="text" id="codigoPostal" name="codigoPostal" />
+        </div>
+
+        <div class="entrada">
+            <label for="carrera">Carrera</label>
+            <!-- El select tambien es un elemento de formulario, igual que en HTML -->
+            <select id="carrera" name="carrera">
+                <option value="sistemas">Ingeniería en Informática</option>
+                <option value="gestion">Licenciatura en Gestión</option>
+                <option value="diseno">Diseño Gráfico</option>
+            </select>
+        </div>
+
+        <div class="entrada">
+            <label for="anio">Año de cursada</label>
+            <input type="number" id="anio" name="anio" min="1" max="6" />
+        </div>
+
+        <div class="entrada">
+            <label for="turno">Turno</label>
+            <select id="turno" name="turno">
+                <option value="manana">Mañana</option>
+                <option value="tarde">Tarde</option>
+                <option value="noche">Noche</option>
+            </select>
+        </div>
+
+        <div class="entrada">
+            <label for="materia">Materia</label>
+            <input type="text" id="materia" name="materia" value="Programación en Ambiente de Redes" />
+        </div>
+
+        <div class="entrada">
+            <label for="comision">Comisión</label>
+            <input type="text" id="comision" name="comision" />
+        </div>
+
+        <div class="entrada">
+            <label for="condicion">Condición</label>
+            <select id="condicion" name="condicion">
+                <option value="regular">Regular</option>
+                <option value="libre">Libre</option>
+            </select>
+        </div>
+
+        <div class="entrada">
+            <label for="beca">¿Tiene beca?</label>
+            <select id="beca" name="beca">
+                <option value="no">No</option>
+                <option value="si">Sí</option>
+            </select>
+        </div>
+
+        <div class="entrada">
+            <label for="observaciones">Observaciones</label>
+            <input type="text" id="observaciones" name="observaciones" />
+        </div>
+
+        <!--
+            Corte de flotacion: todas las entradas tienen float:left, asi que sin
+            este div la barra de control se treparia al costado de la ultima
+            entrada en lugar de quedar debajo de todas (pag. 11).
+        -->
+        <div class="nuevaFila"></div>
+
+        <!--
+            BARRA DE CONTROL (pag. 11 del apunte).
+            Agrupa los botones de envio y de reset, y los centra con flexbox.
+            Va DENTRO del form, o sea, dentro del area scrolleable: como en el
+            video, los botones aparecen recien al llegar al final de las entradas.
+        -->
+        <div class="barraControl">
+            <input class="boton" type="submit" value="Enviar" />
+            <input class="boton" type="reset" value="Borrar" />
+        </div>
+
+    </form>
+
+    <!-- ZONA FIJA DE ABAJO -->
+    <footer class="pieFormulario">
+        <p>
+            Pie de formulario &mdash;
+            <a href="../index.html">Volver al indice de CSS</a> &mdash;
+            Santiago Cannistra
+        </p>
+    </footer>
+
+</div>
+
+</body>
+</html>

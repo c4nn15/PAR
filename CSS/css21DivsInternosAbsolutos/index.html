@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css21 - Divs internos absolutos</title>
+    <meta name="addsearch-category" content="CSS, position absolute, z-index, rotateZ, rgba" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7) -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <!--
+        CONTENEDOR GLOBAL.
+        Ocupa el 80% del body y es el PADRE de los tres contenedores internos.
+        Su esquina superior izquierda es el origen de coordenadas (0,0) del que
+        cuelgan todos los top/left de adentro (pag. 4 del apunte).
+    -->
+    <div id="contenedorGlobal">
+
+        <h1>Posicionamiento absoluto de elementos</h1>
+
+        <p class="explicacion">
+            Los tres contenedores de abajo tienen <strong>position:absolute</strong>: su ubicación
+            (X,Y) se mide siempre desde la esquina superior izquierda de este contenedor global, sin
+            importar el orden en que estén escritos en el HTML. El documento no tiene ninguna barra
+            de scroll: la única que puede aparecer es la de cada contenedor interno.
+        </p>
+
+        <!-- INTERNO 1: arriba a la izquierda, el mas bajo en el eje z -->
+        <div id="contenedorInterno1">
+            <h2>Contenedor interno 1</h2>
+
+            <p>
+                top:20% / left:8% &rarr; esas son sus coordenadas respecto al origen del
+                contenedor global.
+            </p>
+
+            <p>
+                Es el que tiene <strong>z-index:1</strong>, asi que queda por debajo de los otros
+                dos. Como los otros son transparentes, se lo alcanza a ver por atrás.
+            </p>
+
+            <p>
+                Su texto usa <strong>font-size:1vw</strong>, o sea que la letra es escalable: mide
+                el 1% del ancho del viewport y por eso crece y se achica cuando se redimensiona la
+                ventana.
+            </p>
+        </div>
+
+        <!-- INTERNO 2: el rotado. Va con z-index intermedio -->
+        <div id="contenedorInterno2">
+            <h2>Contenedor interno 2 (rotado)</h2>
+
+            <p>
+                top:45% / left:45%, y además <strong>transform: rotateZ(20deg)</strong>: está girado
+                20 grados en sentido horario respecto al eje perpendicular a la pantalla
+                (pag. 18 del apunte).
+            </p>
+
+            <p>Lleva z-index:2.</p>
+        </div>
+
+        <!-- INTERNO 3: el mas alto en el eje z, se superpone a los dos anteriores -->
+        <div id="contenedorInterno3">
+            <h2>Contenedor interno 3</h2>
+
+            <p>
+                top:30% / left:35%, con <strong>z-index:3</strong>: queda por encima de los dos
+                anteriores.
+            </p>
+
+            <p>
+                Su color de fondo está escrito con <strong>rgba()</strong>. El cuarto valor es el
+                canal alfa (la transparencia), y es lo que permite ver el contenedor 1 y el
+                contenedor 2 por debajo de este.
+            </p>
+
+            <p>
+                Este contenedor tiene <strong>overflow:auto</strong> y bastante texto adentro, asi
+                que le aparece su propia barra de scroll cuando el contenido no entra. Este párrafo
+                está solo para que sobre contenido y la barra se vea. Y este otro también. Y este
+                también, por las dudas de que la ventana sea muy grande.
+            </p>
+        </div>
+
+        <!-- PIE: absoluto tambien, anclado al fondo del contenedor global -->
+        <div id="pieGlobal">
+            <p><a href="../index.html">Volver al indice de CSS</a> &mdash; Santiago Cannistra</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

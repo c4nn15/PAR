@@ -1,0 +1,172 @@
+/*
+    estilo.css - css20 - Divs internos relativos y ventana modal fija
+
+    Galeria de estilos de este documento (pag. 7 del apunte).
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+/*
+    CONFIGURACION DE BASE, valida tanto para el documento como para el body
+    (pag. 2 del apunte de CSS parte II).
+
+    margin:0            -> ningun elemento deja margenes entre si
+    padding:0           -> ningun contenedor guarda separacion respecto a su contenido
+    box-sizing:border-box -> el padding y el ancho del borde NO agrandan el ancho ni
+                             el alto que le declaramos a un elemento: se cuentan hacia
+                             adentro. Sin esto, un div al 100% con padding se pasaria
+                             de largo y apareceria scroll horizontal.
+*/
+html, body {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* El reset de arriba dejo todo sin aire: se lo devolvemos a mano */
+body {
+    font-size: 16px;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+/*
+    POSICIONAMIENTO RELATIVO (pag. 2 del apunte).
+
+    position:relative es el posicionamiento por DEFAULT: si no lo escribimos,
+    el navegador lo asume igual. Lo declaramos explicito para que se lea el
+    concepto.
+
+    Con este posicionamiento:
+        margin-left -> coordenada en X del elemento respecto al borde del
+                       contenedor PADRE.
+        margin-top  -> coordenada en Y del elemento respecto al borde inferior
+                       del div ANTERIOR (no del padre).
+*/
+div.contenedorRelativoClase1 {
+    position: relative;
+
+    margin-left: 0%;           /* Coordenada X: pegado al borde izquierdo del padre */
+    margin-top: 10px;          /* Coordenada Y: 10px debajo del div anterior */
+
+    width: 60%;
+    padding: 10px;
+
+    background-color: lightblue;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: gray;
+}
+
+div.contenedorRelativoClase2 {
+    position: relative;
+
+    margin-left: 10%;          /* Se corre un 10% del ancho del padre */
+    margin-top: 30px;          /* Deja mas aire respecto al div anterior */
+
+    width: 60%;
+    padding: 10px;
+
+    background-color: lightgreen;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: gray;
+}
+
+/*
+    Estilo COMUN a los cuatro divs amarillos. Lo que cambia en cada uno es
+    unicamente el margen izquierdo, y eso lo resuelven las clases de abajo:
+    por eso cada div lleva DOS clases (class="contenedorRelativoAmarillo corrimiento1").
+*/
+div.contenedorRelativoAmarillo {
+    position: relative;
+
+    margin-top: 10px;
+    width: 50%;
+    padding: 10px;
+
+    background-color: lightyellow;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: goldenrod;
+}
+
+/* Corrimientos escalonados en X, cada uno respecto al borde del padre */
+div.corrimiento1 {
+    margin-left: 5%;
+}
+
+div.corrimiento2 {
+    margin-left: 15%;
+}
+
+div.corrimiento3 {
+    margin-left: 25%;
+}
+
+div.corrimiento4 {
+    margin-left: 35%;
+}
+
+/*
+    POSICIONAMIENTO FIJO: la ventana modal (pag. 3 del apunte).
+
+    position:fixed hace que el elemento se ubique por coordenadas ABSOLUTAS
+    respecto al VIEWPORT (no respecto a su contenedor padre). Queda atachado
+    a la ventana del navegador: el resto del documento scrollea por debajo y
+    este contenedor no se mueve.
+*/
+div.paraVentanaModal {
+    position: fixed;
+
+    top: 20%;                  /* Coordenadas absolutas respecto al viewport */
+    left: 25%;
+
+    width: 50%;
+    height: 40%;
+
+    padding: 15px;
+
+    background-color: lightcoral;
+
+    border-style: solid;
+    border-width: medium;
+    border-color: darkred;
+
+    /* Transparencia del 50%: se ve lo que hay por debajo de la modal */
+    opacity: 0.5;
+
+    /* Si el contenido supera el alto de la modal, aparece SU barra de scroll */
+    overflow-y: auto;
+
+    /* Hoy es visible. Mas adelante, con JavaScript, vamos a poder pasarla a
+       hidden frente a la ocurrencia de cualquier evento */
+    visibility: visible;
+
+    /*
+        z-index marca un nivel de capa (layer) en el eje z, o sea, cual
+        elemento queda por encima de cual. Cuanto mayor es el entero, mas
+        arriba queda. Admite enteros negativos.
+    */
+    z-index: 10;
+}

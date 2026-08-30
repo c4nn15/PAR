@@ -1,0 +1,200 @@
+/*
+    estilo.css - css25 - Menú desplegable
+
+    Galeria de estilos de este documento (pag. 7 del apunte).
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+/* Todo lo que no es el menu lleva un poco de aire a los costados */
+header, main, footer, hr {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+ul.listaTeoria {
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+
+ul.listaTeoria li {
+    margin-bottom: 8px;
+}
+
+/* ------------------------------------------------------------------------
+   EL MENU (pag. 8, 9 y 10 del apunte)
+
+   Todas las reglas arrancan con #menu, o sea, con el id del <nav>. Asi todo
+   el estilo del menu queda AGRUPADO para un elemento unico y no se pisa con
+   ninguna otra lista del documento (por eso la lista de la seccion 2 lleva
+   su propia clase .listaTeoria).
+   ------------------------------------------------------------------------ */
+
+nav#menu {
+    background-color: #1d3557;
+}
+
+/*
+    Esto se lee asi: toda lista ul dentro del menu principal no lleva viñetas.
+    Aplica a las dos, a la horizontal y a las desplegables.
+*/
+#menu ul {
+    list-style: none;
+}
+
+/*
+    Todo li dentro de un ul dentro del menu principal es una OPCION del menu.
+
+    position:relative -> los li del menu principal contienen adentro las listas
+                         de submenues, que se posicionan de manera absoluta.
+                         Entonces este li tiene que ser el padre que les da el
+                         origen de coordenadas.
+    float:left        -> los items del menu principal se acomodan en fila.
+*/
+#menu ul li {
+    position: relative;
+    float: left;
+
+    background-color: #2e518b;
+
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: #1d3557;
+}
+
+/*
+    Los enlaces <a> dentro de un ul dentro del menu.
+
+    display:block -> el anchor deja de ser un elemento en linea y pasa a ocupar
+                     TODO el ancho de su contenedor padre (el li). Gracias a esto
+                     el area clickeable es la opcion entera, no solo el texto.
+*/
+#menu ul a {
+    display: block;
+
+    text-decoration: none;     /* Sin el subrayado tipico del enlace */
+    color: white;
+
+    padding: 12px 18px;
+}
+
+/* Cambio de fondo dinamico al pasar el mouse por el menu horizontal */
+#menu ul li:hover {
+    background-color: #457b9d;
+}
+
+/* ------------------------------------------------------------------------
+   LA LISTA DESPLEGABLE
+   ------------------------------------------------------------------------ */
+
+/*
+    Toda lista dentro de otra lista es un submenu.
+
+    display:none      -> por default no esta visible NI ocupa lugar.
+    position:absolute -> se posiciona de manera absoluta respecto al li que la
+                         contiene (el que declaramos relative mas arriba).
+    top:100%          -> totalmente por debajo del item de menu horizontal.
+    left:0            -> empieza donde empieza el item de menu horizontal.
+*/
+#menu ul ul {
+    display: none;
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    /* Para que el desplegable tape lo que haya debajo y no se transparente */
+    background-color: #2e518b;
+
+    /* Queda por encima del contenido del documento */
+    z-index: 10;
+}
+
+/*
+    Los items del menu desplegable van uno DEBAJO del otro: por eso les cortamos
+    la flotacion que heredaron de la regla #menu ul li de mas arriba.
+    Y son mas anchos que los items horizontales, para que entren los textos.
+*/
+#menu ul ul li {
+    float: none;
+    width: 240px;
+
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #1d3557;
+}
+
+/*
+    Se lee: todo enlace <a> dentro de una lista que a su vez esta dentro de otra
+    lista que a su vez esta dentro del menu principal.
+
+    El padding extra a la izquierda es el CORRIMIENTO que deja a las opciones
+    del desplegable un poco indentadas respecto al item de menu horizontal.
+*/
+#menu ul ul a {
+    padding: 10px;
+    padding-left: 25px;
+
+    font-size: 0.9em;
+}
+
+/*
+    LA REGLA CLAVE (pag. 10 del apunte).
+
+    Se lee: toda lista (ul) que este dentro de un li en estado de mouse over y
+    que a su vez este dentro de una lista (ul) del menu principal.
+
+    Cuando el padre tiene el mouse encima, la lista desplegable se hace visible
+    y ocupa todo el contenedor.
+*/
+#menu ul li:hover ul {
+    display: block;
+}
+
+/* Cambio de fondo dinamico dentro del desplegable, opcion por opcion */
+#menu ul ul li:hover {
+    background-color: #a8dadc;
+}
+
+#menu ul ul li:hover a {
+    color: #1d3557;
+}
+
+/*
+    Div de corte: rompe la flotacion de los li del menu horizontal para que el
+    resto del documento no se le trepe encima (pag. 15 de la parte I).
+*/
+div.nuevaFila {
+    clear: both;
+}

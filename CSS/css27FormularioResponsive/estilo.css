@@ -1,0 +1,280 @@
+/*
+    estilo.css - css27 - Formulario responsive (RWD)
+
+    Galeria de estilos de este documento (pag. 7 del apunte).
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+    LA CADENA COMPLETA DE ALTURAS (pag. 12 del apunte).
+
+    Un porcentaje siempre se calcula contra el contenedor padre. Para que el
+    alto en % de los elementos de adentro signifique algo, hay que declarar la
+    cadena entera de arriba hacia abajo:
+
+        html - body - contenedorFormulario - form - barraControl - boton
+
+    Si se saltea un eslabon, el % del hijo no tiene contra que medirse y el
+    navegador lo ignora.
+
+    El overflow:hidden del body es lo que garantiza que el DOCUMENTO no tenga
+    ninguna barra de scroll, que es la consigna del ejercicio.
+*/
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-size: 16px;
+    font-family: sans-serif;
+    background-color: whitesmoke;
+}
+
+/* Contenedor de toda la maqueta: 100% del body */
+div.contenedorFormulario {
+    height: 100%;
+    width: 100%;
+
+    background-color: white;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: gray;
+}
+
+/* ZONA FIJA DE ARRIBA (no scrollea nunca) */
+header.cabeceraFormulario {
+    height: 12%;
+    width: 100%;
+
+    padding: 10px;
+
+    background-color: #1d3557;
+    color: white;
+
+    /* Flexbox para centrar el titulo vertical y horizontalmente (pag. 5) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header.cabeceraFormulario h1 {
+    font-size: 1.3em;
+}
+
+/*
+    EL FORMULARIO (pag. 12 del apunte).
+
+    Ocupa el 76% del alto de su contenedor y es LA UNICA zona scrolleable de
+    todo el documento: si las entradas no entran, aparece aca la barra y no en
+    el body.
+*/
+form {
+    height: 76%;
+    width: 100%;
+
+    overflow: auto;
+
+    padding: 10px;
+}
+
+/*
+    EL LABEL EN BLOQUE (pag. 11 del apunte).
+
+    display:block hace que el label no deje flotar a su derecha a ningun otro
+    elemento. Equivale a poner una etiqueta de retorno: el input asociado se va
+    solo al renglon siguiente. Asi cada entrada queda con el rotulo arriba y el
+    campo abajo, que es lo que hace comoda la adaptacion al medio.
+*/
+label {
+    display: block;
+
+    margin-bottom: 4px;
+    font-size: 0.9em;
+    color: #1d3557;
+}
+
+/*
+    LA CLASE ENTRADA = label + input (pag. 13 del apunte).
+
+    float:left -> las entradas se ubican automaticamente en fila, una al lado
+                  de la otra, hasta que no entran mas y bajan al renglon siguiente.
+    El ANCHO no se define aca: se define mas abajo, en la CONSULTA DE MEDIOS,
+    porque es justamente lo que cambia segun el dispositivo.
+*/
+div.entrada {
+    text-align: left;
+    height: 80px;
+
+    float: left;
+
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+
+    padding: 1%;               /* Para que el contenido no quede pegado al borde */
+}
+
+/* Los campos ocupan todo el ancho de su cuadricula */
+div.entrada input,
+div.entrada select {
+    width: 100%;
+    padding: 4px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkgray;
+}
+
+/* Corta la flotacion de todas las entradas del formulario */
+div.nuevaFila {
+    clear: both;
+}
+
+/*
+    LA BARRA DE CONTROL (pag. 11 del apunte).
+
+    Agrupa los botones de envio y de reset y los separa visualmente del conjunto
+    de entradas. Los centra con los parametros de caja flexible.
+*/
+div.barraControl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 70px;
+
+    margin-top: 10px;
+
+    background-color: #e9ecef;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+}
+
+/*
+    Clase valida para cualquier boton del documento (pag. 12 del apunte).
+    Las dimensiones son relativas a su contenedor, que es la barra de control.
+*/
+.boton {
+    width: 15%;
+    height: 60%;
+
+    margin: 0 10px;
+
+    background-color: #AAAAAA;
+    cursor: pointer;           /* El puntero cambia a manito sobre el boton */
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+
+    font-size: 1em;
+}
+
+.boton:hover {
+    background-color: #457b9d;
+    color: white;
+}
+
+/* ZONA FIJA DE ABAJO (no scrollea nunca) */
+footer.pieFormulario {
+    height: 12%;
+    width: 100%;
+
+    padding: 10px;
+
+    background-color: #1d3557;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 0.9em;
+}
+
+footer.pieFormulario a {
+    color: #a8dadc;
+}
+
+/* ------------------------------------------------------------------------
+   CONSULTA DE MEDIOS (pag. 14 del apunte)
+
+   Es lo que le da la RESPONSIVIDAD al formulario: segun el ancho del viewport
+   del dispositivo, cada entrada toma un ancho distinto y por lo tanto entran
+   mas o menos entradas por fila.
+
+        mas de 900px   -> 20%     -> 5 entradas por fila (monitores grandes)
+        entre 700 y 900 -> 25%    -> 4 entradas por fila (notebooks)
+        entre 500 y 700 -> 33.33% -> 3 entradas por fila (tablets)
+        entre 380 y 500 -> 50%    -> 2 entradas por fila (tablets chicas)
+        menos de 380px -> 100%    -> 1 entrada por fila (moviles)
+   ------------------------------------------------------------------------ */
+
+/* Si el ancho del viewport es mayor a 900px, entonces... */
+@media (min-width: 900px) {
+    div.entrada {
+        width: 20%;
+    }
+}
+
+/* Si el ancho esta entre 700px y 900px, entonces... */
+@media (min-width: 700px) and (max-width: 900px) {
+    div.entrada {
+        width: 25%;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 700px) {
+    div.entrada {
+        width: 33.33%;
+    }
+}
+
+@media (min-width: 380px) and (max-width: 500px) {
+    div.entrada {
+        width: 50%;
+    }
+
+    /* En pantallas chicas el boton necesita mas ancho para seguir siendo comodo */
+    .boton {
+        width: 30%;
+    }
+
+    header.cabeceraFormulario h1 {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 380px) {
+    div.entrada {
+        width: 100%;
+    }
+
+    .boton {
+        width: 40%;
+    }
+
+    header.cabeceraFormulario h1 {
+        font-size: 0.9em;
+    }
+
+    footer.pieFormulario {
+        font-size: 0.75em;
+    }
+}

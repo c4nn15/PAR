@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css22 - Cajas flexibles (flexbox)</title>
+    <meta name="addsearch-category" content="CSS, flexbox, display flex, flex-wrap, responsive" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7) -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Cajas flexibles</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Cuando a un contenedor le damos <strong>display:flex</strong> (pag. 5 y 6 del
+                apunte), el navegador acomoda solo todo lo que hay adentro, según el eje principal
+                que le declaremos con <strong>flex-direction</strong>.
+            </p>
+
+            <p>
+                Achicá el ancho de la ventana y mirá la caja de abajo: las tres imágenes arrancan
+                en fila y centradas; después la tercera se va sola al renglón siguiente
+                (<strong>flex-wrap:wrap</strong>) y, cuando ya no entran más, terminan una debajo de
+                la otra, en columna.
+            </p>
+        </section>
+
+        <!--
+            LA CAJA FLEXIBLE.
+            Este div es el "contenedor flex". Sus hijos directos (los tres div.itemFlex)
+            son los "items flex" que el navegador va a reacomodar solo.
+        -->
+        <div class="cajaFlexible">
+
+            <!--
+                OJO: LAS IMAGENES TODAVIA NO ESTAN EN LA CARPETA.
+
+                El hueco de cada una ya esta reservado por el div.itemFlex, que tiene
+                alto y ancho fijos y borde punteado, asi el ejercicio se puede probar
+                igual. Para que se vean, hay que copiar tres imagenes en esta misma
+                carpeta con estos nombres exactos:
+
+                    flex1.jpg    flex2.jpg    flex3.jpg
+            -->
+            <div class="itemFlex">
+                <img src="./flex1.jpg" alt="Imagen 1 de la caja flexible" />
+            </div>
+
+            <div class="itemFlex">
+                <img src="./flex2.jpg" alt="Imagen 2 de la caja flexible" />
+            </div>
+
+            <div class="itemFlex">
+                <img src="./flex3.jpg" alt="Imagen 3 de la caja flexible" />
+            </div>
+
+        </div>
+
+        <section>
+            <h2>2) Las declaraciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>display:flex</strong> &rarr; el contenedor pasa a ordenar su contenido
+                    de manera automática (pag. 6).
+                </li>
+
+                <li>
+                    <strong>flex-direction:row</strong> &rarr; define el eje principal. Con
+                    <em>row</em> el eje principal es el X; con <em>column</em>, el Y (pag. 7).
+                </li>
+
+                <li>
+                    <strong>justify-content:center</strong> &rarr; centra los elementos sobre el eje
+                    principal.
+                </li>
+
+                <li>
+                    <strong>align-items:center</strong> &rarr; centra los elementos sobre el eje
+                    secundario, que siempre es el ortogonal al principal.
+                </li>
+
+                <li>
+                    <strong>flex-wrap:wrap</strong> &rarr; manda los bloques que no entran al
+                    renglón siguiente cuando se achica el ancho del viewport. Sin esto, las
+                    imágenes se aplastarían en lugar de bajar.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de CSS</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+/*
+    estilo.css - css30 - Layout básico
+
+    Galeria de estilos de este documento (pag. 7 del apunte).
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+    Cadena completa de alturas: html 100% del viewport -> body 100% del html ->
+    maqueta 80% del body. El overflow:hidden garantiza que el DOCUMENTO no tenga
+    barras de scroll: la unica posible es la del iframe.
+*/
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-size: 16px;
+    font-family: sans-serif;
+    background-color: whitesmoke;
+}
+
+/*
+    CONTENEDOR "A" DE LA MAQUETA (pag. 17 del apunte).
+    Contiene todos los elementos. Ocupa el 80% del viewport y queda centrado.
+*/
+div#maqueta {
+    position: relative;
+
+    width: 80%;
+    height: 80%;
+
+    /* margin:0 auto centra en horizontal; top:10% (al ser relative) lo corre un
+       10% del alto del body y lo deja centrado en vertical */
+    margin: 0 auto;
+    top: 10%;
+
+    background-color: white;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: gray;
+}
+
+/*
+    "B" y "D": header y footer, los dos al 100% de ancho y al 10% del alto del
+    contenedor padre.
+*/
+div#maqueta > header,
+div#maqueta > footer {
+    width: 100%;
+    height: 10%;
+
+    padding: 10px;
+
+    background-color: #386641;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#maqueta > header h1 {
+    font-size: 1.4em;
+}
+
+div#maqueta > footer {
+    font-size: 0.85em;
+}
+
+div#maqueta > footer a {
+    color: #d9f0dc;
+}
+
+/*
+    "C": el sector del medio. Se lleva el 80% que queda entre el header y el
+    footer, y adentro se divide en nav + main.
+*/
+div.medio {
+    width: 100%;
+    height: 80%;
+}
+
+/*
+    "E": el menu vertical. Un 20% del ancho del contenedor, al 100% del alto.
+    float:left lo pone a la izquierda y deja el main a su derecha.
+*/
+div.medio nav {
+    float: left;
+
+    width: 20%;
+    height: 100%;
+
+    background-color: #a7c957;
+
+    overflow: auto;            /* Si hay muchas opciones, scrollea el menu */
+}
+
+div.medio nav ul {
+    list-style: none;          /* El menu no lleva viñetas */
+}
+
+/*
+    display:block en el anchor -> ocupa todo el ancho del li, asi que toda la
+    fila del menu es clickeable y no solo el texto.
+*/
+div.medio nav ul li a {
+    display: block;
+
+    padding: 10px;
+
+    text-decoration: none;
+    color: #1b2d16;
+    font-size: 0.9em;
+
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #86a446;
+}
+
+div.medio nav ul li a:hover {
+    background-color: #386641;
+    color: white;
+}
+
+/*
+    "F": la zona de contenido. El 80% del ancho que queda, al 100% del alto.
+*/
+div.medio main {
+    float: left;
+
+    width: 80%;
+    height: 100%;
+}
+
+/*
+    EL IFRAME.
+
+    Ocupa el 100% del main. Todo el contenido de la maqueta se va a ubicar aca
+    adentro, y es el unico elemento que puede llegar a mostrar una barra de
+    scroll: nunca tienen que aparecer dos.
+
+    border:none porque el marco de la maqueta ya lo da el propio main.
+*/
+div.medio main iframe {
+    width: 100%;
+    height: 100%;
+
+    border-style: none;
+}
+
+/*
+    Div de corte de flotacion: nav y main flotan a la izquierda, asi que sin
+    este clear el div.medio no recuperaria el alto de sus hijos (pag. 17).
+*/
+div.nuevaFila {
+    clear: both;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Contenido inicial</title>
+    <meta name="addsearch-category" content="CSS, maquetacion, iframe" />
+</head>
+
+<!--
+    Este documento NO es una pagina para abrir sola: es el contenido que el
+    index.html de este ejercicio carga de entrada dentro del iframe, con
+    src="./contenidoInicial.html".
+
+    Cuando se hace clic en cualquier opcion del menu de la izquierda, este
+    documento es reemplazado por el que corresponda, sin que se recargue la
+    maqueta entera.
+-->
+<body style="font-family:sans-serif; padding:15px">
+
+    <h2>Bienvenido a la maqueta</h2>
+
+    <p>
+        Esto que estás leyendo no es parte del <em>index.html</em>: es otro documento HTML
+        (<strong>contenidoInicial.html</strong>) que está cargado adentro del
+        <strong>iframe</strong> de la zona de contenido.
+    </p>
+
+    <p>
+        Elegí cualquier opción del menú de la izquierda: el documento se va a ubicar acá adentro,
+        sin recargar la maqueta, porque cada enlace lleva el atributo
+        <strong>target="fcontenido"</strong>, que es el <em>name</em> de este marco.
+    </p>
+
+    <p>
+        Si el documento que se carga es más alto que el marco, la barra de scroll aparece acá
+        adentro, en el iframe. La maqueta en sí nunca scrollea: no tiene que haber dos barras.
+    </p>
+
+</body>
+</html>

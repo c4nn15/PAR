@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>css30 - Layout básico</title>
+    <meta name="addsearch-category" content="CSS, maquetacion, layout, iframe, target" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link> (pag. 7) -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+<!--
+    LA MAQUETA (pag. 17 del apunte).
+
+    Contenedor "A": ocupa el 80% del viewport y contiene todo. Se divide en
+    tres bloques al 100% de ancho:
+
+        "B" -> <header>       (arriba)
+        "C" -> div.medio      (el sector del medio)
+        "D" -> <footer>       (abajo)
+
+    Y el bloque "C" se divide a su vez en dos, los dos al 100% de alto:
+
+        "E" -> <nav>   al 20% del ancho  (el menu vertical)
+        "F" -> <main>  al 80% del ancho  (la zona de contenido, con el iframe)
+-->
+<div id="maqueta">
+
+    <!-- "B" -->
+    <header>
+        <h1>Layout básico</h1>
+    </header>
+
+    <!-- "C" -->
+    <div class="medio">
+
+        <!-- "E": el menu vertical de opciones -->
+        <nav>
+            <ul>
+                <!--
+                    CLAVE DEL EJERCICIO (pag. 18 del apunte):
+                    el atributo target de cada <a> lleva como valor el NAME del
+                    iframe. Entonces el enlace no cambia de pagina: ubica el
+                    documento ADENTRO del marco, en la zona de contenido.
+
+                    Todavia no vimos JavaScript, asi que este es el recurso que
+                    tenemos para linkear HTML dentro de la maqueta.
+                -->
+                <li><a href="./contenidoInicial.html" target="fcontenido">Inicio</a></li>
+
+                <li><a href="../../HTML/index.html" target="fcontenido">HTML</a></li>
+                <li><a href="../index.html" target="fcontenido">CSS</a></li>
+
+                <li><a href="../../HTML/ejer02Tablas/index.html" target="fcontenido">Tablas</a></li>
+                <li><a href="../../HTML/ejer03Formularios/index.html" target="fcontenido">Formularios</a></li>
+
+                <li><a href="../css04FontSize/index.html" target="fcontenido">Font size</a></li>
+                <li><a href="../css10DivsEnPila/index.html" target="fcontenido">Divs en pila</a></li>
+                <li><a href="../css11DivsEnFila/index.html" target="fcontenido">Divs en fila</a></li>
+                <li><a href="../css22CajasFlexibles/index.html" target="fcontenido">Cajas flexibles</a></li>
+                <li><a href="../css29TablaResponsive/index.html" target="fcontenido">Tabla RWD</a></li>
+            </ul>
+        </nav>
+
+        <!-- "F": la zona de contenido -->
+        <main>
+            <!--
+                El iframe ocupa el 100% del main.
+                src   = el documento que se carga por defecto al abrir la pagina
+                name  = el nombre del marco, el que referencian los target de arriba
+
+                Es el UNICO elemento de la maqueta que puede llegar a tener barra
+                de scroll: el documento en si no tiene ninguna.
+            -->
+            <iframe src="./contenidoInicial.html" name="fcontenido"></iframe>
+        </main>
+
+        <!--
+            Div de corte: nav y main estan flotados a la izquierda, asi que sin
+            este clear el div.medio se quedaria sin alto (pag. 17).
+        -->
+        <div class="nuevaFila"></div>
+
+    </div>
+
+    <!-- "D" -->
+    <footer>
+        <p>
+            <a href="../index.html">Volver al indice de CSS</a> &mdash;
+            Santiago Cannistra &mdash;
+            Programación en Ambiente de Redes
+        </p>
+    </footer>
+
+</div>
+
+</body>
+</html>
