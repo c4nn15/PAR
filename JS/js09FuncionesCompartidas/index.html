@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js09 - Funciones compartidas</title>
+    <meta name="addsearch-category" content="JavaScript, funciones, argumentos, return, reutilizacion" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Funciones compartidas</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Una <strong>funcion con nombre</strong> se puede invocar desde cualquier lugar del
+                programa (pag. 19 del apunte). Recibe <strong>argumentos</strong> con los cuales
+                opera y devuelve un valor con <strong>return</strong>.
+            </p>
+
+            <p>
+                Aca hay una sola funcion, <strong>mayor(arg1, arg2)</strong>, que devuelve el mayor
+                de dos numeros, y esta compartida por <strong>dos procedimientos de evento
+                distintos</strong>: el boton de comparar y el boton que la usa para buscar el mayor
+                de tres valores. Escribir la logica una sola vez es lo que hace que la funcion sea
+                reutilizable.
+            </p>
+
+            <p>
+                Las variables declaradas con <strong>let</strong> adentro de la funcion tienen
+                alcance de bloque: desaparecen cuando se cierra la llave. Eso es lo que le da
+                modularidad (pag. 6).
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Probalo</h2>
+
+            <p>
+                <label for="n1">Numero 1:</label>
+                <input type="text" id="n1" placeholder="Ej: 4" />
+            </p>
+
+            <p>
+                <label for="n2">Numero 2:</label>
+                <input type="text" id="n2" placeholder="Ej: 3" />
+            </p>
+
+            <p>
+                <label for="n3">Numero 3:</label>
+                <input type="text" id="n3" placeholder="Ej: 9" />
+            </p>
+
+            <button id="btnDos">Mayor entre 1 y 2</button>
+            <button id="btnTres">Mayor entre los tres</button>
+
+            <div id="resultado"></div>
+        </section>
+
+        <section>
+            <h2>3) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>function mayor(arg1, arg2) { ... }</strong> &rarr; declaracion de una
+                    funcion con nombre que recibe dos argumentos.
+                </li>
+
+                <li>
+                    <strong>if (arg1 &gt;= arg2)</strong> &rarr; expresion condicional con un
+                    operador de comparacion (pag. 8).
+                </li>
+
+                <li>
+                    <strong>return arg1;</strong> &rarr; valor retornado. Corta la ejecucion de la
+                    funcion y devuelve ese valor a quien la invoco.
+                </li>
+
+                <li>
+                    <strong>mayor(mayor(a, b), c)</strong> &rarr; la misma funcion invocada dos
+                    veces, anidada, para resolver el caso de tres numeros.
+                </li>
+
+                <li>
+                    <strong>let var1 = parseInt(arg1);</strong> &rarr; si hay que operar
+                    aritmeticamente, los argumentos se pasan ya convertidos o se convierten adentro
+                    de la funcion.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>

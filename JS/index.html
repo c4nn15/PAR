@@ -1,0 +1,132 @@
+<!-- Marca de comienzo del documento. No es una etiqueta -->
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <title>Ejercicios de JavaScript</title>
+
+    <meta name="addsearch-category" content="Educación, JavaScript, DOM, BOM, programación web" />
+
+    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
+         archivo estilo.css, que se trae con la etiqueta <link>.
+
+         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
+         type="text/css"     -> de que tipo de archivo se trata
+         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <!-- ETIQUETA SEMANTICA <header>: anida los encabezados del documento -->
+    <header>
+        <h1>Ejercicios de JavaScript</h1>
+    </header>
+
+    <!-- La etiqueta <hr /> no lleva nodo de texto y traza una linea
+         de extremo a extremo del view port -->
+    <hr />
+
+    <!-- ETIQUETA SEMANTICA <main>: debe ser unica y anida lo mas importante
+         del documento en cuanto a conceptos semanticos -->
+    <main>
+
+        <!-- ETIQUETA SEMANTICA <nav>: contiene la lista de navegacion
+             o enlaces del documento -->
+        <nav>
+            <h2>Parte 1</h2>
+
+            <!-- <ul> = unordered list: lista con viñetas, sin numeracion.
+                 Al lado de cada enlace dejamos, como comentario, el nombre
+                 original del ejercicio en el indice de la materia. -->
+            <ul>
+
+                <li>
+                    <!-- js01_1_sentencias -->
+                    <!-- Etiqueta <a> (anchor / ancla). El atributo href indica
+                         cual es el documento enlazado. Escribimos la ruta completa
+                         hasta index.html para que el enlace funcione tambien
+                         abriendo el archivo con doble clic (file://) -->
+                    <a href="./js01Sentencias/index.html">Ejercicio 1: Sentencias</a>
+                </li>
+
+                <li>
+                    <!-- js01_2_debugger -->
+                    <a href="./js02Debugger/index.html">Ejercicio 2: Debugger</a>
+                </li>
+
+                <li>
+                    <!-- js02_comando_en_evento -->
+                    <a href="./js03ComandoEnEvento/index.html">Ejercicio 3: ComandoEnEvento</a>
+                </li>
+
+                <li>
+                    <!-- js03_1_variablesSimples -->
+                    <a href="./js04VariablesSimples/index.html">Ejercicio 4: VariablesSimples</a>
+                </li>
+
+                <li>
+                    <!-- js03_5_alcance -->
+                    <a href="./js05Alcance/index.html">Ejercicio 5: Alcance</a>
+                </li>
+
+                <li>
+                    <!-- js03_6_arreglos -->
+                    <a href="./js06Arreglos/index.html">Ejercicio 6: Arreglos</a>
+                </li>
+
+                <li>
+                    <!-- js04_1_operaciones_sobre_input -->
+                    <a href="./js07OperacionesSobreInput/index.html">Ejercicio 7: OperacionesSobreInput</a>
+                </li>
+
+                <li>
+                    <!-- js04_2_operaciones_entre_inputs -->
+                    <a href="./js08OperacionesEntreInputs/index.html">Ejercicio 8: OperacionesEntreInputs</a>
+                </li>
+
+                <li>
+                    <!-- js04_3_funcionesCompartidas -->
+                    <a href="./js09FuncionesCompartidas/index.html">Ejercicio 9: FuncionesCompartidas</a>
+                </li>
+
+                <li>
+                    <!-- js04_4_convertir_a_mayusculas -->
+                    <a href="./js10ConvertirAMayusculas/index.html">Ejercicio 10: ConvertirAMayusculas</a>
+                </li>
+
+                <li>
+                    <!-- js04_5_funcionFlecha -->
+                    <a href="./js11FuncionFlecha/index.html">Ejercicio 11: FuncionFlecha</a>
+                </li>
+
+                <li>
+                    <!-- js05_1_location -->
+                    <a href="./js12Location/index.html">Ejercicio 12: Location</a>
+                </li>
+
+            </ul>
+        </nav>
+
+    </main>
+
+    <hr />
+
+    <!-- ETIQUETA SEMANTICA <footer>: anida la informacion del pie del documento -->
+    <footer>
+        <!-- El ../ indica la carpeta padre -->
+        <p><a href="../index.html">Volver a la portada</a></p>
+
+        <!-- ETIQUETA SEMANTICA <address>: informacion puntual de direcciones,
+             telefonos y correos. Puede ir anidada dentro del footer -->
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

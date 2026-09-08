@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js06 - Arreglos de indice numerico</title>
+    <meta name="addsearch-category" content="JavaScript, arreglos, array, push, length, prompt" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Arreglos de indice numerico</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Un arreglo se declara vacio con <strong>[]</strong> y resulta de tipo
+                <em>object</em>. Sus elementos se acceden por un indice numerico que
+                <strong>arranca en cero</strong>: el primero es <em>arregloFrutas[0]</em>
+                (pag. 15 del apunte).
+            </p>
+
+            <p>
+                El tercer elemento no viene del programa: lo carga el usuario con
+                <strong>prompt()</strong>, la funcion que permite ingresar un valor desde el
+                teclado. Igual que el <em>alert()</em>, se ejecuta al principio y detiene toda la
+                ejecucion hasta que el usuario la termina, porque se dispara antes de que se
+                despliegue el resto del documento.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Contenido del arreglo</h2>
+
+            <!--
+                Este script va en el medio del documento, no al final: document.write()
+                escribe justo en el punto donde el navegador esta leyendo, y solo funciona
+                mientras el flujo de escritura sigue abierto (pag. 4 y 15).
+            -->
+            <script type="text/javascript">
+
+                // Declaracion del arreglo vacio. Resultara de tipo object
+                var arregloFrutas = [];
+
+                // Asignacion de elementos de tipo string
+                arregloFrutas = ["banana", "manzana"];
+
+                // Metodo push, aplicable al objeto arreglo, para agregar un nuevo elemento.
+                // Adentro va un prompt, asi el valor lo escribe el usuario desde el teclado.
+                arregloFrutas.push(prompt("Ingresar valor para el nuevo elemento del arreglo"));
+
+                document.write("<h4>Primer elemento cargado desde el programa: " + arregloFrutas[0] + "</h4>");
+                document.write("<h4>Segundo elemento cargado desde el programa: " + arregloFrutas[1] + "</h4>");
+                document.write("<h4>Tercer elemento cargado desde el teclado: " + arregloFrutas[2] + "</h4>");
+
+                // length devuelve la longitud del arreglo
+                document.write("<h4>Longitud del arreglo: " + arregloFrutas.length + "</h4>");
+
+                // El tipo de un arreglo es object, no array
+                document.write("<h4>Tipo de la variable arregloFrutas: " + typeof arregloFrutas + "</h4>");
+
+            </script>
+
+        </section>
+
+        <section>
+            <h2>3) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>var arregloFrutas = [];</strong> &rarr; declaracion del arreglo vacio.
+                </li>
+
+                <li>
+                    <strong>arregloFrutas = ["banana", "manzana"];</strong> &rarr; asignacion de
+                    elementos de tipo string.
+                </li>
+
+                <li>
+                    <strong>.push(valor)</strong> &rarr; metodo que agrega un elemento nuevo al
+                    final del arreglo.
+                </li>
+
+                <li>
+                    <strong>prompt("texto")</strong> &rarr; ventana modal que devuelve lo que el
+                    usuario escribe. Lo que devuelve siempre es un <em>string</em>.
+                </li>
+
+                <li>
+                    <strong>arregloFrutas[0]</strong> &rarr; primer elemento, por indice numerico.
+                </li>
+
+                <li>
+                    <strong>.length</strong> &rarr; devuelve la cantidad de elementos del arreglo.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js01 - Primeras sentencias de JavaScript</title>
+    <meta name="addsearch-category" content="JavaScript, script, alert, document.write, comentarios" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Primeras sentencias</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                El codigo JavaScript se escribe dentro de un marco de etiquetas
+                <strong>&lt;script&gt;</strong> del documento HTML (pag. 10 del apunte). El
+                interprete es el propio navegador, asi que no hay nada que compilar: alcanza con
+                abrir este archivo.
+            </p>
+
+            <p>
+                Se practican las dos sentencias mas basicas: <strong>alert()</strong>, que muestra
+                un mensaje en una ventana modal sobre el view port y detiene la ejecucion hasta que
+                el usuario la cierra, y <strong>document.write()</strong>, que agrega HTML
+                dinamicamente al documento <em>mientras el flujo de escritura sigue abierto</em>.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Texto escrito directamente en HTML</h2>
+
+            <p>Este parrafo lo escribio el HTML, sin ayuda de JavaScript.</p>
+        </section>
+
+        <section>
+            <h2>3) Texto escrito desde JavaScript</h2>
+
+            <!--
+                El <script> va justo aca, en el medio del documento, y no al final:
+                document.write() escribe en el punto exacto donde el navegador esta
+                leyendo. Si lo usaramos despues de que se cierra el flujo de escritura
+                (por ejemplo dentro de un evento), la funcion pisaria todo el documento
+                original (pag. 4 y 10 del apunte).
+            -->
+            <script type="text/javascript">
+
+                /* Comentario de una sola linea con doble barra */
+
+                /*
+                    Comentario de varias lineas.
+                    Los dos tipos son validos en JavaScript (pag. 9 del apunte).
+                */
+
+                // alert() muestra un mensaje en una ventana modal y frena todo hasta que se cierra
+                alert("Hola, soy un alert() de JavaScript. Cerrame para seguir viendo la pagina.");
+
+                // document.write() agrega HTML dinamicamente al documento
+                document.write("<p>Este parrafo lo escribio JavaScript con document.write().</p>");
+
+                // Se puede escribir cualquier etiqueta, no solo texto suelto
+                document.write("<p><strong>Y este otro tambien</strong>, con negrita incluida.</p>");
+
+            </script>
+
+        </section>
+
+        <section>
+            <h2>4) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>&lt;script type="text/javascript"&gt;</strong> &rarr; el marco donde vive
+                    el codigo dentro del HTML (pag. 10).
+                </li>
+
+                <li>
+                    <strong>alert("mensaje")</strong> &rarr; ventana modal para mostrar texto o el
+                    estado de una variable en cualquier parte del programa.
+                </li>
+
+                <li>
+                    <strong>document.write("&lt;p&gt;...&lt;/p&gt;")</strong> &rarr; escribe HTML en
+                    el documento. Solo sirve fuera de cualquier evento y antes de que termine el
+                    flujo de lectura del navegador.
+                </li>
+
+                <li>
+                    <strong>//</strong> y <strong>/* */</strong> &rarr; comentarios de una linea y de
+                    varias lineas (pag. 9).
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

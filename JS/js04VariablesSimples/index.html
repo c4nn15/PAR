@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js04 - Variables simples</title>
+    <meta name="addsearch-category" content="JavaScript, variables, typeof, tipado dinamico, coercion" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Variables simples</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Las variables de JavaScript son de <strong>tipado dinamico</strong>: pueden cambiar
+                su tipo en tiempo de ejecucion. Y el lenguaje es de <strong>tipado debil</strong>,
+                porque permite operar entre variables de distinto tipo (pag. 14 del apunte).
+            </p>
+
+            <p>
+                Eso ultimo tiene su lado riesgoso: si <em>a</em> vale 1 (number) y <em>b</em> vale
+                "1" (string), la operacion <strong>a + b</strong> no da 2, da <strong>"11"</strong>,
+                porque el navegador convierte el numero a texto y concatena. Esa conversion
+                automatica se llama <strong>coercion de tipos</strong> (pag. 2) y no avisa nada: es
+                un error que hay que prevenir a mano.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Valores y tipos de cada variable</h2>
+
+            <div id="resultado"></div>
+        </section>
+
+        <section>
+            <h2>3) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>var a = 1;</strong> &rarr; declaracion y asignacion. Hecha al principio
+                    del programa y fuera de toda funcion, el alcance es global y podra usarse en
+                    todas las funciones.
+                </li>
+
+                <li>
+                    <strong>typeof a</strong> &rarr; operador que devuelve el tipo de la variable:
+                    <em>number</em>, <em>string</em>, <em>undefined</em>, <em>object</em>...
+                </li>
+
+                <li>
+                    <strong>"texto" + variable</strong> &rarr; el operador + concatena variables con
+                    textos HTML cuando alguno de los dos es string.
+                </li>
+
+                <li>
+                    <strong>parseInt("40 grados")</strong> &rarr; devuelve 40. Es la forma de
+                    asegurarse de estar operando con numeros (pag. 7).
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <!--
+        El script va al final del body: para ese momento el div id="resultado"
+        ya fue leido por el navegador y getElementById lo encuentra. Si lo
+        pusieramos en el <head> el div todavia no existiria y daria error.
+    -->
+    <script type="text/javascript">
+
+        // Declaracion y asignacion. Fuera de toda funcion, el alcance es global (pag. 14)
+        var a = 1;          // number
+        var b = "1";        // string: lo que esta entre comillas es texto, aunque parezca numero
+
+        var z = a + b;      // tipado debil: 1 + "1" no da 2, da la concatenacion "11"
+
+        var suma = a + parseInt(b);   // asi si: parseInt convierte el string en number
+
+        // Tipado dinamico: la misma variable cambia de tipo en tiempo de ejecucion
+        var cambiante = 89;                 // arranca como number
+        var tipoAntes = typeof cambiante;
+        cambiante = "ahora soy una cadena"; // y pasa a ser string
+        var tipoDespues = typeof cambiante;
+
+        // Escribimos todo en el documento concatenando con el operador +
+        document.getElementById("resultado").innerHTML =
+            "<p>Valor de a: " + a + " &mdash; tipo: " + typeof a + "</p>" +
+            "<p>Valor de b: " + b + " &mdash; tipo: " + typeof b + "</p>" +
+            "<p>a + b = " + z + " &mdash; tipo: " + typeof z + " (concatenacion, no suma)</p>" +
+            "<p>a + parseInt(b) = " + suma + " &mdash; tipo: " + typeof suma + " (ahora si suma)</p>" +
+            "<p>La variable cambiante era de tipo " + tipoAntes +
+            " y despues paso a ser de tipo " + tipoDespues + "</p>";
+
+    </script>
+
+</body>
+</html>

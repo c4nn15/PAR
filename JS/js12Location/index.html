@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js12 - Objeto location del BOM</title>
+    <meta name="addsearch-category" content="JavaScript, BOM, location, href, window, navigator" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Objeto location del BOM</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                El <strong>BOM (Browser Object Model)</strong> es la estructura orientada a objetos
+                que representa elementos del navegador: la ventana, la URL, las cookies, el
+                historial de navegacion (pag. 1 del apunte). JavaScript permite programar tanto
+                sobre el DOM como sobre el BOM.
+            </p>
+
+            <p>
+                El objeto principal del BOM es <strong>window</strong>, la ventana donde corre el
+                navegador. De el cuelgan <strong>location</strong> (la URL),
+                <strong>console</strong> y <strong>navigator</strong> (informacion de configuracion
+                del navegador).
+            </p>
+
+            <p>
+                Asignarle un valor a <strong>location.href</strong> provoca una redireccion a otro
+                host o dominio por JavaScript (pag. 21).
+            </p>
+
+            <p>
+                Por seguridad, JavaScript solo puede modificar objetos del DOM y del navegador: no
+                tiene instrucciones que permitan tocar los recursos del equipo local donde corre.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Datos que da el BOM sobre esta ventana</h2>
+
+            <div id="resultado"></div>
+        </section>
+
+        <section>
+            <h2>3) Probalo</h2>
+
+            <p>
+                El primer boton redirige a otro dominio; el segundo, a la portada de este mismo
+                proyecto; el tercero recarga la pagina.
+            </p>
+
+            <button id="btnYoutube">Ir a youtube.com</button>
+            <button id="btnPortada">Ir a la portada del proyecto</button>
+            <button id="btnRecargar">Recargar esta pagina</button>
+        </section>
+
+        <section>
+            <h2>4) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>location.href = "https://www.youtube.com";</strong> &rarr; asignacion que
+                    provoca la redireccion.
+                </li>
+
+                <li>
+                    <strong>location.href</strong> (leido) &rarr; la URL completa del documento
+                    actual.
+                </li>
+
+                <li>
+                    <strong>location.protocol</strong> y <strong>location.pathname</strong> &rarr;
+                    partes de esa URL. Abriendo el archivo con doble clic el protocolo es
+                    <em>file:</em>.
+                </li>
+
+                <li>
+                    <strong>location.reload()</strong> &rarr; metodo que vuelve a cargar el
+                    documento.
+                </li>
+
+                <li>
+                    <strong>window.navigator.userAgent</strong> &rarr; informacion de configuracion
+                    del navegador.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>

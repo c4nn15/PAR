@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js10 - Convertir a mayusculas</title>
+    <meta name="addsearch-category" content="JavaScript, focusout, this, toUpperCase, eventos de input" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Convertir a mayusculas</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Una funcion anonima asociada al evento <strong>focusout</strong>, que es el cambio
+                de foco de un input: se dispara cuando el usuario sale del campo, ya sea con un clic
+                afuera o con la tecla Tab (pag. 18 del apunte).
+            </p>
+
+            <p>
+                Adentro del manejador usamos la palabra clave <strong>this</strong>, porque el mismo
+                objeto sensible al evento es el que cambia su propiedad <em>value</em>. Asi el
+                codigo no depende del id del campo y se puede repetir tal cual en otro input.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Probalo</h2>
+
+            <p>
+                Escribi tu nombre y despues hace clic afuera del campo (o apreta Tab):
+            </p>
+
+            <p>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Escribi en minusculas" />
+            </p>
+
+            <p>
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" placeholder="Este tambien" />
+            </p>
+
+            <p>
+                Este otro campo hace lo contrario, pasa todo a minusculas con
+                <em>toLowerCase()</em>:
+            </p>
+
+            <p>
+                <label for="mail">Correo:</label>
+                <input type="text" id="mail" placeholder="ESCRIBI EN MAYUSCULAS" />
+            </p>
+
+            <div id="resultado"></div>
+        </section>
+
+        <section>
+            <h2>3) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>addEventListener("focusout", function() { ... })</strong> &rarr; funcion
+                    anonima que define el procedimiento para el cambio de foco del input.
+                </li>
+
+                <li>
+                    <strong>this</strong> &rarr; representa al mismo objeto del DOM que recibio el
+                    evento.
+                </li>
+
+                <li>
+                    <strong>this.value = this.value.toUpperCase();</strong> &rarr; metodo de
+                    transformacion a mayusculas aplicado sobre el propio valor del campo.
+                </li>
+
+                <li>
+                    <strong>.toLowerCase()</strong> &rarr; el metodo inverso, pasa todo a minusculas.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js11 - Funcion flecha</title>
+    <meta name="addsearch-category" content="JavaScript, funcion flecha, arrow function, ES6, const" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Funcion flecha</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Las tres maneras de declarar una funcion que muestra el apunte (pag. 20), escritas
+                una al lado de la otra para ver que hacen exactamente lo mismo. En los tres casos
+                <strong>la invocacion es identica</strong>: <em>let resultado = suma(a, b);</em>
+            </p>
+
+            <ul>
+                <li>
+                    <strong>function sumaTradicional(a, b) { return a + b; }</strong> &rarr;
+                    declaracion clasica, con nombre.
+                </li>
+
+                <li>
+                    <strong>const sumaAnonima = function(a, b) { return a + b; }</strong> &rarr;
+                    funcion anonima guardada en una constante. Se usa <em>const</em> porque no
+                    queremos reasignarla en todo el ciclo de ejecucion del script: es ideal para
+                    declarar funciones.
+                </li>
+
+                <li>
+                    <strong>const sumaFlecha = (a, b) =&gt; { return a + b; }</strong> &rarr;
+                    funcion flecha, la forma nueva de definir funciones a partir de ES6. Es muy
+                    parecida al caso anterior: se saca la palabra <em>function</em> y se agrega la
+                    flecha <em>=&gt;</em> despues de los parametros.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2) Probalo</h2>
+
+            <p>
+                <label for="a">Primer numero:</label>
+                <input type="text" id="a" placeholder="Ej: 7" />
+            </p>
+
+            <p>
+                <label for="b">Segundo numero:</label>
+                <input type="text" id="b" placeholder="Ej: 5" />
+            </p>
+
+            <button id="btnSumar">Sumar con las tres funciones</button>
+
+            <div id="resultado"></div>
+        </section>
+
+        <section>
+            <h2>3) Detalle</h2>
+
+            <p>
+                El manejador del boton tambien esta escrito con una funcion flecha, en lugar de la
+                funcion anonima <em>function() { ... }</em> que veniamos usando. Las dos formas son
+                validas como argumento de <strong>addEventListener()</strong>.
+            </p>
+
+            <p>
+                Una diferencia importante: dentro de una funcion flecha
+                <strong>no se puede usar <em>this</em></strong> para referirse al elemento que
+                recibio el evento, como haciamos en el ejercicio 10. Por eso ahi la funcion tiene
+                que ser una funcion anonima tradicional.
+            </p>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>

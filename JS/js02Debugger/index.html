@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js02 - Debugger y consola del navegador</title>
+    <meta name="addsearch-category" content="JavaScript, console.log, debugging, dev tools, F12" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Debugger y consola</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Todos los navegadores modernos traen un conjunto de herramientas para
+                desarrolladores (<em>dev tools</em>) que permiten inspeccionar el HTML, el CSS y las
+                instrucciones de JavaScript que estan cargadas, y ademas detectar y depurar errores
+                en tiempo de ejecucion (pag. 11 del apunte).
+            </p>
+
+            <p>
+                <strong>Abri las herramientas con la tecla F12</strong> (o clic derecho &rarr;
+                Inspeccionar) y anda a la solapa <em>Console</em>. Recarga la pagina y vas a ver ahi
+                todo lo que este script mando con <strong>console.log()</strong>.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Que se mando a la consola</h2>
+
+            <ul>
+                <li>Un mensaje de texto suelto.</li>
+                <li>El contenido de dos variables.</li>
+                <li>El tipo de cada una, obtenido con el operador <strong>typeof</strong>.</li>
+                <li>Un error provocado a proposito, atrapado con <strong>console.error()</strong>.</li>
+            </ul>
+
+            <p>
+                A diferencia del <em>alert()</em>, la consola no interrumpe la ejecucion del
+                programa: es la forma comoda de ir mirando el estado de las variables mientras el
+                script corre.
+            </p>
+        </section>
+
+        <!--
+            Este script puede ir al final del documento porque no escribe nada en la
+            pagina: manda todo a la consola de depuracion del navegador.
+        -->
+        <script type="text/javascript">
+
+            // La sentencia de envio a la consola de depuracion es console.log (pag. 11)
+            console.log("Hola, este es un mensaje mandado con console.log()");
+
+            // Tambien se le puede pasar una variable en lugar de un texto fijo
+            let nombreMateria = "Programacion en Ambiente de Redes";
+            let anio = 2025;
+
+            console.log(nombreMateria);
+            console.log(anio);
+
+            // El operador typeof da como resultado el tipo de una determinada variable (pag. 7)
+            console.log("El tipo de nombreMateria es: " + typeof nombreMateria);   // string
+            console.log("El tipo de anio es: " + typeof anio);                     // number
+
+            // Una variable declarada pero sin asignar vale undefined y su tipo es undefined (pag. 6)
+            let sinAsignar;
+            console.log("Una variable recien declarada vale: " + sinAsignar);
+            console.log("y su tipo es: " + typeof sinAsignar);
+
+            /*
+                console.error() escribe en rojo en la consola. Lo usamos para mostrar
+                como se ve un error de ejecucion, que es justamente lo que venimos a
+                buscar cuando abrimos el debugger.
+            */
+            console.error("Este es un mensaje de error de ejemplo, escrito a proposito.");
+
+        </script>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>

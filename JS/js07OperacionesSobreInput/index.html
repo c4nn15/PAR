@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js07 - Operaciones sobre un input</title>
+    <meta name="addsearch-category" content="JavaScript, input, parseInt, addEventListener, innerHTML" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Operaciones sobre un input</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                El elemento <strong>&lt;input&gt;</strong> del HTML es, dentro de JavaScript, un
+                objeto del DOM. Se lo consigue con <strong>document.getElementById("x")</strong> y
+                lo que escribio el usuario esta en su propiedad <strong>value</strong> (pag. 16 del
+                apunte).
+            </p>
+
+            <p>
+                Ese <em>value</em> es <strong>siempre de tipo string</strong>, aunque el usuario
+                haya escrito un numero. Para poder operar aritmeticamente hay que convertirlo con
+                <strong>parseInt()</strong> (pag. 18). Si no lo hacemos, el operador + concatena en
+                lugar de sumar: probalo con el segundo boton.
+            </p>
+
+            <p>
+                Ademas, aca ya no se usa el atributo <em>onclick</em>: el manejador del evento se
+                define con <strong>addEventListener()</strong> en el archivo
+                <strong>script.js</strong>, que esta separado del HTML (pag. 17).
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Probalo</h2>
+
+            <p>Escribi un numero y pedile al programa que le sume 10:</p>
+
+            <!-- El input no tiene atributo name porque no va a ser enviado por un
+                 formulario: solo lo usa JavaScript. El id lo identifica univocamente -->
+            <input type="text" id="x" placeholder="Escribi un numero" />
+
+            <br />
+
+            <button id="btnSumar">Sumar 10 (con parseInt)</button>
+            <button id="btnConcatenar">Sumar 10 (sin parseInt)</button>
+            <button id="btnTipo">Ver el tipo del value</button>
+
+            <div id="resultado"></div>
+        </section>
+
+        <section>
+            <h2>3) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>document.getElementById("x")</strong> &rarr; devuelve el objeto del DOM
+                    cuyo id es "x".
+                </li>
+
+                <li>
+                    <strong>.value</strong> &rarr; propiedad con el valor que introdujo el usuario.
+                    Siempre string.
+                </li>
+
+                <li>
+                    <strong>parseInt(...)</strong> &rarr; recibe un string y lo convierte en tipo
+                    numerico. <em>parseInt("40 grados")</em> devuelve 40.
+                </li>
+
+                <li>
+                    <strong>addEventListener("click", function() { ... })</strong> &rarr; asocia una
+                    funcion anonima al evento click del boton.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <!-- El JavaScript vive en su propio archivo, igual que el CSS vive en estilo.css.
+         Se enlaza al final del body para que los elementos ya existan cuando el
+         script los busque con getElementById -->
+    <script src="./script.js"></script>
+
+</body>
+</html>

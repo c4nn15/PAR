@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js08 - Operaciones entre inputs</title>
+    <meta name="addsearch-category" content="JavaScript, operadores aritmeticos, parseInt, eventos" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Operaciones entre inputs</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Lo mismo que en el ejercicio anterior pero con <strong>dos operandos</strong>: se
+                leen los dos inputs, se convierten los dos con <strong>parseInt()</strong> y se
+                aplican los operadores de operacion aritmetica del apunte (pag. 9):
+                <strong>+ &nbsp; - &nbsp; * &nbsp; / &nbsp; %</strong>.
+            </p>
+
+            <p>
+                Cada boton tiene su propio manejador de evento definido con
+                <strong>addEventListener()</strong> dentro de <strong>script.js</strong>. El
+                resultado se escribe en el div de abajo con <em>innerHTML</em>.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Probalo</h2>
+
+            <p>
+                <label for="a">Primer numero:</label>
+                <input type="text" id="a" placeholder="Ej: 10" />
+            </p>
+
+            <p>
+                <label for="b">Segundo numero:</label>
+                <input type="text" id="b" placeholder="Ej: 3" />
+            </p>
+
+            <button id="btnSuma">Sumar (+)</button>
+            <button id="btnResta">Restar (-)</button>
+            <button id="btnMultiplicar">Multiplicar (*)</button>
+            <button id="btnDividir">Dividir (/)</button>
+            <button id="btnResto">Resto (%)</button>
+
+            <div id="resultado"></div>
+        </section>
+
+        <section>
+            <h2>3) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>parseInt(document.getElementById('a').value)</strong> &rarr; se aplica a
+                    los dos operandos, no a uno solo.
+                </li>
+
+                <li>
+                    <strong>+ - * / %</strong> &rarr; operadores de operacion aritmetica. El % da el
+                    resto de la division entera.
+                </li>
+
+                <li>
+                    <strong>isNaN(valor)</strong> &rarr; pregunta si la conversion fallo, para
+                    avisarle al usuario en lugar de mostrarle un resultado roto.
+                </li>
+
+                <li>
+                    <strong>if / else</strong> &rarr; expresion condicional, con el bloque de codigo
+                    entre llaves.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>

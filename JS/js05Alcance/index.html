@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js05 - Alcance de las variables</title>
+    <meta name="addsearch-category" content="JavaScript, var, let, const, alcance, ambito de bloque" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Alcance de las variables</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Las tres palabras clave para declarar variables no se diferencian por el tipo de
+                dato, sino por el <strong>alcance</strong> (pag. 5 y 6 del apunte):
+            </p>
+
+            <ul>
+                <li>
+                    <strong>var</strong> &rarr; alcance global o local segun donde se declare, si es
+                    afuera o adentro de una funcion. Se puede redeclarar y reasignar. Es la forma
+                    mas flexible, pero tambien la mas peligrosa.
+                </li>
+
+                <li>
+                    <strong>let</strong> &rarr; alcance a nivel de bloque, o sea el codigo delimitado
+                    por llaves { } de un if o de un bucle. Se reasigna sin problema dentro del
+                    ambito, pero no se puede redeclarar. Por eso es la que mas se usa.
+                </li>
+
+                <li>
+                    <strong>const</strong> &rarr; alcance de bloque, y no admite ni redeclaracion ni
+                    reasignacion. Si se intenta, aparece el error en la consola del navegador.
+                </li>
+            </ul>
+
+            <p>
+                Ojo con la trampa: <strong>si dentro de una funcion se hace una simple asignacion
+                sin declarar</strong>, la variable queda creada con alcance global (pag. 6 y 7).
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Que paso al ejecutar</h2>
+
+            <div id="resultado"></div>
+
+            <p>
+                Los mismos resultados estan mandados a la consola con <em>console.log()</em>:
+                abrila con F12 para verlos.
+            </p>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <script type="text/javascript">
+
+        /* ------------------------------------------------------------------
+           var fuera de toda funcion: alcance GLOBAL.
+           Puede ser leida y reasignada desde cualquier funcion del documento.
+           ------------------------------------------------------------------ */
+        var variableGlobal = "valor original, declarada con var afuera de todo";
+
+        /* ------------------------------------------------------------------
+           let dentro de un bloque: alcance de BLOQUE.
+           Nace y muere entre las llaves, tiene una vida muy corta.
+           ------------------------------------------------------------------ */
+        if (true) {
+            let variableDeBloque = "solo existo adentro de este if";
+            console.log("Adentro del bloque, variableDeBloque vale: " + variableDeBloque);
+        }
+
+        // Aca afuera esa variable ya no existe. Lo preguntamos con typeof, que
+        // no rompe el programa aunque la variable no este declarada.
+        let existeAfuera = (typeof variableDeBloque !== "undefined");
+
+        /* ------------------------------------------------------------------
+           const: ni redeclaracion ni reasignacion.
+           La linea de abajo esta comentada A PROPOSITO porque detendria el
+           script. Descomentala y mira el error "Assignment to constant
+           variable" en la consola del navegador (pag. 6).
+           ------------------------------------------------------------------ */
+        const PI = 3.14;
+        // PI = 3.1416;
+
+        /* ------------------------------------------------------------------
+           La trampa del alcance: adentro de la funcion no se usa ninguna
+           palabra clave, solo se asigna. Esa simple asignacion genera una
+           variable de alcance global (pag. 6).
+           ------------------------------------------------------------------ */
+        function procedimientoQueEnsucia() {
+            variableGlobal = "valor NUEVO, reasignado desde adentro de la funcion";
+            variableSinDeclarar = "naci adentro de la funcion pero quede global";
+        }
+
+        // Antes de invocar la funcion, variableSinDeclarar todavia no existe
+        let existiaAntes = (typeof variableSinDeclarar !== "undefined");
+
+        procedimientoQueEnsucia();
+
+        let existeDespues = (typeof variableSinDeclarar !== "undefined");
+
+        // Volcado de resultados en el documento
+        document.getElementById("resultado").innerHTML =
+            "<p>variableGlobal (var, afuera) ahora vale: <strong>" + variableGlobal + "</strong></p>" +
+            "<p>La let del bloque, &iquest;existe afuera del if? <strong>" + existeAfuera + "</strong></p>" +
+            "<p>La constante PI sigue valiendo: <strong>" + PI + "</strong></p>" +
+            "<p>variableSinDeclarar, &iquest;existia antes de llamar a la funcion? <strong>" +
+            existiaAntes + "</strong></p>" +
+            "<p>&iquest;Y despues de llamarla? <strong>" + existeDespues +
+            "</strong> &mdash; vale: " + variableSinDeclarar + "</p>";
+
+        console.log("variableGlobal: " + variableGlobal);
+        console.log("La let de bloque existe afuera del if: " + existeAfuera);
+        console.log("variableSinDeclarar quedo global: " + existeDespues);
+
+    </script>
+
+</body>
+</html>

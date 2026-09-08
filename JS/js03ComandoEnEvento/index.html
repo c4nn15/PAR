@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js03 - Comando en un atributo de evento</title>
+    <meta name="addsearch-category" content="JavaScript, onclick, evento, innerHTML, getElementById" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Comando en un atributo de evento</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Otro lugar donde se puede escribir JavaScript es como valor de un
+                <strong>atributo de evento</strong> de una etiqueta HTML, por ejemplo
+                <strong>onclick=""</strong> (pag. 12 del apunte). Es lo mismo que escribir CSS
+                dentro de un atributo <em>style</em>.
+            </p>
+
+            <p>
+                Dentro del atributo las comillas son dobles, asi que el texto que va adentro del
+                comando se escribe con <strong>comillas simples</strong>, para no cortar el valor
+                del atributo.
+            </p>
+
+            <p>
+                <strong>Importante:</strong> es valido, pero mezclar HTML y JavaScript no es
+                aconsejable. A partir del ejercicio 7 se reemplaza por
+                <em>addEventListener()</em> al final del documento (pag. 17).
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Un alert() disparado desde onclick</h2>
+
+            <!-- Etiqueta <button>. El atributo de evento onclick guarda el codigo
+                 que se ejecuta al hacer clic. "Click aqui..." es el nodo de texto
+                 del elemento button (pag. 12) -->
+            <button onclick="alert('Mensaje de alerta disparado desde el atributo onclick')">
+                Click aqui para ejecutar un alert()
+            </button>
+
+            <!-- El evento no es exclusivo de los botones: cualquier etiqueta lo acepta -->
+            <p onclick="alert('Tambien se puede hacer clic sobre un simple parrafo')">
+                (Y este parrafo tambien responde al clic: probalo.)
+            </p>
+        </section>
+
+        <section>
+            <h2>3) Escritura sobre un nodo de texto</h2>
+
+            <p>
+                Una vez cerrado el flujo de escritura ya no se puede usar
+                <em>document.write()</em>, porque pisaria el documento original. Para escribir
+                dentro de un evento se busca el elemento con
+                <strong>document.getElementById()</strong> y se le cambia la propiedad
+                <strong>innerHTML</strong> (pag. 13).
+            </p>
+
+            <button onclick="document.getElementById('resultado').innerHTML = '<h2>Escrito con innerHTML desde el evento onclick</h2>'">
+                Escribir en el div de abajo
+            </button>
+
+            <button onclick="document.getElementById('resultado').innerHTML = ''">
+                Borrar
+            </button>
+
+            <!-- Div vacio: es el destino de la escritura. Su id lo identifica
+                 univocamente dentro del documento -->
+            <div id="resultado"></div>
+        </section>
+
+        <section>
+            <h2>4) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>onclick="codigo"</strong> &rarr; atributo de evento: guarda el codigo a
+                    ejecutar al hacer clic sobre la etiqueta.
+                </li>
+
+                <li>
+                    <strong>document.getElementById('resultado')</strong> &rarr; metodo aplicado al
+                    objeto <em>document</em> (el primero del DOM) que recibe el valor del atributo
+                    id y devuelve el objeto del DOM buscado.
+                </li>
+
+                <li>
+                    <strong>.innerHTML = '...'</strong> &rarr; propiedad que reemplaza el contenido
+                    HTML de ese elemento.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+</body>
+</html>
