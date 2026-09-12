@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js14 - Variables de tipo objeto</title>
+    <meta name="addsearch-category" content="JavaScript, objetos, arreglos, forEach, innerHTML, checkValidity" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Variables de tipo objeto</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Ademas de los objetos del BOM y del DOM, JavaScript maneja
+                <strong>objetos de estructura de datos</strong>: colecciones
+                <strong>clave:valor</strong> que construye el programador (pag. 5 y 6 del apunte).
+                Cada persona es un objeto <em>{nombre, apellido, fechaNac}</em> y todas se guardan
+                en un arreglo de objetos, solo en memoria.
+            </p>
+
+            <p>
+                Los datos ya no se ingresan con prompt sino en los inputs. Crear persona valida los
+                tres campos con <strong>checkValidity()</strong>, la agrega al arreglo con
+                <strong>push()</strong> y la presentacion se arma recorriendo el arreglo con
+                <strong>forEach()</strong> y escribiendo en <strong>innerHTML</strong>.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Probalo</h2>
+
+            <!-- Contenedor de control: flota a la derecha -->
+            <div id="control">
+                <button id="btnCrear">Crear persona</button>
+                <button id="btnListar">Listar personas</button>
+                <button id="btnOcultar">Ocultar presentacion</button>
+            </div>
+
+            <!-- Contenedor de ingreso de datos. No es un formulario: son
+                 tres inputs sueltos, pero igual pueden llevar required -->
+            <div id="ingreso">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" required />
+
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" required />
+
+                <label for="fechaNac">Fecha de nacimiento</label>
+                <input type="date" id="fechaNac" required />
+            </div>
+
+            <!-- Lugar del documento donde el programa escribe HTML (pag. 9) -->
+            <div id="presentacion"></div>
+        </section>
+
+        <section>
+            <h2>3) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>let objetoPersona = {nombre:"Pablo", apellido:"Galdi", fechaNac:"01/07/1956"};</strong>
+                    &rarr; objeto con pares clave:valor.
+                </li>
+
+                <li>
+                    <strong>let arregloPersonas = [objetoPersona];</strong> y
+                    <strong>arregloPersonas.push({...});</strong> &rarr; arreglo de objetos.
+                </li>
+
+                <li>
+                    <strong>var objetoPersonas = { personas: arregloPersonas };</strong> &rarr; objeto
+                    final que contiene al arreglo (pag. 7).
+                </li>
+
+                <li>
+                    <strong>objetoPersonas.personas.forEach(function(item, indice) { ... });</strong>
+                    &rarr; recorre el arreglo; en cada ciclo item es una persona.
+                </li>
+
+                <li>
+                    <strong>document.getElementById('presentacion').innerHTML = texto;</strong>
+                    &rarr; escribe HTML sin usar document.write() (pag. 9).
+                </li>
+
+                <li>
+                    <strong>style.display = "none"</strong> / <strong>"block"</strong> &rarr; oculta y
+                    muestra la presentacion (pag. 10).
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>

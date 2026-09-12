@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js16 - Formulario de ABM</title>
+    <meta name="addsearch-category" content="JavaScript, formularios, ABM, keyup, focus, checkValidity, disabled, submit" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Formulario de ABM</h1>
+    </header>
+
+    <hr />
+
+    <!-- Texto de fondo: el formulario queda por encima, anclado al viewport -->
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                ABM significa <strong>Alta, Baja y Modificacion</strong>: las tres operaciones
+                basicas sobre un registro. El formulario del medio es un div con
+                <strong>position: fixed</strong>, anclado al viewport y mostrado como una ventana
+                modal: aunque se escrolee este texto, el formulario no se mueve.
+            </p>
+
+            <p>
+                Los botones arrancan deshabilitados. En cada <strong>keyup</strong> y en cada
+                <strong>focus</strong> de los inputs se llama a la funcion <strong>todoListo()</strong>,
+                que valida el formulario completo con <strong>checkValidity()</strong> y habilita o
+                deshabilita los botones con la propiedad <strong>disabled</strong> (pag. 13, 14 y 15
+                del apunte).
+            </p>
+
+            <p>
+                El boton Blanquear se habilita apenas hay algun dato cargado. Alta, Modi y Baja se
+                habilitan solo si el formulario valida: apellido y nombres completos y el saldo
+                entre 100 y 1000. Si se deja de cumplir alguna condicion, vuelven a deshabilitarse.
+            </p>
+
+            <p>
+                Cada operacion pide confirmacion con <strong>confirm()</strong>, asigna el
+                <strong>action</strong> que corresponde (alta.html, modi.html o baja.html), el
+                <strong>method</strong> get, y envia el formulario con <strong>submit()</strong> en
+                una pestana nueva (pag. 12).
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>window.addEventListener("load", function() { cargaInicial(); });</strong>
+                    &rarr; evento de carga inicial del documento.
+                </li>
+
+                <li>
+                    <strong>objApellido.addEventListener("keyup", function() { todoListo(); });</strong>
+                    &rarr; se ejecuta cada vez que se introduce un caracter.
+                </li>
+
+                <li>
+                    <strong>objApellido.addEventListener("focus", function() { todoListo(); });</strong>
+                    &rarr; se ejecuta al enfocar el input.
+                </li>
+
+                <li>
+                    <strong>objBtAlta.disabled = true;</strong> &rarr; true deshabilita y false
+                    habilita el boton.
+                </li>
+
+                <li>
+                    <strong>objApellido.select();</strong> &rarr; pone el foco en el input para
+                    escribir.
+                </li>
+
+                <li>
+                    <strong>var confirma = confirm("Esta seguro de enviar");</strong> &rarr; devuelve
+                    true si se acepta y false si se cancela.
+                </li>
+
+                <li>
+                    <strong>objFormulario.reset();</strong> y <strong>objFormulario.submit();</strong>
+                    &rarr; reset y envio desde JavaScript.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3) Texto de relleno para escrolear</h2>
+
+            <p>
+                Programación en Ambiente de Redes estudia como se construyen aplicaciones que viven
+                repartidas entre un cliente y un servidor. Del lado del cliente, el navegador recibe
+                documentos HTML, les aplica estilos CSS y ejecuta codigo JavaScript que le da
+                comportamiento a cada elemento. Del lado del servidor, un programa recibe los
+                requerimientos, consulta una base de datos y devuelve respuestas.
+            </p>
+
+            <p>
+                Un formulario de ABM es la pieza tipica de esas aplicaciones: permite dar de alta un
+                registro nuevo, modificar uno existente o darlo de baja. Antes de mandar nada al
+                servidor conviene validar los datos en el cliente, para no generar requerimientos
+                inutiles y para darle al usuario una respuesta inmediata cuando se equivoca.
+            </p>
+
+            <p>
+                La validacion HTML5 se declara con atributos como required, min, max, pattern o type.
+                El navegador la ejecuta sola al enviar un formulario con un boton submit, pero desde
+                JavaScript podemos consultarla en cualquier momento con el metodo checkValidity(),
+                aplicado a un input o al formulario completo.
+            </p>
+
+            <p>
+                Los eventos del teclado son una buena oportunidad para hacerlo: keydown ocurre al
+                bajar la tecla, keypress mientras se pulsa y keyup cuando se suelta. En keyup el
+                valor del input ya incluye el caracter recien escrito, por eso es el evento que
+                usamos para validar.
+            </p>
+
+            <p>
+                Cuando el formulario se envia con method get, las variables viajan en la URI del
+                requerimiento, despues del signo de pregunta. Con method post viajarian en el body y
+                la barra de direcciones se veria limpia. En las proximas unidades las paginas alta,
+                modi y baja van a ser programas del servidor que reciban esas variables y operen
+                sobre una tabla de la base de datos.
+            </p>
+
+            <p>
+                Mas adelante tambien vamos a ver que los datos no siempre viajan en un formulario:
+                JavaScript puede enviar y recibir objetos de datos convertidos a texto JSON sin
+                recargar la pagina, y con la creacion dinamica de objetos del DOM armar tablas
+                completas a partir de lo que devuelve el servidor.
+            </p>
+
+            <p>
+                Mientras tanto, lo importante de este ejercicio es separar las responsabilidades:
+                el HTML declara que datos se piden y que reglas deben cumplir, el CSS decide como se
+                ve la ventana modal, y JavaScript decide cuando se habilita cada operacion y hacia
+                donde se envia el formulario.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Ventana modal: div anclado al viewport con position fixed -->
+    <div id="modal">
+        <h2>Cuenta</h2>
+
+        <form id="formABM">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" required />
+
+            <label for="nombres">Nombres</label>
+            <input type="text" id="nombres" name="nombres" required />
+
+            <label for="saldo">Saldo (entre 100 y 1000)</label>
+            <input type="number" id="saldo" name="saldo" min="100" max="1000" required />
+
+            <!-- Todos type="button" y deshabilitados de entrada -->
+            <div id="botonera">
+                <button type="button" id="btnBlanquear" disabled>Blanquear</button>
+                <button type="button" id="btnAlta" disabled>Alta</button>
+                <button type="button" id="btnModi" disabled>Modi</button>
+                <button type="button" id="btnBaja" disabled>Baja</button>
+            </div>
+        </form>
+    </div>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js13 - Traduccion segun el idioma del navegador</title>
+    <meta name="addsearch-category" content="JavaScript, BOM, navigator, languages, substr, traduccion" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <!-- El texto de este h1 lo escribe JavaScript segun el idioma
+             configurado en el navegador. Queda vacio en el html. -->
+        <h1 id="titulo"></h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                El objeto <strong>window.navigator</strong> del BOM tiene las propiedades del
+                navegador. Entre ellas, <strong>window.navigator.languages</strong> es un array con
+                los lenguajes declarados en la configuracion; el primer elemento es el
+                <em>default language</em> y es de tipo string (pag. 1 del apunte).
+            </p>
+
+            <p>
+                Con <strong>substr(0, 2)</strong> nos quedamos con las dos primeras letras
+                ("es-AR" &rarr; "es", "en-US" &rarr; "en", pag. 3) y con un condicional elegimos en
+                que idioma se escribe el titulo.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Probalo</h2>
+
+            <p>
+                En el navegador: <strong>Configuracion &rarr; Idiomas</strong>. Subi el ingles arriba
+                de todo de la lista y recarga esta pagina con <strong>F5</strong>: el titulo tiene que
+                aparecer en ingles. Volve a subir el espanol para dejarlo como estaba.
+            </p>
+        </section>
+
+        <section>
+            <h2>3) Lo que informa el BOM de este navegador</h2>
+
+            <div id="resultado"></div>
+        </section>
+
+        <section>
+            <h2>4) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>window.navigator.languages[0]</strong> o bien
+                    <strong>window.navigator.language</strong> &rarr; el idioma default, tipo string.
+                </li>
+
+                <li>
+                    <strong>cadena.substr(inicio, longitud)</strong> &rarr; devuelve un pedazo del
+                    string.
+                </li>
+
+                <li>
+                    <strong>.constructor.name</strong> &rarr; devuelve el prototipo de un objeto, o el
+                    tipo si es un dato simple (pag. 2).
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+/*
+    estilo.css - js17 - Creacion dinamica de objetos
+
+    Galeria de estilos de este documento.
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+/* Default para TODOS los elementos del documento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 2em;
+    color: darkblue;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-top: 15px;
+}
+
+p {
+    margin-top: 10px;
+}
+
+ul {
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+li {
+    margin-top: 8px;
+}
+
+hr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+button {
+    font-size: 1em;
+    padding: 5px 10px;
+    margin-left: 5px;
+}
+
+/* Botonera anclada a la esquina superior derecha del viewport */
+#botonera {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 8px;
+    background-color: lightyellow;
+    border: 1px solid gray;
+}
+
+/* Contenedor centrado: ancho fijo con margenes automaticos a los
+   costados. overflow-y: auto agrega la barra de scroll cuando los
+   objetos creados no entran. */
+#contenedor {
+    width: 400px;
+    max-width: 100%;
+    height: 350px;
+    margin: 15px auto 0 auto;
+    padding: 10px;
+    overflow-y: auto;
+    border: 2px solid darkblue;
+    background-color: whitesmoke;
+}
+
+/* Clase que JavaScript le asigna a cada objeto creado con className */
+.claseObjetoDinamico {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid steelblue;
+    border-radius: 6px;
+    background-color: lightblue;
+    text-align: center;
+}
+
+.claseObjetoDinamico h1 {
+    font-size: 1.2em;
+}
+
+footer {
+    margin-top: 15px;
+}

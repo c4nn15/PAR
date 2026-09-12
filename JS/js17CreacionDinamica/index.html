@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js17 - Creacion dinamica de objetos</title>
+    <meta name="addsearch-category" content="JavaScript, DOM, createElement, appendChild, removeChild, childNodes" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <!-- Botonera anclada a una esquina del viewport -->
+    <div id="botonera">
+        <button id="btnCrear">Crear</button>
+        <button id="btnLimpiar">Limpiar</button>
+        <button id="btnInfo">Info</button>
+    </div>
+
+    <header>
+        <h1>Creacion de objetos</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Aca no se trata de mostrar y ocultar con <em>display</em>: los objetos del DOM se
+                <strong>crean de la nada</strong> con <strong>document.createElement()</strong> y se
+                agregan al contenedor con <strong>appendChild()</strong> (pag. 17 del apunte).
+            </p>
+
+            <p>
+                JavaScript no tiene un comando clasico para borrar de un saque todo lo que hay dentro
+                de un contenedor, asi que Limpiar hace un barrido y los va eliminando uno por uno con
+                <strong>removeChild()</strong> (pag. 18). Info recorre el array
+                <strong>childNodes</strong> del contenedor.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Probalo</h2>
+
+            <p>
+                Usa los botones de la esquina superior derecha. Cuando haya muchos elementos, el
+                contenedor se escrolea.
+            </p>
+
+            <!-- El contenedor se escribe SIN espacios ni saltos de linea
+                 adentro: esos espacios serian nodos de texto y childNodes
+                 los contaria como hijos. -->
+            <div id="contenedor"></div>
+        </section>
+
+        <section>
+            <h2>3) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>var objDiv = document.createElement("div");</strong> &rarr; crea en
+                    memoria un nuevo objeto del DOM.
+                </li>
+
+                <li>
+                    <strong>objDiv.innerHTML = textoHtml;</strong> y
+                    <strong>objDiv.className = "claseObjetoDinamico";</strong> &rarr; contenido y
+                    clase de estilo, todavia solo en memoria.
+                </li>
+
+                <li>
+                    <strong>document.getElementById("contenedor").appendChild(objDiv);</strong> &rarr;
+                    lo agrega al contenedor y lo convierte en elemento HTML.
+                </li>
+
+                <li>
+                    <strong>childNodes.length</strong> &rarr; cantidad de nodos hijos del contenedor.
+                </li>
+
+                <li>
+                    <strong>while (contenedor.childNodes.length &gt; 0) { contenedor.removeChild(contenedor.childNodes[0]); }</strong>
+                    &rarr; borra siempre el primer nodo hasta que no quede ninguno.
+                </li>
+
+                <li>
+                    Otras formas de vaciar el contenedor (pag. 19):
+                    <strong>replaceChildren()</strong> sin argumento, o
+                    <strong>innerHTML = ""</strong>, menos eficiente porque obliga a iniciar el parser.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>

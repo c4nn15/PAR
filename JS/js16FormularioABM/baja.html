@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Respuesta a la baja</title>
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<!-- Recurso asignado desde JavaScript al atributo action del <form>
+     cuando se pulsa el boton Baja. Es una pagina estatica: mas adelante
+     sera un programa del servidor que reciba las variables. -->
+<body>
+
+    <header>
+        <h1>Respuesta a la baja</h1>
+    </header>
+
+    <hr />
+
+    <section>
+        <p>
+            Esta pagina recibe el requerimiento para <strong>dar de baja un registro</strong>.
+        </p>
+
+        <p>
+            <strong>Mirá la barra de direcciones:</strong> el formulario se envió con
+            <strong>method = "get"</strong>, así que las variables viajan en la URI, por ejemplo:
+        </p>
+
+        <p style="background-color:lightyellow;border:solid;padding:8px">
+            baja.html<strong>?</strong>apellido=Witt<strong>&amp;</strong>nombres=Jose<strong>&amp;</strong>saldo=101
+        </p>
+    </section>
+
+    <hr />
+
+    <footer>
+        <p><a href="./index.html">Volver al formulario de ABM</a></p>
+    </footer>
+
+</body>
+</html>

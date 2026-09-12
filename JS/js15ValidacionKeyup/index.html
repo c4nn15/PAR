@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>js15 - Validacion en el evento keyup</title>
+    <meta name="addsearch-category" content="JavaScript, formularios, keyup, checkValidity, submit, reset" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Validacion de un input de formulario en el evento onkeyup</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Hasta ahora la validacion HTML5 ocurria al enviar el formulario. Aca la misma
+                validacion se ejecuta desde JavaScript con <strong>checkValidity()</strong> en el
+                evento <strong>keyup</strong>: cada vez que se suelta una tecla (pag. 13 del apunte).
+            </p>
+
+            <p>
+                Los botones no son de tipo submit ni reset: el formulario se envia y se resetea desde
+                JavaScript con los metodos <strong>submit()</strong> y <strong>reset()</strong>
+                (pag. 12).
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Probalo</h2>
+
+            <p>
+                Escribi 1, despues 5 (queda 15, valido) y despues otro 5: 155 esta fuera de rango,
+                aparece la alerta y el input se blanquea.
+            </p>
+
+            <!-- Contenedor de fondo celeste con el formulario -->
+            <div id="caja">
+                <form id="miform">
+                    <label for="dia">Dia del mes (1 a 31)</label>
+                    <input type="number" id="dia" name="dia" min="1" max="31" step="1" required />
+
+                    <label for="mes">Mes (1 a 12)</label>
+                    <input type="number" id="mes" name="mes" min="1" max="12" step="1" required />
+
+                    <!-- type="button": no envian ni resetean por si solos -->
+                    <button type="button" id="btnEnviar">Enviar</button>
+                    <button type="button" id="btnReset">Reset</button>
+                </form>
+            </div>
+        </section>
+
+        <section>
+            <h2>3) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>objDia.addEventListener("keyup", function() { ... });</strong> &rarr;
+                    handler que se ejecuta al levantar el dedo de la tecla.
+                </li>
+
+                <li>
+                    <strong>if (!objDia.checkValidity())</strong> &rarr; true si el input NO cumple
+                    con la validacion HTML5 (min, max, step, required).
+                </li>
+
+                <li>
+                    <strong>document.getElementById("miform").method = "get";</strong> y
+                    <strong>.action = "./respuestaFormulario.html";</strong> &rarr; atributos del
+                    formulario asignados dinamicamente.
+                </li>
+
+                <li>
+                    <strong>document.getElementById("miform").submit();</strong> /
+                    <strong>.reset();</strong> &rarr; envio y reset desde JavaScript.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>

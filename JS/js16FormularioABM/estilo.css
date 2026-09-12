@@ -1,0 +1,117 @@
+/*
+    estilo.css - js16 - Formulario de ABM
+
+    Galeria de estilos de este documento (lo usan tambien alta.html,
+    modi.html y baja.html).
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+/* Default para TODOS los elementos del documento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 2em;
+    color: darkblue;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-top: 15px;
+}
+
+p {
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+ul {
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+li {
+    margin-top: 8px;
+}
+
+hr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+input,
+button {
+    font-size: 1em;
+    padding: 5px;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+/* El texto de fondo se ve atenuado para que resalte la ventana modal */
+main {
+    color: gray;
+}
+
+/* VENTANA MODAL: anclada al viewport con position fixed.
+   top/left 50% ubican su esquina en el centro del viewport y
+   transform la corre la mitad de su propio tamaño para centrarla. */
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 340px;
+    max-width: 90%;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid darkblue;
+    border-radius: 8px;
+    box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.4);
+}
+
+#modal h2 {
+    margin-top: 0;
+    color: darkblue;
+}
+
+#modal label,
+#modal input {
+    display: block;
+    width: 100%;
+}
+
+#modal label {
+    margin-top: 10px;
+}
+
+#modal input {
+    margin-top: 3px;
+}
+
+#botonera {
+    margin-top: 10px;
+}
+
+/* Un boton deshabilitado se ve apagado */
+button:disabled {
+    color: silver;
+    cursor: not-allowed;
+}
+
+footer {
+    margin-top: 15px;
+}

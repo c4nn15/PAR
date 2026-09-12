@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Respuesta del formulario</title>
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<!-- Recurso asignado desde JavaScript al atributo action del <form>.
+     Es una pagina estatica: no procesa nada, solo recibe el requerimiento. -->
+<body>
+
+    <header>
+        <h1>Formulario recibido</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>&iquest;Dónde están los datos que cargaste?</h2>
+
+            <p>
+                <strong>Mirá la barra de direcciones de esta pestaña.</strong>
+                Vas a ver algo como:
+            </p>
+
+            <p style="background-color:lightyellow;border:solid;padding:8px">
+                respuestaFormulario.html<strong>?</strong>dia=15<strong>&amp;</strong>mes=9
+            </p>
+
+            <p>
+                El formulario se envió desde JavaScript con <strong>submit()</strong> y con
+                <strong>method = "get"</strong>: las variables viajan en la URI del
+                requerimiento, después del signo de pregunta y separadas por &amp;.
+            </p>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="./index.html">Volver al formulario</a></p>
+        <p><a href="../index.html">Volver al indice de JavaScript</a></p>
+    </footer>
+
+</body>
+</html>
