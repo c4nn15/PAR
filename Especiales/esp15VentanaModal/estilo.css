@@ -1,0 +1,193 @@
+/*
+    estilo.css - esp15 - Ventana modal
+
+    Galeria de estilos de este documento.
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 2em;
+    color: darkblue;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-top: 15px;
+}
+
+p {
+    margin-top: 10px;
+}
+
+ul {
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+li {
+    margin-top: 8px;
+}
+
+hr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+button {
+    font-size: 1em;
+    padding: 8px 16px;
+    background-color: #1d3557;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #457b9d;
+}
+
+/* ------------------------------------------------------------------------
+   EL DIV CONTENEDOR (el fondo de la pagina)
+   ------------------------------------------------------------------------ */
+#contenedor {
+    margin-top: 15px;
+    padding: 15px;
+    border: 2px solid #a8dadc;
+    border-radius: 6px;
+    /* opacity y pointer-events los pisan las clases de abajo segun el estado */
+    transition: opacity 0.2s;
+}
+
+#contenedor .ayuda {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Activado: se ve normal y responde a los clicks */
+div.contenedorActivo {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Desactivado: transparente y no responde a los clicks (pag. 9 del apunte) */
+div.contenedorPasivo {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* ------------------------------------------------------------------------
+   LA VENTANA MODAL: fija al centro del viewport, por encima de todo
+   ------------------------------------------------------------------------ */
+#ventanaModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+    max-width: 440px;
+    max-height: 85vh;
+    overflow-y: auto;
+
+    background-color: white;
+    border: 2px solid #1d3557;
+    border-radius: 6px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+
+    z-index: 20;
+}
+
+.encabezadoModal {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 15px;
+    background-color: #1d3557;
+    color: white;
+    font-weight: bold;
+}
+
+.encabezadoModal button {
+    padding: 2px 10px;
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+.cuerpoModal {
+    padding: 15px;
+}
+
+.pieModal {
+    padding: 10px 15px;
+    background-color: #f1faee;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* Apagado: fuera de la vista pero sigue ocupando su lugar (position:fixed
+   hace que en la practica esto no importe) */
+div.ventanaModalApagado {
+    visibility: hidden;
+}
+
+/* Prendido: visible */
+div.ventanaModalPrendido {
+    visibility: visible;
+}
+
+/* Formulario dentro del modal (mismas reglas que esp05/esp20) */
+.cuerpoModal .ayuda {
+    font-size: 0.85em;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.campo {
+    margin-bottom: 12px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    font-size: 1em;
+    padding: 6px 8px;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+#btEnviar {
+    width: 100%;
+}
+
+footer {
+    margin-top: 15px;
+}

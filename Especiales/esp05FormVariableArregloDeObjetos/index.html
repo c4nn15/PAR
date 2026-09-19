@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>esp05 - Formulario + variable JSON + arreglo de objetos</title>
+    <meta name="addsearch-category" content="JSON, JSON.parse, jQuery, arreglo de objetos, formulario, select dinamico" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Formulario + variable + arreglo de objetos</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                La tabla principal (clientes) y la tabla auxiliar (sucursales) viajan como
+                <strong>texto JSON</strong> en dos variables, declaradas en archivos aparte:
+                <strong>../clientes.js</strong> y <strong>../sucursales.js</strong> (pag. 2 del
+                apunte de especiales). Ese texto se convierte en un objeto real de Java script
+                con <strong>JSON.parse()</strong>, y el atributo <strong>clientes</strong>
+                (o <strong>sucursales</strong>) de ese objeto es un <strong>arreglo de
+                objetos</strong> (pag. 1 a 6 del apunte de json).
+            </p>
+
+            <p>
+                Esta pagina tambien enlaza por primera vez la libreria <strong>jQuery</strong>
+                (../jquery.js). Se usa <strong>$(document).ready()</strong> en lugar de
+                <strong>window.addEventListener("load", ...)</strong>, y el metodo
+                <strong>click()</strong> de jQuery en lugar de la propiedad onClick (pag. 3 del
+                apunte de especiales).
+            </p>
+
+            <p>
+                El <strong>&lt;select&gt;</strong> de sucursal arranca vacio en el HTML: sus
+                <strong>&lt;option&gt;</strong> se crean en memoria con
+                <strong>document.createElement("option")</strong> y se agregan con
+                <strong>appendChild()</strong>, recorriendo el arreglo de sucursales con
+                <strong>forEach()</strong> (pag. 5 y 6 del apunte de json).
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Probalo</h2>
+
+            <p>
+                Completa el formulario y apreta <strong>Agregar cliente</strong>: el objeto nuevo
+                se agrega (con <strong>push()</strong>) al arreglo de clientes que quedo armado en
+                memoria al parsear el JSON. El contador de abajo muestra cuantos objetos tiene el
+                arreglo en este momento (arranca en 10, los que trae <strong>clientes.js</strong>).
+            </p>
+
+            <form id="formCliente">
+
+                <div class="campo">
+                    <label for="codCliente">Codigo de cliente:</label>
+                    <input type="text" id="codCliente" name="codCliente" required>
+                </div>
+
+                <div class="campo">
+                    <label for="selSucursal">Sucursal:</label>
+                    <!-- Vacio a proposito: lo llena script.js con las opciones del JSON -->
+                    <select id="selSucursal" name="selSucursal" required>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="direccionEntrega">Direccion de entrega:</label>
+                    <input type="text" id="direccionEntrega" name="direccionEntrega" required>
+                </div>
+
+                <div class="campo">
+                    <label for="selDia">Dia semanal para entregas:</label>
+                    <!-- Parametrizable: se elige de una lista fija, no de texto libre -->
+                    <select id="selDia" name="selDia" required>
+                        <option value="Lunes">Lunes</option>
+                        <option value="Martes">Martes</option>
+                        <option value="Miercoles">Miercoles</option>
+                        <option value="Jueves">Jueves</option>
+                        <option value="Viernes">Viernes</option>
+                        <option value="Sabado">Sabado</option>
+                        <option value="Domingo">Domingo</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="costoPromedioTransporte">Costo promedio de transporte:</label>
+                    <input type="number" id="costoPromedioTransporte" name="costoPromedioTransporte" min="0" step="1" required>
+                </div>
+
+                <div class="campo">
+                    <label for="fechaUltimaEntrega">Fecha de ultima entrega:</label>
+                    <input type="date" id="fechaUltimaEntrega" name="fechaUltimaEntrega" required>
+                </div>
+
+                <div class="campo">
+                    <label for="fotoPuntoEntrega">Foto del punto de entrega:</label>
+                    <!-- Nombre de archivo de texto: no se maneja la imagen en si -->
+                    <input type="text" id="fotoPuntoEntrega" name="fotoPuntoEntrega" placeholder="ej: cli011.jpg">
+                </div>
+
+                <!-- Corte de flotacion: los .campo de arriba estan flotados,
+                     asi que sin este div la botonera se treparia al costado
+                     del ultimo campo en lugar de quedar debajo de todos -->
+                <div class="nuevaFila"></div>
+
+                <div class="botonera">
+                    <button type="button" id="btAgregar">Agregar cliente</button>
+                </div>
+
+            </form>
+
+            <p id="pContador"></p>
+        </section>
+
+        <section>
+            <h2>3) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>var objJsonClientes = JSON.parse(textoJSONClientes);</strong> &rarr;
+                    convierte el texto JSON en un objeto real, con su arreglo adentro.
+                </li>
+
+                <li>
+                    <strong>objJsonSucursales.sucursales.forEach(function(argValor) {...});</strong>
+                    &rarr; recorre el arreglo de sucursales para armar las &lt;option&gt; del select.
+                </li>
+
+                <li>
+                    <strong>$(document).ready(function() {...});</strong> &rarr; codigo de jQuery
+                    equivalente a esperar a que termine de cargar el documento.
+                </li>
+
+                <li>
+                    <strong>$("#btAgregar").click(function() {...});</strong> &rarr; listener de
+                    evento con jQuery, en lugar de addEventListener().
+                </li>
+
+                <li>
+                    <strong>arrClientes.push(objNuevoCliente);</strong> &rarr; agrega el objeto
+                    armado con los datos del formulario al final del arreglo, en memoria.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de Especiales</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <!-- Orden importa: primero la libreria, despues los datos, al final el script propio -->
+    <script src="../jquery.js"></script>
+    <script src="../clientes.js"></script>
+    <script src="../sucursales.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+</html>

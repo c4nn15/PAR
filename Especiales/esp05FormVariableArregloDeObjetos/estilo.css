@@ -1,0 +1,165 @@
+/*
+    estilo.css - esp05 - Formulario + variable JSON + arreglo de objetos
+
+    Galeria de estilos de este documento.
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+/* Default para TODOS los elementos del documento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 2em;
+    color: darkblue;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-top: 15px;
+}
+
+p {
+    margin-top: 10px;
+}
+
+ul {
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+li {
+    margin-top: 8px;
+}
+
+hr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/*
+    FORMULARIO RESPONSIVE (misma tecnica que CSS/css27FormularioResponsive,
+    pag. 11 a 14 del apunte de CSS).
+
+    #formCliente ocupa TODO el ancho disponible (el de la ventana, menos el
+    padding del body). Cada .campo flota a la izquierda con float:left, asi
+    que se van acomodando uno al lado del otro hasta que no entran mas y
+    bajan de renglon solos. El ANCHO de cada campo no se fija aca: se define
+    mas abajo, en la consulta de medios, segun el ancho del viewport.
+*/
+#formCliente {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.campo {
+    float: left;
+
+    padding: 6px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    font-size: 1em;
+    padding: 6px 8px;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+/* Corte de flotacion: sin esto la botonera se treparia al costado del
+   ultimo campo en lugar de quedar debajo de todos (pag. 11 del apunte) */
+div.nuevaFila {
+    clear: both;
+}
+
+.botonera {
+    margin-top: 10px;
+    text-align: center;
+}
+
+button {
+    font-size: 1em;
+    padding: 8px 16px;
+    background-color: #1d3557;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #457b9d;
+}
+
+/* ------------------------------------------------------------------------
+   CONSULTA DE MEDIOS (pag. 14 del apunte de CSS)
+
+   Segun el ancho del viewport, cada campo toma un ancho distinto y por lo
+   tanto entran mas o menos campos por fila. Son los mismos 5 cortes que usa
+   css27FormularioResponsive:
+
+        mas de 900px    -> 20%    -> 5 campos por fila
+        entre 700 y 900 -> 25%    -> 4 campos por fila
+        entre 500 y 700 -> 33.33% -> 3 campos por fila
+        entre 380 y 500 -> 50%    -> 2 campos por fila
+        menos de 380px  -> 100%   -> 1 campo por fila
+   ------------------------------------------------------------------------ */
+@media (min-width: 900px) {
+    .campo {
+        width: 20%;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 900px) {
+    .campo {
+        width: 25%;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 700px) {
+    .campo {
+        width: 33.33%;
+    }
+}
+
+@media (min-width: 380px) and (max-width: 500px) {
+    .campo {
+        width: 50%;
+    }
+}
+
+@media (max-width: 380px) {
+    .campo {
+        width: 100%;
+    }
+}
+
+#pContador {
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+footer {
+    margin-top: 15px;
+}

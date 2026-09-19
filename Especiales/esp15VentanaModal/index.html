@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>esp15 - Ventana modal</title>
+    <meta name="addsearch-category" content="jQuery, ventana modal, visibility, opacity, pointer-events, className" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Ventana modal</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Una ventana modal son en realidad DOS elementos: el <strong>contenedor</strong>
+                principal de la pagina, y el <strong>div modal</strong> que aparece por encima. Al
+                abrir el modal, el contenedor de fondo se tiene que <strong>desactivar</strong>: se
+                le baja la opacidad y se le corta la sensibilidad a los clicks con
+                <strong>pointer-events: none</strong>, para que no se pueda interactuar con lo de
+                atras mientras el modal esta abierto (pag. 8 y 9 del apunte de especiales).
+            </p>
+
+            <p>
+                El modal en si usa <strong>visibility</strong> en lugar de <strong>display</strong>:
+                <em>hidden</em> lo saca de la vista pero, a diferencia de <em>display:none</em>,
+                sigue ocupando su lugar (aca no afecta porque esta position:fixed).
+            </p>
+
+            <p>
+                Los cuatro estados son clases CSS (<strong>contenedorActivo</strong>,
+                <strong>contenedorPasivo</strong>, <strong>ventanaModalApagado</strong>,
+                <strong>ventanaModalPrendido</strong>) que JavaScript asigna con
+                <strong>className</strong>. En la version jQuery se usaria en cambio el metodo
+                <strong>attr("class", ...)</strong>.
+            </p>
+
+            <p>
+                Adentro del modal va el mismo <strong>formulario de ALTA</strong> de esp05 y
+                esp20, con su &lt;select&gt; de sucursal poblado desde
+                <strong>sucursales.js</strong>. Este ejercicio no tiene tabla ni arreglo de
+                clientes en memoria: apretar <strong>ENVIAR</strong> solo confirma los datos
+                cargados con un <strong>alert()</strong> y cierra el modal (la version que
+                ademas guarda el cliente en un arreglo y lo agrega a una tabla es
+                <strong>esp20</strong>).
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Prueba</h2>
+
+            <!-- Este es el div contenedor: todo el contenido "de fondo" de la pagina -->
+            <div id="contenedor" class="contenedorActivo">
+                <p>Esto es el div contenedor.</p>
+
+                <button type="button" id="btAbrir">Abre DIV modal</button>
+
+                <p class="ayuda">
+                    Ayudas para el ejercicio: el div contenedor debera ser desactivado cuando se
+                    active la ventana modal. Desactivar el contenedor podria ser darle
+                    transparencia y deshabilitar todos sus botones.
+                </p>
+                <p class="ayuda">
+                    Desactivado: pointer-events: none; opacity: 0.3;<br>
+                    Activado: pointer-events: auto; opacity: 1;
+                </p>
+            </div>
+
+            <!-- Este es el div modal: arranca oculto con visibility:hidden -->
+            <div id="ventanaModal" class="ventanaModalApagado">
+                <div class="encabezadoModal">
+                    Formulario para ALTA - Datos logisticos de cliente
+                    <button type="button" id="btCerrar" aria-label="Cerrar">X</button>
+                </div>
+
+                <div class="cuerpoModal">
+
+                    <form id="formCliente">
+
+                        <div class="campo">
+                            <label for="codCliente">Codigo de cliente:</label>
+                            <input type="text" id="codCliente" name="codCliente" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="selSucursal">Sucursal:</label>
+                            <!-- Vacio a proposito: lo llena script.js con las opciones del JSON -->
+                            <select id="selSucursal" name="selSucursal" required>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="direccionEntrega">Direccion de entrega:</label>
+                            <input type="text" id="direccionEntrega" name="direccionEntrega" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="selDia">Dia semanal para entregas:</label>
+                            <select id="selDia" name="selDia" required>
+                                <option value="Lunes">Lunes</option>
+                                <option value="Martes">Martes</option>
+                                <option value="Miercoles">Miercoles</option>
+                                <option value="Jueves">Jueves</option>
+                                <option value="Viernes">Viernes</option>
+                                <option value="Sabado">Sabado</option>
+                                <option value="Domingo">Domingo</option>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="costoPromedioTransporte">Costo promedio de transporte:</label>
+                            <input type="number" id="costoPromedioTransporte" name="costoPromedioTransporte" min="0" step="1" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="fechaUltimaEntrega">Fecha de ultima entrega:</label>
+                            <input type="date" id="fechaUltimaEntrega" name="fechaUltimaEntrega" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="fotoPuntoEntrega">Foto del punto de entrega:</label>
+                            <input type="text" id="fotoPuntoEntrega" name="fotoPuntoEntrega" placeholder="ej: cli011.jpg">
+                        </div>
+
+                        <button type="button" id="btEnviar">ENVIAR</button>
+                    </form>
+                </div>
+
+                <div class="pieModal">Pie del formulario</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>document.getElementById('contenedor').className =
+                    "contenedorPasivo";</strong> &rarr; desactiva el fondo.
+                </li>
+
+                <li>
+                    <strong>document.getElementById('ventanaModal').className =
+                    "ventanaModalPrendido";</strong> &rarr; muestra el modal.
+                </li>
+
+                <li>
+                    <strong>div.contenedorPasivo { opacity: 0.3; pointer-events: none; }</strong>
+                    &rarr; transparencia y bloqueo de clicks del fondo.
+                </li>
+
+                <li>
+                    <strong>div.ventanaModalPrendido { visibility: visible; }</strong> /
+                    <strong>div.ventanaModalApagado { visibility: hidden; }</strong> &rarr;
+                    muestra u oculta el modal.
+                </li>
+
+                <li>
+                    <strong>$(window).width();</strong> &rarr; objeto del BOM en jQuery: ancho
+                    actual del viewport, mostrado con un alert() al abrir el modal.
+                </li>
+
+                <li>
+                    <strong>poblarSelectSucursales()</strong> &rarr; la misma funcion de esp05:
+                    recorre el arreglo de sucursales con forEach() y arma las &lt;option&gt; del
+                    select con document.createElement("option").
+                </li>
+
+                <li>
+                    <strong>$("#btEnviar").click(function() {...});</strong> &rarr; arma el objeto
+                    cliente con los valores del formulario y lo muestra con
+                    <strong>alert(JSON.stringify(...))</strong>, sin guardarlo en ningun lado.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de Especiales</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <script src="../jquery.js"></script>
+    <script src="../sucursales.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+</html>

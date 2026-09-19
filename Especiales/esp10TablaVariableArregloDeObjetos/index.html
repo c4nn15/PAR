@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>esp10 - Tabla + variable JSON + arreglo de objetos</title>
+    <meta name="addsearch-category" content="JSON, JSON.parse, jQuery, arreglo de objetos, tabla dinamica, createElement" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Tabla + variable + arreglo de objetos</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Mismo punto de partida que el ejercicio anterior: <strong>JSON.parse()</strong>
+                sobre <strong>textoJSONClientes</strong> (declarada en ../clientes.js) devuelve un
+                objeto cuyo atributo <strong>clientes</strong> es un arreglo de objetos.
+            </p>
+
+            <p>
+                Ahora, en lugar de un formulario, ese arreglo se recorre con
+                <strong>forEach()</strong> para armar <strong>filas y celdas de una tabla</strong>,
+                cada una creada en memoria con <strong>document.createElement("tr")</strong> y
+                <strong>document.createElement("td")</strong> y agregada con
+                <strong>appendChild()</strong> (pag. 7 del apunte de json).
+            </p>
+
+            <p>
+                <strong>Vaciar datos</strong> usa <strong>$("#tbDatos").empty()</strong>, un metodo
+                que solo existe en jQuery: vacia de un saque todo el contenido de un contenedor
+                (pag. 4 del apunte de especiales). Sin jQuery habria que recorrer el arreglo de
+                filas y sacarlas de a una con <strong>removeChild()</strong>.
+            </p>
+
+            <p>
+                La tabla nunca se ve realmente "en blanco": hay una <strong>fila de estado
+                vacio</strong> (<em>#filaVacia</em>) escrita a mano en el HTML. Cargar datos la
+                saca antes de agregar las filas reales, y Vaciar datos la vuelve a poner despues
+                del <strong>empty()</strong>, asi la tabla queda igual de visible que al abrir la
+                pagina.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Probalo</h2>
+
+            <div class="botonera">
+                <button type="button" id="btCargar">Cargar datos</button>
+                <button type="button" id="btVaciar">Vaciar datos</button>
+            </div>
+
+            <div class="tablaScroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cod. cliente</th>
+                            <th>Cod. sucursal</th>
+                            <th>Direccion de entrega</th>
+                            <th>Dia de entrega</th>
+                            <th>Costo transporte</th>
+                            <th>Ultima entrega</th>
+                            <th>Foto punto de entrega</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbDatos">
+                        <!-- Fila de estado vacio: script.js la saca al cargar datos y
+                             la vuelve a poner al vaciar, para que la tabla nunca se
+                             vea "en blanco" -->
+                        <tr id="filaVacia">
+                            <td colspan="7">Todavía no se cargaron datos. Apretá "Cargar datos".</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>3) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>arrClientes.forEach(function(argValor) {...});</strong> &rarr; un ciclo
+                    por cada cliente del arreglo.
+                </li>
+
+                <li>
+                    <strong>var objTr = document.createElement("tr");</strong> &rarr; crea en
+                    memoria una fila nueva de la tabla.
+                </li>
+
+                <li>
+                    <strong>var objTd = document.createElement("td"); objTd.innerHTML =
+                    argValor.codCliente; objTr.appendChild(objTd);</strong> &rarr; se repite una
+                    vez por cada atributo del cliente, en el mismo orden que los &lt;th&gt;.
+                </li>
+
+                <li>
+                    <strong>document.getElementById("tbDatos").appendChild(objTr);</strong> &rarr;
+                    recien aca la fila armada se agrega al &lt;tbody&gt; y se ve en pantalla.
+                </li>
+
+                <li>
+                    <strong>$("#tbDatos").empty();</strong> &rarr; vacia el &lt;tbody&gt; completo
+                    (metodo de jQuery, pag. 4 del apunte de especiales).
+                </li>
+
+                <li>
+                    <strong>$("#filaVacia").remove();</strong> / volver a crear esa misma fila
+                    &rarr; asi la tabla siempre muestra algo, nunca queda en blanco.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de Especiales</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <script src="../jquery.js"></script>
+    <script src="../clientes.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+</html>

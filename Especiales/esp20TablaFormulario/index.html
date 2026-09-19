@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>esp20 - Tabla + formulario en ventana modal</title>
+    <meta name="addsearch-category" content="JSON, jQuery, arreglo de objetos, tabla dinamica, formulario, ventana modal" />
+
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Tabla + formulario en ventana modal</h1>
+    </header>
+
+    <hr />
+
+    <main>
+
+        <section>
+            <h2>1) Que se practica aca</h2>
+
+            <p>
+                Este es el ejercicio que junta a los tres anteriores. La tabla de clientes se
+                arma igual que en <strong>esp10</strong> (JSON.parse + forEach + createElement de
+                filas y celdas). El boton <strong>Cargar Form</strong> abre el mismo mecanismo de
+                ventana modal de <strong>esp15</strong> (className + opacity/pointer-events +
+                visibility), pero esta vez el modal no esta vacio: adentro va el formulario de ALTA
+                de <strong>esp05</strong>, con su &lt;select&gt; de sucursal poblado desde
+                <strong>sucursales.js</strong>.
+            </p>
+
+            <p>
+                Al apretar <strong>ENVIAR</strong>, el objeto nuevo se agrega al arreglo de
+                clientes en memoria (<strong>push()</strong>) y se le agrega a la tabla una fila
+                mas, sin volver a cargar toda la tabla de nuevo. El modal se cierra solo.
+            </p>
+        </section>
+
+        <section>
+            <h2>2) Probalo</h2>
+
+            <!-- Div contenedor: TODO el contenido "de fondo", tabla incluida -->
+            <div id="contenedor" class="contenedorActivo">
+
+                <div class="botonera">
+                    <button type="button" id="btCargar">Cargar datos</button>
+                    <button type="button" id="btVaciar">Vaciar datos</button>
+                    <button type="button" id="btAbrirForm">Cargar Form</button>
+                </div>
+
+                <div class="tablaScroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cod. cliente</th>
+                                <th>Cod. sucursal</th>
+                                <th>Direccion de entrega</th>
+                                <th>Dia de entrega</th>
+                                <th>Costo transporte</th>
+                                <th>Ultima entrega</th>
+                                <th>Foto punto de entrega</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbDatos">
+                            <!-- Fila de estado vacio: script.js la saca al cargar datos y
+                                 la vuelve a poner al vaciar, para que la tabla nunca se
+                                 vea "en blanco" -->
+                            <tr id="filaVacia">
+                                <td colspan="7">Todavía no se cargaron datos. Apretá "Cargar datos" o "Cargar Form".</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Ventana modal: arranca apagada -->
+            <div id="ventanaModal" class="ventanaModalApagado">
+                <div class="encabezadoModal">
+                    Formulario para ALTA - Datos logisticos de cliente
+                    <button type="button" id="btCerrar" aria-label="Cerrar">X</button>
+                </div>
+
+                <div class="cuerpoModal">
+                    <form id="formCliente">
+
+                        <div class="campo">
+                            <label for="codCliente">Codigo de cliente:</label>
+                            <input type="text" id="codCliente" name="codCliente" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="selSucursal">Sucursal:</label>
+                            <select id="selSucursal" name="selSucursal" required>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="direccionEntrega">Direccion de entrega:</label>
+                            <input type="text" id="direccionEntrega" name="direccionEntrega" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="selDia">Dia semanal para entregas:</label>
+                            <select id="selDia" name="selDia" required>
+                                <option value="Lunes">Lunes</option>
+                                <option value="Martes">Martes</option>
+                                <option value="Miercoles">Miercoles</option>
+                                <option value="Jueves">Jueves</option>
+                                <option value="Viernes">Viernes</option>
+                                <option value="Sabado">Sabado</option>
+                                <option value="Domingo">Domingo</option>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="costoPromedioTransporte">Costo promedio de transporte:</label>
+                            <input type="number" id="costoPromedioTransporte" name="costoPromedioTransporte" min="0" step="1" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="fechaUltimaEntrega">Fecha de ultima entrega:</label>
+                            <input type="date" id="fechaUltimaEntrega" name="fechaUltimaEntrega" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="fotoPuntoEntrega">Foto del punto de entrega:</label>
+                            <input type="text" id="fotoPuntoEntrega" name="fotoPuntoEntrega" placeholder="ej: cli011.jpg">
+                        </div>
+
+                        <button type="button" id="btEnviar">ENVIAR</button>
+                    </form>
+                </div>
+
+                <div class="pieModal">Pie del formulario</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3) Las instrucciones que hacen el trabajo</h2>
+
+            <ul>
+                <li>
+                    <strong>cargarDatos()</strong> y <strong>vaciarTabla()</strong> &rarr; las
+                    mismas funciones de esp10, para pintar y borrar filas del &lt;tbody&gt; sin
+                    que la tabla quede nunca en blanco (fila <em>#filaVacia</em>).
+                </li>
+
+                <li>
+                    <strong>abrirModal()</strong> / <strong>cerrarModal()</strong> &rarr; las
+                    mismas de esp15, aplicadas ahora al &lt;div id="contenedor"&gt; que envuelve
+                    tambien a la tabla.
+                </li>
+
+                <li>
+                    <strong>$("#btEnviar").click(function() {...});</strong> &rarr; arma el objeto
+                    cliente con los valores del formulario, lo agrega al arreglo con
+                    <strong>push()</strong>, le agrega una fila a la tabla con la misma funcion
+                    <strong>agregarCelda()</strong> de esp10, y cierra el modal.
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr />
+
+    <footer>
+        <p><a href="../index.html">Volver al indice de Especiales</a></p>
+
+        Santiago Cannistra
+        <address>
+            Programación en Ambiente de Redes
+        </address>
+    </footer>
+
+    <script src="../jquery.js"></script>
+    <script src="../clientes.js"></script>
+    <script src="../sucursales.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+</html>
