@@ -17,9 +17,117 @@
          type="text/css"     -> de que tipo de archivo se trata
          href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
     <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    <!-- Estilos del menu desplegable, compartidos por todo el proyecto.
+         El ../ sube a la raiz, donde vive menu.css -->
+    <link rel="stylesheet" type="text/css" href="../menu.css">
 </head>
 
 <body>
+
+    <!--
+        MENU DESPLEGABLE DEL PROYECTO (el mismo del ejercicio css25MenuDesplegable).
+
+        La estructura HTML son dos listas ANIDADAS:
+            - El primer <ul> es la lista de opciones del menu HORIZONTAL.
+            - Adentro de cada <li> de esa lista va otro <ul>, que es el
+              desplegable VERTICAL de esa opcion.
+
+        Todo el trabajo lo hace el CSS (menu.css, en la raiz): los desplegables
+        arrancan con display:none y aparecen con el :hover del li que los contiene.
+    -->
+    <nav id="menu">
+
+        <ul>
+
+            <li>
+                <!-- La cabecera tambien es un enlace: lleva al indice de HTML -->
+                <a href="../HTML/index.html">HTML</a>
+
+                <!-- Esta lista anidada es el desplegable de HTML -->
+                <ul>
+                    <li><a href="../HTML/ejer01Texto/index.html">Texto</a></li>
+                    <li><a href="../HTML/ejer02Tablas/index.html">Tablas</a></li>
+                    <li><a href="../HTML/ejer03Formularios/index.html">Formularios</a></li>
+                    <li><a href="../HTML/ejer04Iframes/index.html">Iframes</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="../CSS/index.html">CSS</a>
+
+                <ul>
+                    <li><a href="../CSS/css01StyleEnHeader/index.html">Style en el header</a></li>
+                    <li><a href="../CSS/css02SelectoresDeClase/index.html">Selectores de clase</a></li>
+                    <li><a href="../CSS/css03StyleEnFile/index.html">Style en el file</a></li>
+                    <li><a href="../CSS/css04FontSize/index.html">Font size</a></li>
+                    <li><a href="../CSS/css07BackgroundFijo/index.html">Background fijo</a></li>
+                    <li><a href="../CSS/css08CentradoYPadding/index.html">Centrado y padding</a></li>
+                    <li><a href="../CSS/css10DivsEnPila/index.html">Divs en pila</a></li>
+                    <li><a href="../CSS/css11DivsEnFila/index.html">Divs en fila</a></li>
+                    <li><a href="../CSS/css14DivsInternosEnColumnas/index.html">Divs en columnas</a></li>
+                    <li><a href="../CSS/css16SelectoresDeEvento/index.html">Selectores de evento</a></li>
+                    <li><a href="../CSS/css20DivsInternosRelativos/index.html">Divs relativos</a></li>
+                    <li><a href="../CSS/css21DivsInternosAbsolutos/index.html">Divs absolutos</a></li>
+                    <li><a href="../CSS/css22CajasFlexibles/index.html">Cajas flexibles</a></li>
+                    <li><a href="../CSS/css25MenuDesplegable/index.html">Menú desplegable</a></li>
+                    <li><a href="../CSS/css27FormularioResponsive/index.html">Formulario RWD</a></li>
+                    <li><a href="../CSS/css29TablaResponsive/index.html">Tabla RWD</a></li>
+                    <li><a href="../CSS/css30LayoutBasico/index.html">Layout básico</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="./index.html">JavaScript</a>
+
+                <ul>
+                    <li><a href="./js01Sentencias/index.html">Sentencias</a></li>
+                    <li><a href="./js02Debugger/index.html">Debugger</a></li>
+                    <li><a href="./js03ComandoEnEvento/index.html">Comando en evento</a></li>
+                    <li><a href="./js04VariablesSimples/index.html">Variables simples</a></li>
+                    <li><a href="./js05Alcance/index.html">Alcance</a></li>
+                    <li><a href="./js06Arreglos/index.html">Arreglos</a></li>
+                    <li><a href="./js07OperacionesSobreInput/index.html">Operaciones sobre input</a></li>
+                    <li><a href="./js08OperacionesEntreInputs/index.html">Operaciones entre inputs</a></li>
+                    <li><a href="./js09FuncionesCompartidas/index.html">Funciones compartidas</a></li>
+                    <li><a href="./js10ConvertirAMayusculas/index.html">Convertir a mayúsculas</a></li>
+                    <li><a href="./js11FuncionFlecha/index.html">Función flecha</a></li>
+                    <li><a href="./js12Location/index.html">Location</a></li>
+                    <li><a href="./js13Traduccion/index.html">Traducción</a></li>
+                    <li><a href="./js14VariablesObjeto/index.html">Variables objeto</a></li>
+                    <li><a href="./js15ValidacionKeyup/index.html">Validación keyup</a></li>
+                    <li><a href="./js16FormularioABM/index.html">Formulario ABM</a></li>
+                    <li><a href="./js17CreacionDinamica/index.html">Creación dinámica</a></li>
+                </ul>
+            </li>
+
+            <!--
+                Estas dos opciones todavia NO tienen desplegable: son los temas
+                que aun no vimos en la materia. Cuando existan los ejercicios se
+                les agrega adentro el <ul>/<ul> con sus <li>, igual que arriba.
+            -->
+            <li>
+                <a href="#">Especiales</a>
+            </li>
+
+            <li>
+                <a href="#">PHP</a>
+            </li>
+
+            <!-- Relleno: estira la barra hasta el borde derecho (ver menu.css) -->
+            <li class="extensor">&nbsp;</li>
+
+        </ul>
+
+    </nav>
+
+    <!--
+        El div de corte es NECESARIO: los li del menu horizontal estan flotados
+        (float:left), asi que no le dan alto al nav. Sin este clear, todo lo que
+        sigue se treparia por encima del menu (pag. 15 de la parte I).
+    -->
+    <div class="nuevaFila"></div>
+
 
     <!-- ETIQUETA SEMANTICA <header>: anida los encabezados del documento -->
     <header>
