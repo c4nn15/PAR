@@ -219,3 +219,47 @@ nav#menu {
 div.nuevaFila {
     clear: both;
 }
+
+/* ------------------------------------------------------------------------
+   MENU EN CELULAR (control de medio @media, igual que en css27 y css29)
+
+   En una pantalla angosta los desplegables de 240px que arrancan en el borde
+   izquierdo de su li se salen por la derecha (sobre todo los de Especiales y
+   PHP). La solucion: que el desplegable ya no se ancle a su li sino a TODO el
+   nav, y que ocupe el ancho completo de la pantalla.
+
+   No hay :hover real en un celular: el primer toque sobre una opcion despliega
+   la lista (en Android ademas navega al indice de esa seccion).
+   ------------------------------------------------------------------------ */
+@media (max-width: 600px) {
+
+    /* El nav pasa a ser el origen de coordenadas de los desplegables */
+    nav#menu {
+        position: relative;
+    }
+
+    #menu ul li {
+        position: static;
+    }
+
+    /* Botones mas compactos para que las 5 opciones entren en una fila
+       (unos 350px en total, entran hasta en un iPhone SE de 375px) */
+    #menu ul a {
+        padding: 10px 8px;
+    }
+
+    /* Desplegable de punta a punta del menu, sin el ancho fijo de 240px */
+    #menu ul ul {
+        left: 0;
+        right: 0;
+    }
+
+    #menu ul ul li {
+        width: auto;
+    }
+
+    /* El relleno ya no hace falta */
+    #menu ul li.extensor {
+        display: none;
+    }
+}
