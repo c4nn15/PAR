@@ -62,3 +62,7 @@ hr {
 footer {
     margin-top: 15px;
 }
+
+.oculto {
+    display: none;
+}

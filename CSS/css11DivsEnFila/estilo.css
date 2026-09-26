@@ -26,6 +26,10 @@
     Estilos aplicables tanto a la clase claseDiv1 como a la claseDiv2.
     Se agrupan los dos selectores separandolos con una coma.
 */
+.oculto {
+    display: none;
+}
+
 div.claseDiv1, div.claseDiv2 {
 
     /* Parametro que permite hacer FLOTAR a la izquierda al elemento html.

@@ -17,6 +17,10 @@
     con una etiqueta <img>, es que esta queda FIJA respecto a un
     posible scrolling del contenido del div.
 */
+.oculto {
+    display: none;
+}
+
 div#cajaConImagenDeFondo {
 
     /* Ruta de la imagen. El ./ significa "en esta misma carpeta" */

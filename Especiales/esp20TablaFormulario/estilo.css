@@ -86,8 +86,14 @@ div.contenedorPasivo {
     margin-right: 10px;
 }
 
+.oculto {
+    display: none;
+}
+
 .tablaScroll {
     margin-top: 15px;
+    max-height: 60vh;
+    overflow-y: auto;
     overflow-x: auto;
 }
 
@@ -95,6 +101,12 @@ table {
     border-collapse: collapse;
     width: 100%;
     min-width: 700px;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 th,

@@ -33,6 +33,10 @@ body {
     padding: 10px;
 }
 
+.oculto {
+    display: none;
+}
+
 h1 {
     font-size: 1.5em;
     margin-bottom: 10px;

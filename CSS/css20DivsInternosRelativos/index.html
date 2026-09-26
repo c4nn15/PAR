@@ -25,7 +25,7 @@
 
     <main>
 
-        <section>
+        <section class="oculto">
             <h2>1) Que se practica aca</h2>
 
             <p>
@@ -50,12 +50,12 @@
         <div class="paraVentanaModal">
             <h2>Ventana modal</h2>
 
-            <p>
+            <p class="oculto">
                 Este contenedor tiene <strong>position:fixed</strong>, asi que queda pegado al
                 viewport mientras todo lo demás scrollea por debajo.
             </p>
 
-            <p>
+            <p class="oculto">
                 Tiene además <strong>opacity:0.5</strong>, por eso se transparenta lo que pasa
                 atrás, y un <strong>z-index</strong> alto para quedar por encima de todo.
             </p>
@@ -68,7 +68,7 @@
                  (margin-left:0%) -->
             <div class="contenedorRelativoClase1">
                 <p>Contenedor relativo clase 1 (primero)</p>
-                <p>
+                <p class="oculto">
                     margin-left:0% &rarr; coordenada X: pegado al borde izquierdo del padre.<br />
                     margin-top:10px &rarr; coordenada Y: 10px por debajo de lo que vino antes.
                 </p>
@@ -78,7 +78,7 @@
                  coordenada Y se mide desde el borde INFERIOR del div anterior -->
             <div class="contenedorRelativoClase2">
                 <p>Contenedor relativo clase 2 (segundo)</p>
-                <p>
+                <p class="oculto">
                     margin-left:10% &rarr; corrido un 10% del ancho del padre.<br />
                     margin-top:30px &rarr; 30px por debajo del borde inferior del div clase 1.
                 </p>
@@ -106,7 +106,7 @@
         <section>
             <h2>3) Relleno para poder scrollear</h2>
 
-            <p>
+            <p class="oculto">
                 Todo lo que sigue está solamente para que el documento sea más alto que el
                 viewport. Mientras scrolleás, la ventana modal se queda quieta en su lugar y estos
                 contenedores pasan por atrás.

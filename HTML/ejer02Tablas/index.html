@@ -5,6 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>Tablas en HTML5: bordes y celdas combinadas</title>
     <meta name="addsearch-category" content="HTML5, tablas, colspan, rowspan" />
+    <style>
+        .oculto {
+            display: none;
+        }
+    </style>
 </head>
 
 <!-- ETIQUETAS DE ESTE EJERCICIO (pags. 15, 16 y 17 del apunte):
@@ -17,7 +22,7 @@
 
     <header>
         <h1>Ejercicio 2: Tablas</h1>
-        <p>Tres tablas en progresión: sin estilo, con estilo y con celdas combinadas.</p>
+        <p class="oculto">Tres tablas en progresión: sin estilo, con estilo y con celdas combinadas.</p>
     </header>
 
     <hr />
@@ -27,7 +32,7 @@
         <!-- ============ TABLA 1: LA ESTRUCTURA DESNUDA ============ -->
         <section>
             <h2>1) Tabla básica, sin ningún estilo</h2>
-            <p>
+            <p class="oculto">
                 Una tabla de 2 filas por 3 celdas. Por defecto el navegador
                 <strong>no dibuja bordes</strong>: se ve solo el texto alineado.
             </p>
@@ -55,7 +60,7 @@
         <!-- ============ TABLA 2: AGREGANDO ESTILO ============ -->
         <section>
             <h2>2) La misma tabla con estilo</h2>
-            <p>
+            <p class="oculto">
                 Ahora sí se ven los bordes. El valor del atributo <em>style</em> es una cadena
                 de parámetros con la forma <em>nombre:valor;nombre:valor;</em>
             </p>
@@ -101,7 +106,7 @@
         <section>
             <h2>3) Celdas combinadas: colspan y rowspan</h2>
 
-            <p>
+            <p class="oculto">
                 Esta tabla es una matriz de <strong>4 columnas por 4 filas</strong>.
                 La regla de oro: cada vez que una celda se expande, hay que
                 <strong>quitar las celdas que ocupa</strong> para que la matriz siga cerrando.
@@ -159,7 +164,7 @@
 
             </table>
 
-            <p>
+            <p class="oculto">
                 Para verificarlo: contando los <em>td</em> escritos hay 2 + 4 + 2 + 1 = 9 celdas,
                 pero en pantalla se ven las 16 posiciones de la matriz de 4 x 4 completas.
             </p>

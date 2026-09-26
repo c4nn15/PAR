@@ -26,6 +26,10 @@
     font-size: 16px;
 }
 
+.oculto {
+    display: none;
+}
+
 /*
     Los elementos div pueden ser ANIDADOS uno dentro del otro (pag. 8).
     Este es el div contenedor: adentro de el van a vivir las tres

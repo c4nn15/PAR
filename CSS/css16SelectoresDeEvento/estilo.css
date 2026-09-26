@@ -28,6 +28,10 @@
     a definir un estilo para todo el documento <html>.
 */
 
+.oculto {
+    display: none;
+}
+
 /* Clase basica definida para un boton de enlace (pag. 16) */
 div.btopcion {
     width: 200px;
