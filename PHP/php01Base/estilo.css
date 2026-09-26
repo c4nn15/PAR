@@ -1,0 +1,80 @@
+/*
+    estilo.css - php01 - Base
+
+    Galeria de estilos de este documento.
+    Se enlaza desde el html con la etiqueta:
+        <link rel="stylesheet" type="text/css" href="./estilo.css">
+
+    OJO: dentro de un archivo .css NO se escribe la etiqueta <style>,
+    el archivo entero ya es codigo CSS. Los comentarios son solo del
+    tipo barra-asterisco, como este: los comentarios html aca no valen.
+*/
+
+/* Default para TODOS los elementos del documento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 10px;
+}
+
+h1 {
+    font-size: 2em;
+    color: darkblue;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: darkred;
+}
+
+p {
+    margin-top: 8px;
+}
+
+ul {
+    margin-top: 8px;
+    margin-left: 25px;
+}
+
+hr {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+table {
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 5px 10px;
+    text-align: left;
+}
+
+th {
+    background-color: whitesmoke;
+}
+
+/* Nombre de la variable en un color, el valor en otro (pag. 2 del apunte de PHP) */
+.nombreVariable {
+    color: darkgreen;
+    font-weight: bold;
+}
+
+.valorVariable {
+    color: black;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 15px;
+}

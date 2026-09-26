@@ -6,16 +6,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
-    <title>Ejercicios especiales</title>
+    <title>Ejercicios de PHP</title>
 
-    <meta name="addsearch-category" content="Educación, JSON, jQuery, ventanas modales, programación web" />
+    <meta name="addsearch-category" content="Educación, PHP, servidor, programación web" />
 
-    <!-- Los estilos de esta pagina NO estan en este documento: viven en el
-         archivo estilo.css, que se trae con la etiqueta <link>.
-
-         rel="stylesheet"    -> que relacion tiene ese archivo con el documento
-         type="text/css"     -> de que tipo de archivo se trata
-         href="./estilo.css" -> donde esta. El ./ es "en esta misma carpeta" -->
+    <!-- Los estilos de esta pagina viven en estilo.css -->
     <link rel="stylesheet" type="text/css" href="./estilo.css">
 
     <!-- Estilos del menu desplegable, compartidos por todo el proyecto.
@@ -102,25 +97,25 @@
             </li>
 
             <li>
-                <a href="./index.html">Especiales</a>
+                <a href="../Especiales/index.html">Especiales</a>
 
                 <ul>
-                    <li><a href="./esp05FormVariableArregloDeObjetos/index.html">Form + arreglo de objetos</a></li>
-                    <li><a href="./esp10TablaVariableArregloDeObjetos/index.html">Tabla + arreglo de objetos</a></li>
-                    <li><a href="./esp15VentanaModal/index.html">Ventana modal</a></li>
-                    <li><a href="./esp20TablaFormulario/index.html">Tabla + formulario</a></li>
+                    <li><a href="../Especiales/esp05FormVariableArregloDeObjetos/index.html">Form + arreglo de objetos</a></li>
+                    <li><a href="../Especiales/esp10TablaVariableArregloDeObjetos/index.html">Tabla + arreglo de objetos</a></li>
+                    <li><a href="../Especiales/esp15VentanaModal/index.html">Ventana modal</a></li>
+                    <li><a href="../Especiales/esp20TablaFormulario/index.html">Tabla + formulario</a></li>
                 </ul>
             </li>
 
             <li>
-                <a href="../PHP/index.html">PHP</a>
+                <a href="./index.html">PHP</a>
 
                 <ul>
-                    <li><a href="../PHP/php01Base/index.php">Base</a></li>
-                    <li><a href="../PHP/php02Include/index.php">Include</a></li>
-                    <li><a href="../PHP/php03VariablesServidor/index.php">Variables de servidor</a></li>
-                    <li><a href="../PHP/php04Objetos/index.php">Objetos</a></li>
-                    <li><a href="../PHP/php05Formularios/index.php">Formularios</a></li>
+                    <li><a href="./php01Base/index.php">Base</a></li>
+                    <li><a href="./php02Include/index.php">Include</a></li>
+                    <li><a href="./php03VariablesServidor/index.php">Variables de servidor</a></li>
+                    <li><a href="./php04Objetos/index.php">Objetos</a></li>
+                    <li><a href="./php05Formularios/index.php">Formularios</a></li>
                 </ul>
             </li>
 
@@ -134,63 +129,55 @@
     <!--
         El div de corte es NECESARIO: los li del menu horizontal estan flotados
         (float:left), asi que no le dan alto al nav. Sin este clear, todo lo que
-        sigue se treparia por encima del menu (pag. 15 de la parte I).
+        sigue se treparia por encima del menu.
     -->
     <div class="nuevaFila"></div>
 
-
     <header>
-        <h1>Ejercicios especiales</h1>
+        <h1>Ejercicios de PHP</h1>
     </header>
 
-    <!-- La etiqueta <hr /> no lleva nodo de texto y traza una linea
-         de extremo a extremo del view port -->
     <hr />
 
-    <!-- ETIQUETA SEMANTICA <main>: debe ser unica y anida lo mas importante
-         del documento en cuanto a conceptos semanticos -->
     <main>
-
-        <p>
-            Estos ejercicios trabajan con <strong>texto JSON</strong>, arreglos de objetos y la
-            libreria <strong>jQuery</strong> (apuntes "JSON" y "Especiales" de la catedra). Los
-            cuatro comparten la misma tabla principal, <strong>clientes</strong>
-            (agrupacion de datos logisticos de clientes, con codCliente, codSucursal,
-            direccionEntrega, diaSemanalEntrega, costoPromedioTransporte, fechaUltimaEntrega
-            y fotoPuntoEntrega), declarada en <code>clientes.js</code>, y una tabla auxiliar
-            <strong>sucursales</strong> (<code>sucursales.js</code>) para poblar el
-            <code>&lt;select&gt;</code> de sucursal. La libreria jQuery se trae local desde
-            <code>jquery.js</code>.
-        </p>
 
         <!-- ETIQUETA SEMANTICA <nav>: contiene la lista de navegacion
              o enlaces del documento -->
         <nav>
-            <h2>Ejercicios</h2>
+            <h2>Parte 1</h2>
 
             <!-- <ul> = unordered list: lista con viñetas, sin numeracion.
                  Al lado de cada enlace dejamos, como comentario, el nombre
-                 original del ejercicio en el indice de la materia. -->
+                 original del ejercicio en el video de la clase.
+
+                 OJO: a diferencia de HTML/CSS/JS, estos ejercicios son
+                 archivos .php: necesitan un servidor (XAMPP) para
+                 ejecutarse, no se pueden abrir con doble clic (file://). -->
             <ul>
 
                 <li>
-                    <!-- esp05FormVariableArregloDeObjetos -->
-                    <a href="./esp05FormVariableArregloDeObjetos/index.html">Ejercicio 1: Form + arreglo de objetos</a>
+                    <!-- 01_base -->
+                    <a href="./php01Base/index.php">Ejercicio 1: Base</a>
                 </li>
 
                 <li>
-                    <!-- esp10TablaVariableArregloDeObjetos -->
-                    <a href="./esp10TablaVariableArregloDeObjetos/index.html">Ejercicio 2: Tabla + arreglo de objetos</a>
+                    <!-- 02_include -->
+                    <a href="./php02Include/index.php">Ejercicio 2: Include</a>
                 </li>
 
                 <li>
-                    <!-- esp15VentanaModal -->
-                    <a href="./esp15VentanaModal/index.html">Ejercicio 3: Ventana modal</a>
+                    <!-- 03_variables_servidor -->
+                    <a href="./php03VariablesServidor/index.php">Ejercicio 3: Variables de servidor</a>
                 </li>
 
                 <li>
-                    <!-- esp20TablaFormulario -->
-                    <a href="./esp20TablaFormulario/index.html">Ejercicio 4: Tabla + formulario</a>
+                    <!-- 04_objetos -->
+                    <a href="./php04Objetos/index.php">Ejercicio 4: Objetos</a>
+                </li>
+
+                <li>
+                    <!-- 05_formularios -->
+                    <a href="./php05Formularios/index.php">Ejercicio 5: Formularios</a>
                 </li>
 
             </ul>
@@ -205,8 +192,6 @@
         <!-- El ../ indica la carpeta padre -->
         <p><a href="../index.html">Volver a la portada</a></p>
 
-        <!-- ETIQUETA SEMANTICA <address>: informacion puntual de direcciones,
-             telefonos y correos. Puede ir anidada dentro del footer -->
         Santiago Cannistra
         <address>
             Programación en Ambiente de Redes
