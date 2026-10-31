@@ -1,0 +1,113 @@
+/* estilo.css - php10 - ABM */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-size: 16px; font-family: sans-serif; padding: 10px; }
+
+h1 { font-size: 2em; color: darkblue; }
+
+hr { margin: 15px 0; }
+
+button {
+    font-size: 1em;
+    padding: 8px 16px;
+    background-color: #1d3557;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover { background-color: #457b9d; }
+
+.botonera { margin-top: 15px; }
+.botonera button { margin-right: 10px; }
+.botonera label { margin-left: 10px; }
+
+.tablaScroll {
+    margin-top: 15px;
+    max-height: 60vh;
+    overflow: auto;
+}
+
+table { border-collapse: collapse; width: 100%; min-width: 800px; }
+
+th, td {
+    border: 1px solid #a8dadc;
+    padding: 6px 10px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+thead th { position: sticky; z-index: 1; background-color: #1d3557; color: white; }
+thead tr.titulos th { top: 0; cursor: pointer; }
+thead tr.titulos th:hover { background-color: #457b9d; }
+thead tr.filtros th { top: 36px; background-color: #f1faee; }
+thead tr.filtros input,
+thead tr.filtros select { width: 100%; padding: 4px; }
+
+tbody tr:nth-child(even) { background-color: #f1faee; }
+
+tfoot td {
+    position: sticky;
+    bottom: 0;
+    background-color: #a8dadc;
+    font-weight: bold;
+}
+
+footer { text-align: center; }
+
+/* ---- ABM ---- */
+
+/* El tablero se vuelve pasivo mientras hay una ventana modal abierta */
+.contenedorActivo { opacity: 1; pointer-events: auto; }
+.contenedorPasivo { opacity: 0.4; pointer-events: none; }
+
+button:disabled { background-color: #999; cursor: not-allowed; }
+
+button.btCelda { padding: 3px 10px; font-size: 0.9em; }
+button.btBorrar { background-color: #a4161a; }
+button.btBorrar:hover { background-color: #e5383b; }
+
+td.celdaBoton { text-align: center; }
+
+.ventanaModal {
+    visibility: hidden;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.ventanaModal .modalCaja {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(95vw, 700px);
+    max-height: 90vh;
+    overflow: auto;
+    background-color: white;
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.modalEncabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: darkblue;
+}
+
+.modalPie { margin-top: 15px; text-align: right; }
+
+form ul { list-style: none; }
+form li { margin-bottom: 10px; display: flex; flex-wrap: wrap; align-items: center; }
+form li label { width: 190px; }
+form li input, form li select { flex: 1; min-width: 180px; padding: 4px; }
+form li input[readonly] { background-color: #eee; }
+
+#contenidoModalRespuesta iframe { width: 100%; height: 60vh; border: 1px solid #a8dadc; }
+#contenidoModalRespuesta img { max-width: 100%; }

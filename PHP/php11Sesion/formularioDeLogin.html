@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./app_modulo1/estilo.css">
+</head>
+<body>
+    <header><h1>Ingreso al sistema</h1></header>
+    <hr />
+    <main>
+        <p><strong>Usuario de prueba:</strong> login <code>alumno</code> / clave <code>1234</code></p>
+        <form action="./ingresoAlSistema.php" method="post">
+            <p><label for="login">Login:</label> <input type="text" id="login" name="login" required /></p>
+            <p><label for="clave">Password:</label> <input type="password" id="clave" name="clave" required /></p>
+            <button type="submit">Ingreso</button>
+        </form>
+    </main>
+</body>
+</html>
