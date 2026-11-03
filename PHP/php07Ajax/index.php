@@ -16,6 +16,7 @@
 
     <header>
         <h1>Ajax con API fetch</h1>
+        <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p>
     </header>
 
     <hr />
@@ -24,7 +25,7 @@
 
         <div id="zonaEntrada">
             <label for="clave">Clave a encriptar:</label>
-            <input type="text" id="clave" value="Pepe" />
+            <input title="Ingrese: Clave a encriptar" type="text" id="clave" value="Pepe" />
             <!-- Disparador del requerimiento asincronico -->
             <button type="button" id="disparo" title="Esperar 3 segundos de retardo para la respuesta">&#10148;</button>
         </div>

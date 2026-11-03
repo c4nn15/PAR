@@ -26,6 +26,7 @@
     <!-- ZONA FIJA DE ARRIBA: encabezado del formulario -->
     <header class="cabeceraFormulario">
         <h1>Formulario de inscripción a materias</h1>
+        <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p>
     </header>
 
     <!--
@@ -44,58 +45,58 @@
         -->
         <div class="entrada">
             <label for="legajo">Legajo</label>
-            <input type="text" id="legajo" name="legajo" />
+            <input title="Ingrese: Legajo" type="text" id="legajo" name="legajo" />
         </div>
 
         <div class="entrada">
             <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" name="apellido" />
+            <input title="Ingrese: Apellido" type="text" id="apellido" name="apellido" />
         </div>
 
         <div class="entrada">
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" />
+            <input title="Ingrese: Nombre" type="text" id="nombre" name="nombre" />
         </div>
 
         <div class="entrada">
             <label for="documento">Documento</label>
-            <input type="text" id="documento" name="documento" />
+            <input title="Ingrese: Documento" type="text" id="documento" name="documento" />
         </div>
 
         <div class="entrada">
             <label for="nacimiento">Fecha de nacimiento</label>
-            <input type="date" id="nacimiento" name="nacimiento" />
+            <input title="Ingrese: Fecha de nacimiento" type="date" id="nacimiento" name="nacimiento" />
         </div>
 
         <div class="entrada">
             <label for="correo">Correo electrónico</label>
-            <input type="email" id="correo" name="correo" />
+            <input title="Ingrese: Correo electrónico" type="email" id="correo" name="correo" />
         </div>
 
         <div class="entrada">
             <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono" />
+            <input title="Ingrese: Teléfono" type="tel" id="telefono" name="telefono" />
         </div>
 
         <div class="entrada">
             <label for="domicilio">Domicilio</label>
-            <input type="text" id="domicilio" name="domicilio" />
+            <input title="Ingrese: Domicilio" type="text" id="domicilio" name="domicilio" />
         </div>
 
         <div class="entrada">
             <label for="localidad">Localidad</label>
-            <input type="text" id="localidad" name="localidad" />
+            <input title="Ingrese: Localidad" type="text" id="localidad" name="localidad" />
         </div>
 
         <div class="entrada">
             <label for="codigoPostal">Código postal</label>
-            <input type="text" id="codigoPostal" name="codigoPostal" />
+            <input title="Ingrese: Código postal" type="text" id="codigoPostal" name="codigoPostal" />
         </div>
 
         <div class="entrada">
             <label for="carrera">Carrera</label>
             <!-- El select tambien es un elemento de formulario, igual que en HTML -->
-            <select id="carrera" name="carrera">
+            <select title="Seleccione: Carrera" id="carrera" name="carrera">
                 <option value="sistemas">Ingeniería en Informática</option>
                 <option value="gestion">Licenciatura en Gestión</option>
                 <option value="diseno">Diseño Gráfico</option>
@@ -104,12 +105,12 @@
 
         <div class="entrada">
             <label for="anio">Año de cursada</label>
-            <input type="number" id="anio" name="anio" min="1" max="6" />
+            <input title="Ingrese: Año de cursada" type="number" id="anio" name="anio" min="1" max="6" />
         </div>
 
         <div class="entrada">
             <label for="turno">Turno</label>
-            <select id="turno" name="turno">
+            <select title="Seleccione: Turno" id="turno" name="turno">
                 <option value="manana">Mañana</option>
                 <option value="tarde">Tarde</option>
                 <option value="noche">Noche</option>
@@ -118,17 +119,17 @@
 
         <div class="entrada">
             <label for="materia">Materia</label>
-            <input type="text" id="materia" name="materia" value="Programación en Ambiente de Redes" />
+            <input title="Ingrese: Materia" type="text" id="materia" name="materia" value="Programación en Ambiente de Redes" />
         </div>
 
         <div class="entrada">
             <label for="comision">Comisión</label>
-            <input type="text" id="comision" name="comision" />
+            <input title="Ingrese: Comisión" type="text" id="comision" name="comision" />
         </div>
 
         <div class="entrada">
             <label for="condicion">Condición</label>
-            <select id="condicion" name="condicion">
+            <select title="Seleccione: Condición" id="condicion" name="condicion">
                 <option value="regular">Regular</option>
                 <option value="libre">Libre</option>
             </select>
@@ -136,7 +137,7 @@
 
         <div class="entrada">
             <label for="beca">¿Tiene beca?</label>
-            <select id="beca" name="beca">
+            <select title="Seleccione: ¿Tiene beca?" id="beca" name="beca">
                 <option value="no">No</option>
                 <option value="si">Sí</option>
             </select>
@@ -144,7 +145,7 @@
 
         <div class="entrada">
             <label for="observaciones">Observaciones</label>
-            <input type="text" id="observaciones" name="observaciones" />
+            <input title="Ingrese: Observaciones" type="text" id="observaciones" name="observaciones" />
         </div>
 
         <!--
@@ -161,8 +162,8 @@
             video, los botones aparecen recien al llegar al final de las entradas.
         -->
         <div class="barraControl">
-            <input class="boton" type="submit" value="Enviar" />
-            <input class="boton" type="reset" value="Borrar" />
+            <input title="Botón: Enviar" class="boton" type="submit" value="Enviar" />
+            <input title="Botón: Borrar" class="boton" type="reset" value="Borrar" />
         </div>
 
     </form>

@@ -15,24 +15,25 @@
 <body>
 
     <h1>Form to JSON utilizando API fetch</h1>
+    <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p>
 
     <hr />
 
     <form id="formulario" method="post" action="./respuesta.php">
         <label for="codUsuario">Código:</label>
-        <input type="text" id="codUsuario" name="codUsuario" value="1234" required />
+        <input title="Ingrese: Código" type="text" id="codUsuario" name="codUsuario" value="1234" required />
         <br /><br />
 
         <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" value="Wicker" required />
+        <input title="Ingrese: Apellido" type="text" id="apellido" name="apellido" value="Wicker" required />
         <br /><br />
 
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" value="Bus" required />
+        <input title="Ingrese: Nombre" type="text" id="nombre" name="nombre" value="Bus" required />
         <br /><br />
 
         <!-- Envio tradicional: la respuesta REEMPLAZA al documento -->
-        <button type="submit">Enviar formulario de manera tradicional</button>
+        <button title="Botón: Enviar formulario de manera tradicional" type="submit">Enviar formulario de manera tradicional</button>
 
         <!-- type="button": no envia el form, solo dispara el Ajax -->
         <button type="button" id="disparo" title="Esperar 3 segundos de retardo para la respuesta">

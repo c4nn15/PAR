@@ -11,6 +11,7 @@
 
     <header>
         <h1>Ejercicio 3: Formularios</h1>
+        <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p>
     </header>
 
     <hr />
@@ -44,7 +45,7 @@
                          name   = el NOMBRE que va a llevar la variable en el requerimiento
                          value  = el valor por defecto de la variable
                          autofocus = este input tiene el foco al cargar el documento -->
-                    <input type="text" id="apellido" name="apellido" value="" autofocus="autofocus" />
+                    <input title="Ingrese: Apellido" type="text" id="apellido" name="apellido" value="" autofocus="autofocus" />
                 </li>
 
                 <!-- ---------- required ---------- -->
@@ -52,7 +53,7 @@
                     <label style="font-weight: bold" for="nombre">Nombre (obligatorio):</label>
                     <br />
                     <!-- required: esta entrada no se puede enviar vacia (pag. 22) -->
-                    <input type="text" id="nombre" name="nombre" value="" required="required" />
+                    <input title="Ingrese: Nombre (obligatorio)" type="text" id="nombre" name="nombre" value="" required="required" />
                 </li>
 
                 <!-- ---------- type="password" ---------- -->
@@ -61,7 +62,7 @@
                     <br />
                     <!-- password: cuando el usuario tipea se visualizan puntos.
                          OJO: igual viaja en texto plano si el sitio no usa HTTPS -->
-                    <input type="password" id="clave" name="clave" />
+                    <input title="Ingrese: Contraseña" type="password" id="clave" name="clave" />
                 </li>
 
                 <!-- ---------- type="email" ---------- -->
@@ -71,7 +72,7 @@
                     <!-- type="email" valida que exista un caracter @ entre dos cadenas.
                          placeholder NO valida ni le da valor a la variable: es solo
                          una cadena de ayuda que se ve en gris mientras el campo esta vacio -->
-                    <input type="email" id="correo" name="correo" placeholder="texto@texto" />
+                    <input title="Ingrese: Correo electrónico" type="email" id="correo" name="correo" placeholder="texto@texto" />
                 </li>
 
                 <!-- ---------- type="url" ---------- -->
@@ -79,7 +80,7 @@
                     <label style="font-weight: bold" for="sitio">Sitio web:</label>
                     <br />
                     <!-- type="url" valida que la cadena empiece con http:// -->
-                    <input type="url" id="sitio" name="sitio" placeholder="http://xxx" />
+                    <input title="Ingrese: Sitio web" type="url" id="sitio" name="sitio" placeholder="http://xxx" />
                 </li>
 
                 <!-- ---------- type="number" entero ---------- -->
@@ -87,7 +88,7 @@
                     <label style="font-weight: bold" for="numeroEntero">Nota del 1 al 5 (entero):</label>
                     <br />
                     <!-- min y max validan el ingreso entre cotas determinadas -->
-                    <input type="number" id="numeroEntero" name="numeroEntero" min="1" max="5" />
+                    <input title="Ingrese: Nota del 1 al 5 (entero)" type="number" id="numeroEntero" name="numeroEntero" min="1" max="5" />
                 </li>
 
                 <!-- ---------- type="number" real ---------- -->
@@ -95,7 +96,7 @@
                     <label style="font-weight: bold" for="numeroReal">Valor de 0 a 9 (con decimales):</label>
                     <br />
                     <!-- step="0.1" permite valores reales con saltos de 0,1 -->
-                    <input type="number" id="numeroReal" name="numeroReal" min="0" max="9" step="0.1" />
+                    <input title="Ingrese: Valor de 0 a 9 (con decimales)" type="number" id="numeroReal" name="numeroReal" min="0" max="9" step="0.1" />
                 </li>
 
                 <!-- ---------- pattern (expresion regular) ---------- -->
@@ -119,13 +120,13 @@
                     <!-- Cada cuadro de chequeo tiene su PROPIO name, porque la eleccion
                          es INCLUSIVA: cada uno es una variable independiente.
                          Si el cuadro no se tilda, esa variable NO viaja en el requerimiento -->
-                    <input type="checkbox" id="piano" name="piano" value="si" />
+                    <input title="Marcar: Piano" type="checkbox" id="piano" name="piano" value="si" />
                     <label for="piano">Piano</label>
                     <br />
-                    <input type="checkbox" id="guitarra" name="guitarra" value="si" />
+                    <input title="Marcar: Guitarra" type="checkbox" id="guitarra" name="guitarra" value="si" />
                     <label for="guitarra">Guitarra</label>
                     <br />
-                    <input type="checkbox" id="trompeta" name="trompeta" value="si" />
+                    <input title="Marcar: Trompeta" type="checkbox" id="trompeta" name="trompeta" value="si" />
                     <label for="trompeta">Trompeta</label>
                 </li>
 
@@ -137,10 +138,10 @@
                          todas las opciones del grupo es el MISMO (sexo). Eso es lo que
                          hace que al marcar uno se desmarque el otro.
                          checked indica cual esta marcado por defecto -->
-                    <input type="radio" id="masculino" name="sexo" value="m" checked="checked" />
+                    <input title="Marcar: Masculino" type="radio" id="masculino" name="sexo" value="m" checked="checked" />
                     <label for="masculino">Masculino</label>
                     <br />
-                    <input type="radio" id="femenino" name="sexo" value="f" />
+                    <input title="Marcar: Femenino" type="radio" id="femenino" name="sexo" value="f" />
                     <label for="femenino">Femenino</label>
                 </li>
 
@@ -150,7 +151,7 @@
                     <br />
                     <!-- Etiqueta <select> (pag. 21). Opciones exclusivas.
                          El name del select es el nombre de la variable -->
-                    <select id="estudios" name="Estudios">
+                    <select title="Seleccione: Nivel de estudios" id="estudios" name="Estudios">
                         <!-- Cada <option> es un elemento de la lista.
                              value  = el valor que va a tomar la variable
                              selected = es la opcion seleccionada por defecto
@@ -174,10 +175,10 @@
             <p>
                 <!-- submit: envia el formulario al recurso indicado en action,
                      con el metodo indicado en method -->
-                <button type="submit">Envío del formulario</button>
+                <button title="Botón: Envío del formulario" type="submit">Envío del formulario</button>
 
                 <!-- reset: devuelve todos los campos a sus valores por defecto -->
-                <button type="reset">Reset del formulario</button>
+                <button title="Botón: Reset del formulario" type="reset">Reset del formulario</button>
             </p>
 
         </form>

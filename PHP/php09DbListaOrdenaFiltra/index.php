@@ -16,6 +16,7 @@
 
     <header>
         <h1>PHP, base de datos: lista, ordena, filtra</h1>
+        <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p>
     </header>
 
     <hr />
@@ -23,10 +24,10 @@
     <main>
 
         <div class="botonera">
-            <button type="button" id="btCargar">Carga de datos</button>
-            <button type="button" id="btVaciar">Vaciar datos</button>
+            <button title="Botón: Carga de datos" type="button" id="btCargar">Carga de datos</button>
+            <button title="Botón: Vaciar datos" type="button" id="btVaciar">Vaciar datos</button>
             <label for="orden">Orden:</label>
-            <input type="text" id="orden" value="codCliente" readonly />
+            <input title="Campo por el que está ordenada la tabla (se cambia haciendo click en un título de columna)" type="text" id="orden" value="codCliente" readonly />
         </div>
 
         <div class="tablaScroll">
@@ -42,17 +43,17 @@
                         <th>Foto</th>
                     </tr>
                     <tr class="filtros">
-                        <th><input type="text" id="f_clientes_codCliente" /></th>
+                        <th><input title="Filtrar por código de cliente (contiene el texto)" type="text" id="f_clientes_codCliente" /></th>
                         <th>
                             <!-- Desplegable poblado con el JSON de salidaJsonSucursales.php -->
-                            <select id="f_clientes_codSucursal">
+                            <select title="Filtrar por sucursal" id="f_clientes_codSucursal">
                                 <option value=""></option>
                             </select>
                         </th>
-                        <th><input type="text" id="f_clientes_direccionEntrega" /></th>
-                        <th><input type="text" id="f_clientes_diaSemanalEntrega" /></th>
-                        <th><input type="text" id="f_clientes_costoPromedioTransporte" /></th>
-                        <th><input type="text" id="f_clientes_fechaUltimaEntrega" placeholder="aaaa-mm-dd" /></th>
+                        <th><input title="Filtrar por dirección de entrega (contiene el texto)" type="text" id="f_clientes_direccionEntrega" /></th>
+                        <th><input title="Filtrar por día de entrega (por ej. Lunes)" type="text" id="f_clientes_diaSemanalEntrega" /></th>
+                        <th><input title="Filtrar por costo promedio de transporte" type="text" id="f_clientes_costoPromedioTransporte" /></th>
+                        <th><input title="Filtrar por fecha de última entrega, formato aaaa-mm-dd" type="text" id="f_clientes_fechaUltimaEntrega" placeholder="aaaa-mm-dd" /></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -65,7 +66,7 @@
                     <tr>
                         <td colspan="7">
                             Tabla: Agrupacion de datos logisticos clientes - Santiago Cannistra -
-                            Registros: <input type="text" id="cuenta" value="0" size="4" readonly />
+                            Registros: <input title="Cantidad de registros recibidos" type="text" id="cuenta" value="0" size="4" readonly />
                         </td>
                     </tr>
                 </tfoot>

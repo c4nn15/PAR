@@ -13,6 +13,7 @@
 
     <header>
         <h1>Validacion de un input de formulario en el evento onkeyup</h1>
+        <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p>
     </header>
 
     <hr />
@@ -47,14 +48,14 @@
             <div id="caja">
                 <form id="miform">
                     <label for="dia">Dia del mes (1 a 31)</label>
-                    <input type="number" id="dia" name="dia" min="1" max="31" step="1" required />
+                    <input title="Ingrese: Dia del mes (1 a 31)" type="number" id="dia" name="dia" min="1" max="31" step="1" required />
 
                     <label for="mes">Mes (1 a 12)</label>
-                    <input type="number" id="mes" name="mes" min="1" max="12" step="1" required />
+                    <input title="Ingrese: Mes (1 a 12)" type="number" id="mes" name="mes" min="1" max="12" step="1" required />
 
                     <!-- type="button": no envian ni resetean por si solos -->
-                    <button type="button" id="btnEnviar">Enviar</button>
-                    <button type="button" id="btnReset">Reset</button>
+                    <button title="Botón: Enviar" type="button" id="btnEnviar">Enviar</button>
+                    <button title="Botón: Reset" type="button" id="btnReset">Reset</button>
                 </form>
             </div>
         </section>

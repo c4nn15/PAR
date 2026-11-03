@@ -13,6 +13,7 @@
 
     <header>
         <h1>Operaciones sobre un input</h1>
+        <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p>
     </header>
 
     <hr />
@@ -48,13 +49,13 @@
 
             <!-- El input no tiene atributo name porque no va a ser enviado por un
                  formulario: solo lo usa JavaScript. El id lo identifica univocamente -->
-            <input type="text" id="x" placeholder="Escribi un numero" />
+            <input title="Ingrese: Escribi un numero" type="text" id="x" placeholder="Escribi un numero" />
 
             <br />
 
-            <button id="btnSumar">Sumar 10 (con parseInt)</button>
-            <button id="btnConcatenar">Sumar 10 (sin parseInt)</button>
-            <button id="btnTipo">Ver el tipo del value</button>
+            <button title="Botón: Sumar 10 (con parseInt)" id="btnSumar">Sumar 10 (con parseInt)</button>
+            <button title="Botón: Sumar 10 (sin parseInt)" id="btnConcatenar">Sumar 10 (sin parseInt)</button>
+            <button title="Botón: Ver el tipo del value" id="btnTipo">Ver el tipo del value</button>
 
             <div id="resultado"></div>
         </section>

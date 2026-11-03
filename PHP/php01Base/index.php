@@ -17,6 +17,7 @@
 
     <header>
         <h1>PHP basico</h1>
+        <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p>
     </header>
 
     <hr />

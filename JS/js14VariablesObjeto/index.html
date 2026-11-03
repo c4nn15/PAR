@@ -13,6 +13,7 @@
 
     <header>
         <h1>Variables de tipo objeto</h1>
+        <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p>
     </header>
 
     <hr />
@@ -43,22 +44,22 @@
 
             <!-- Contenedor de control: flota a la derecha -->
             <div id="control">
-                <button id="btnCrear">Crear persona</button>
-                <button id="btnListar">Listar personas</button>
-                <button id="btnOcultar">Ocultar presentacion</button>
+                <button title="Botón: Crear persona" id="btnCrear">Crear persona</button>
+                <button title="Botón: Listar personas" id="btnListar">Listar personas</button>
+                <button title="Botón: Ocultar presentacion" id="btnOcultar">Ocultar presentacion</button>
             </div>
 
             <!-- Contenedor de ingreso de datos. No es un formulario: son
                  tres inputs sueltos, pero igual pueden llevar required -->
             <div id="ingreso">
                 <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" required />
+                <input title="Ingrese: Nombre" type="text" id="nombre" required />
 
                 <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" required />
+                <input title="Ingrese: Apellido" type="text" id="apellido" required />
 
                 <label for="fechaNac">Fecha de nacimiento</label>
-                <input type="date" id="fechaNac" required />
+                <input title="Ingrese: Fecha de nacimiento" type="date" id="fechaNac" required />
             </div>
 
             <!-- Lugar del documento donde el programa escribe HTML (pag. 9) -->

@@ -17,6 +17,7 @@
 <body>
 
     <h1>Lectura de formularios</h1>
+    <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p>
 
     <hr />
 
@@ -30,14 +31,14 @@
          los valores viajen en el BODY del requerimiento, no en la URL. -->
     <form action="./respuesta.php" method="post">
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required />
+        <input title="Ingrese: Nombre" type="text" id="nombre" name="nombre" required />
         <br /><br />
 
         <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" required />
+        <input title="Ingrese: Apellido" type="text" id="apellido" name="apellido" required />
         <br /><br />
 
-        <button type="submit">Ingresar</button>
+        <button title="Botón: Ingresar" type="submit">Ingresar</button>
     </form>
 
     <hr />

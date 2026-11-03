@@ -13,6 +13,7 @@
 
     <header>
         <h1>Tabla + formulario en ventana modal</h1>
+        <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p>
     </header>
 
     <hr />
@@ -46,9 +47,9 @@
             <div id="contenedor" class="contenedorActivo">
 
                 <div class="botonera">
-                    <button type="button" id="btCargar">Cargar datos</button>
-                    <button type="button" id="btVaciar">Vaciar datos</button>
-                    <button type="button" id="btAbrirForm">Cargar Form</button>
+                    <button title="Botón: Cargar datos" type="button" id="btCargar">Cargar datos</button>
+                    <button title="Botón: Vaciar datos" type="button" id="btVaciar">Vaciar datos</button>
+                    <button title="Botón: Cargar Form" type="button" id="btAbrirForm">Cargar Form</button>
                 </div>
 
                 <div class="tablaScroll">
@@ -80,7 +81,7 @@
             <div id="ventanaModal" class="ventanaModalApagado">
                 <div class="encabezadoModal">
                     Formulario para ALTA - Datos logisticos de cliente
-                    <button type="button" id="btCerrar" aria-label="Cerrar">X</button>
+                    <button title="Cerrar la ventana" type="button" id="btCerrar" aria-label="Cerrar">X</button>
                 </div>
 
                 <div class="cuerpoModal">
@@ -88,23 +89,23 @@
 
                         <div class="campo">
                             <label for="codCliente">Codigo de cliente:</label>
-                            <input type="text" id="codCliente" name="codCliente" required>
+                            <input title="Ingrese: Codigo de cliente" type="text" id="codCliente" name="codCliente" required>
                         </div>
 
                         <div class="campo">
                             <label for="selSucursal">Sucursal:</label>
-                            <select id="selSucursal" name="selSucursal" required>
+                            <select title="Seleccione: Sucursal" id="selSucursal" name="selSucursal" required>
                             </select>
                         </div>
 
                         <div class="campo">
                             <label for="direccionEntrega">Direccion de entrega:</label>
-                            <input type="text" id="direccionEntrega" name="direccionEntrega" required>
+                            <input title="Ingrese: Direccion de entrega" type="text" id="direccionEntrega" name="direccionEntrega" required>
                         </div>
 
                         <div class="campo">
                             <label for="selDia">Dia semanal para entregas:</label>
-                            <select id="selDia" name="selDia" required>
+                            <select title="Seleccione: Dia semanal para entregas" id="selDia" name="selDia" required>
                                 <option value="Lunes">Lunes</option>
                                 <option value="Martes">Martes</option>
                                 <option value="Miercoles">Miercoles</option>
@@ -117,20 +118,20 @@
 
                         <div class="campo">
                             <label for="costoPromedioTransporte">Costo promedio de transporte:</label>
-                            <input type="number" id="costoPromedioTransporte" name="costoPromedioTransporte" min="0" step="1" required>
+                            <input title="Ingrese: Costo promedio de transporte" type="number" id="costoPromedioTransporte" name="costoPromedioTransporte" min="0" step="1" required>
                         </div>
 
                         <div class="campo">
                             <label for="fechaUltimaEntrega">Fecha de ultima entrega:</label>
-                            <input type="date" id="fechaUltimaEntrega" name="fechaUltimaEntrega" required>
+                            <input title="Ingrese: Fecha de ultima entrega" type="date" id="fechaUltimaEntrega" name="fechaUltimaEntrega" required>
                         </div>
 
                         <div class="campo">
                             <label for="fotoPuntoEntrega">Foto del punto de entrega:</label>
-                            <input type="text" id="fotoPuntoEntrega" name="fotoPuntoEntrega" placeholder="ej: cli011.jpg">
+                            <input title="Ingrese: Foto del punto de entrega" type="text" id="fotoPuntoEntrega" name="fotoPuntoEntrega" placeholder="ej: cli011.jpg">
                         </div>
 
-                        <button type="button" id="btEnviar">ENVIAR</button>
+                        <button title="Botón: ENVIAR" type="button" id="btEnviar">ENVIAR</button>
                     </form>
                 </div>
 

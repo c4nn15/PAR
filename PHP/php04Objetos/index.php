@@ -16,6 +16,7 @@
 
     <header>
         <h1>Variables de tipo objeto</h1>
+        <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p>
     </header>
 
     <hr />

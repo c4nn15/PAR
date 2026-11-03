@@ -7,14 +7,15 @@
     <link rel="stylesheet" href="./app_modulo1/estilo.css">
 </head>
 <body>
-    <header><h1>Ingreso al sistema</h1></header>
+    <header><h1>Ingreso al sistema</h1>
+    <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p></header>
     <hr />
     <main>
         <p><strong>Usuario de prueba:</strong> login <code>alumno</code> / clave <code>1234</code></p>
         <form action="./ingresoAlSistema.php" method="post">
-            <p><label for="login">Login:</label> <input type="text" id="login" name="login" required /></p>
-            <p><label for="clave">Password:</label> <input type="password" id="clave" name="clave" required /></p>
-            <button type="submit">Ingreso</button>
+            <p><label for="login">Login:</label> <input title="Ingrese: Login" type="text" id="login" name="login" required /></p>
+            <p><label for="clave">Password:</label> <input title="Ingrese: Password" type="password" id="clave" name="clave" required /></p>
+            <button title="Botón: Ingreso" type="submit">Ingreso</button>
         </form>
     </main>
 </body>

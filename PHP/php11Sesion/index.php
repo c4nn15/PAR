@@ -15,13 +15,14 @@
     <link rel="stylesheet" href="./app_modulo1/estilo.css">
 </head>
 <body>
-    <header><h1>Sesión establecida</h1></header>
+    <header><h1>Sesión establecida</h1>
+    <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p></header>
     <hr />
     <main>
         <h2>Sus parámetros de sesión son los siguientes:</h2>
         <?php infoDeSesion(); ?>
-        <button type="button" id="btAppModulo1">Ingresar al ABM</button>
-        <button type="button" id="btSalida">Terminar sesión</button>
+        <button title="Botón: Ingresar al ABM" type="button" id="btAppModulo1">Ingresar al ABM</button>
+        <button title="Botón: Terminar sesión" type="button" id="btSalida">Terminar sesión</button>
     </main>
     <script>
         document.getElementById("btAppModulo1").addEventListener("click", function () {

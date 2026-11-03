@@ -18,6 +18,7 @@
 
     <header>
         <h1>PHP, sesión: ABM de clientes</h1>
+        <p class="alumno">Alumno: Santiago Cannistra</p>
     </header>
 
     <hr />
@@ -25,13 +26,13 @@
     <main id="contenedorTablaClientes" class="contenedorActivo">
 
         <div class="botonera">
-            <button type="button" id="btCargar">Carga de datos</button>
-            <button type="button" id="btVaciar">Vaciar datos</button>
-            <button type="button" id="btLimpiar">Limpiar filtros</button>
-            <button type="button" id="btAlta">Alta registro</button>
-            <button type="button" id="btCierraSesion">Cerrar sesión</button>
+            <button type="button" id="btCargar" title="Trae los registros del servidor aplicando el orden y los filtros actuales">Carga de datos</button>
+            <button type="button" id="btVaciar" title="Vacía la tabla sin consultar al servidor">Vaciar datos</button>
+            <button type="button" id="btLimpiar" title="Borra el contenido de todos los filtros">Limpiar filtros</button>
+            <button type="button" id="btAlta" title="Abre el formulario para dar de alta un nuevo cliente">Alta registro</button>
+            <button type="button" id="btCierraSesion" title="Cierra la sesión y vuelve al login">Cerrar sesión</button>
             <label for="orden">Orden:</label>
-            <input type="text" id="orden" value="codCliente" readonly />
+            <input type="text" id="orden" value="codCliente" title="Campo por el que está ordenada la tabla (se cambia haciendo click en un título de columna)" readonly />
         </div>
 
         <div class="tablaScroll">
@@ -49,17 +50,17 @@
                         <th>Bajas</th>
                     </tr>
                     <tr class="filtros">
-                        <th><input type="text" id="f_clientes_codCliente" /></th>
+                        <th><input type="text" id="f_clientes_codCliente" title="Filtrar por código de cliente (contiene el texto)" /></th>
                         <th>
                             <!-- Desplegable poblado con el JSON de salidaJsonSucursales.php -->
-                            <select id="f_clientes_codSucursal">
+                            <select id="f_clientes_codSucursal" title="Filtrar por sucursal">
                                 <option value=""></option>
                             </select>
                         </th>
-                        <th><input type="text" id="f_clientes_direccionEntrega" /></th>
-                        <th><input type="text" id="f_clientes_diaSemanalEntrega" /></th>
-                        <th><input type="text" id="f_clientes_costoPromedioTransporte" /></th>
-                        <th><input type="text" id="f_clientes_fechaUltimaEntrega" placeholder="aaaa-mm-dd" /></th>
+                        <th><input type="text" id="f_clientes_direccionEntrega" title="Filtrar por dirección de entrega (contiene el texto)" /></th>
+                        <th><input type="text" id="f_clientes_diaSemanalEntrega" title="Filtrar por día de entrega (por ej. Lunes)" /></th>
+                        <th><input type="text" id="f_clientes_costoPromedioTransporte" title="Filtrar por costo promedio de transporte" /></th>
+                        <th><input type="text" id="f_clientes_fechaUltimaEntrega" placeholder="aaaa-mm-dd" title="Filtrar por fecha de última entrega, formato aaaa-mm-dd" /></th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -74,7 +75,7 @@
                     <tr>
                         <td colspan="9">
                             Tabla: Agrupacion de datos logisticos clientes - Santiago Cannistra -
-                            Registros: <input type="text" id="cuenta" value="0" size="4" readonly />
+                            Registros: <input type="text" id="cuenta" value="0" size="4" title="Cantidad de registros recibidos" readonly />
                         </td>
                     </tr>
                 </tfoot>
@@ -88,26 +89,26 @@
         <div class="modalCaja">
             <div class="modalEncabezado">
                 <span id="tituloFormulario">Formulario</span>
-                <button type="button" id="btCerrarFormulario" class="btCelda">Cerrar</button>
+                <button type="button" id="btCerrarFormulario" class="btCelda" title="Cierra el formulario sin enviar">Cerrar</button>
             </div>
 
             <form id="formClientes" method="post" enctype="multipart/form-data">
                 <ul>
                     <li>
                         <label for="formCodCliente">Cod. cliente:</label>
-                        <input type="text" id="formCodCliente" name="codCliente" maxlength="10" required />
+                        <input type="text" id="formCodCliente" name="codCliente" maxlength="10" title="Código único del cliente, hasta 10 caracteres (no se puede cambiar en una modificación)" required />
                     </li>
                     <li>
                         <label for="formCodSucursal">Sucursal:</label>
-                        <select id="formCodSucursal" name="codSucursal" required></select>
+                        <select id="formCodSucursal" name="codSucursal" title="Sucursal que atiende al cliente" required></select>
                     </li>
                     <li>
                         <label for="formDireccionEntrega">Direccion de entrega:</label>
-                        <input type="text" id="formDireccionEntrega" name="direccionEntrega" maxlength="100" required />
+                        <input type="text" id="formDireccionEntrega" name="direccionEntrega" maxlength="100" title="Dirección donde se entrega la mercadería, hasta 100 caracteres" required />
                     </li>
                     <li>
                         <label for="formDiaSemanalEntrega">Dia de entrega:</label>
-                        <select id="formDiaSemanalEntrega" name="diaSemanalEntrega" required>
+                        <select id="formDiaSemanalEntrega" name="diaSemanalEntrega" title="Día de la semana en que se entrega (de lunes a sábado)" required>
                             <option value=""></option>
                             <option>Lunes</option>
                             <option>Martes</option>
@@ -119,21 +120,21 @@
                     </li>
                     <li>
                         <label for="formCostoPromedioTransporte">Costo transporte:</label>
-                        <input type="number" id="formCostoPromedioTransporte" name="costoPromedioTransporte" min="0" step="any" required />
+                        <input type="number" id="formCostoPromedioTransporte" name="costoPromedioTransporte" min="0" step="any" title="Costo promedio de transporte, número mayor o igual a 0" required />
                     </li>
                     <li>
                         <label for="formFechaUltimaEntrega">Ultima entrega:</label>
-                        <input type="date" id="formFechaUltimaEntrega" name="fechaUltimaEntrega" required />
+                        <input type="date" id="formFechaUltimaEntrega" name="fechaUltimaEntrega" title="Fecha de la última entrega realizada" required />
                     </li>
                     <li>
                         <label for="formFotoPuntoEntrega">Foto / documento:</label>
-                        <input type="file" id="formFotoPuntoEntrega" name="fotoPuntoEntrega" />
+                        <input type="file" id="formFotoPuntoEntrega" name="fotoPuntoEntrega" title="Foto o documento del punto de entrega (opcional)" />
                     </li>
                 </ul>
             </form>
 
             <div class="modalPie">
-                <button type="button" id="btEnvioForm" disabled>Enviar</button>
+                <button type="button" id="btEnvioForm" title="Envía el formulario al servidor; se habilita cuando los datos son válidos" disabled>Enviar</button>
             </div>
         </div>
     </div>
@@ -143,7 +144,7 @@
         <div class="modalCaja">
             <div class="modalEncabezado">
                 <span id="encabezadoModalRespuesta">Respuesta del servidor</span>
-                <button type="button" id="btCerrarRespuesta" class="btCelda">Cerrar</button>
+                <button type="button" id="btCerrarRespuesta" class="btCelda" title="Cierra la ventana de respuesta">Cerrar</button>
             </div>
             <div id="contenidoModalRespuesta"></div>
         </div>
@@ -179,6 +180,16 @@
             fechaUltimaEntrega: "formFechaUltimaEntrega",
         };
 
+        // Titulo de cada campo (etiqueta de las celdas en pantallas chicas)
+        const etiquetas = {
+            codCliente: "Cod. cliente",
+            codSucursal: "Sucursal",
+            direccionEntrega: "Direccion de entrega",
+            diaSemanalEntrega: "Dia de entrega",
+            costoPromedioTransporte: "Costo transporte",
+            fechaUltimaEntrega: "Ultima entrega",
+        };
+
         // Lista de sucursales: la usan el filtro y el formulario
         let objGlobalSucursales = { sucursales: [] };
 
@@ -187,9 +198,6 @@
 
         // Valores del registro al abrir la modi, para detectar si cambio algo
         let valoresOriginales = {};
-
-        // true si se hizo un alta/modi/baja: al cerrar la respuesta se recarga la tabla
-        let hayQueRecargar = false;
 
         function mensajeTbody(argTexto) {
             objTbDatos.innerHTML = "";
@@ -204,20 +212,23 @@
             document.getElementById("cuenta").value = 0;
         }
 
-        function agregarCelda(argFila, argValor) {
+        function agregarCelda(argFila, argValor, argEtiqueta) {
             const objTd = document.createElement("td");
+            objTd.dataset.label = argEtiqueta;
             objTd.textContent = argValor;
             argFila.appendChild(objTd);
         }
 
         // Crea una celda con un boton y le asigna el manejador de click
-        function agregarCeldaBoton(argFila, argTexto, argClase, argManejador, argDeshabilitado) {
+        function agregarCeldaBoton(argFila, argTexto, argClase, argManejador, argDeshabilitado, argEtiqueta, argAyuda) {
             const objTd = document.createElement("td");
             objTd.className = "celdaBoton";
+            objTd.dataset.label = argEtiqueta;
             const objBoton = document.createElement("button");
             objBoton.type = "button";
             objBoton.className = "btCelda " + argClase;
             objBoton.textContent = argTexto;
+            objBoton.title = argAyuda;
             objBoton.disabled = !!argDeshabilitado;
             objBoton.onclick = argManejador;
             objTd.appendChild(objBoton);
@@ -244,10 +255,6 @@
             document.getElementById("contenidoModalRespuesta").innerHTML = "";
             document.getElementById("ventanaModalFormulario").style.visibility = "hidden";
             objTablero.className = "contenedorActivo";
-            if (hayQueRecargar) {
-                hayQueRecargar = false;
-                cargaTabla();
-            }
         }
 
         // Muestra el texto de respuesta (puede traer HTML) en la ventana de respuestas
@@ -376,12 +383,12 @@
                     objTbDatos.innerHTML = "";
                     objJson.clientes.forEach(function (cli) {
                         const objTr = document.createElement("tr");
-                        campos.forEach(function (campo) { agregarCelda(objTr, cli[campo]); });
+                        campos.forEach(function (campo) { agregarCelda(objTr, cli[campo], etiquetas[campo]); });
 
                         // Botones dinamicos de cada fila: foto/PDF, modi y baja
-                        agregarCeldaBoton(objTr, "PDF", "btPdf", function () { verDocumento(cli.codCliente); }, !cli.tieneFoto);
-                        agregarCeldaBoton(objTr, "Modi", "btModi", function () { completaFichaCliente(cli); });
-                        agregarCeldaBoton(objTr, "Borrar", "btBorrar", function () { baja(cli.codCliente); });
+                        agregarCeldaBoton(objTr, "PDF", "btPdf", function () { verDocumento(cli.codCliente); }, !cli.tieneFoto, "Foto", "Muestra el documento o foto de " + cli.codCliente);
+                        agregarCeldaBoton(objTr, "Modi", "btModi", function () { completaFichaCliente(cli); }, false, "Modis", "Modifica el registro " + cli.codCliente);
+                        agregarCeldaBoton(objTr, "Borrar", "btBorrar", function () { baja(cli.codCliente); }, false, "Bajas", "Elimina el registro " + cli.codCliente);
 
                         objTbDatos.appendChild(objTr);
                     });
@@ -437,7 +444,6 @@
                 .then(respuesta => respuesta.text())
                 .then(datos => {
                     alert("Respuesta del servidor:\n" + datos);
-                    hayQueRecargar = true;
                     mostrarRespuesta(esAlta ? "Respuesta del servidor al alta" : "Respuesta del servidor a la modificacion", datos);
                 })
                 .catch(error => alert("Error producido: " + error));
@@ -455,7 +461,6 @@
                 .then(respuesta => respuesta.text())
                 .then(datos => {
                     alert("Respuesta del servidor:\n" + datos);
-                    hayQueRecargar = true;
                     mostrarRespuesta("Respuesta del servidor a la baja", datos);
                 })
                 .catch(error => alert("Error producido: " + error));

@@ -17,6 +17,7 @@
 <body>
 
     <h1>Form to encrypt</h1>
+    <p class="alumno" style="font-weight: bold;">Alumno: Santiago Cannistra</p>
 
     <hr />
 
@@ -72,10 +73,10 @@
     <!-- action vacio: el formulario se envia al mismo php que lo mostro -->
     <form action="./index.php" method="post">
         <label for="clave">Ingresar la clave a encriptar:</label>
-        <input type="text" id="clave" name="clave" required />
+        <input title="Ingrese: Ingresar la clave a encriptar" type="text" id="clave" name="clave" required />
         <br /><br />
 
-        <button type="submit">Obtener encriptación</button>
+        <button title="Botón: Obtener encriptación" type="submit">Obtener encriptación</button>
     </form>
 
     <hr />
