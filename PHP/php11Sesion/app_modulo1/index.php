@@ -153,7 +153,7 @@
     <hr />
 
     <footer>
-        <p><a href="../index.html">Volver al indice de PHP</a></p>
+        <p><a href="../../index.html">Volver al indice de PHP</a></p>
 
         Santiago Cannistra
         <address>
