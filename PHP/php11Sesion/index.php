@@ -1,10 +1,10 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['identificativo'])) {
-        header('Location: ./formularioDeLogin.html');
-        exit();
+    session_start();   // [ESTUDIO] retoma la sesion existente
+    if (!isset($_SESSION['identificativo'])) {   // [ESTUDIO] sin sesion iniciada...
+        header('Location: ./formularioDeLogin.html');   // [ESTUDIO] ...redirige al login
+        exit();   // [ESTUDIO] y corta el script
     }
-    include "./libreria.inc";
+    include "./libreria.inc";   // [ESTUDIO] trae infoDeSesion()
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,14 +20,16 @@
     <hr />
     <main>
         <h2>Sus parámetros de sesión son los siguientes:</h2>
-        <?php infoDeSesion(); ?>
+        <?php infoDeSesion(); ?> <!-- [ESTUDIO] imprime los datos de la sesion actual -->
         <button title="Botón: Ingresar al ABM" type="button" id="btAppModulo1">Ingresar al ABM</button>
         <button title="Botón: Terminar sesión" type="button" id="btSalida">Terminar sesión</button>
     </main>
     <script>
+        // [ESTUDIO] "Ingresar al ABM" -> app_modulo1/index.php (protegido por manejoSesion.inc)
         document.getElementById("btAppModulo1").addEventListener("click", function () {
             location.href = "./app_modulo1/index.php";
         });
+        // [ESTUDIO] "Terminar sesion" -> destruirsesion.php
         document.getElementById("btSalida").addEventListener("click", function () {
             location.href = "./destruirsesion.php";
         });

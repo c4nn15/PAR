@@ -12,9 +12,11 @@
     <hr />
     <main>
         <p><strong>Usuario de prueba:</strong> login <code>alumno</code> / clave <code>1234</code></p>
+        <!-- [ESTUDIO] el form envia login y clave por POST a ingresoAlSistema.php; los name ("login", "clave") son las claves de $_POST -->
         <form action="./ingresoAlSistema.php" method="post">
             <p><label for="login">Login:</label> <input title="Ingrese: Login" type="text" id="login" name="login" required /></p>
             <p><label for="clave">Password:</label> <input title="Ingrese: Password" type="password" id="clave" name="clave" required /></p>
+            <!-- [ESTUDIO] type=password oculta lo escrito; type=submit dispara el envio del formulario -->
             <button title="Botón: Ingreso" type="submit">Ingreso</button>
         </form>
     </main>
