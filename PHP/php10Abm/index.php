@@ -94,7 +94,7 @@
                 <ul>
                     <li>
                         <label for="formCodCliente">Cod. cliente:</label>
-                        <input type="text" id="formCodCliente" name="codCliente" maxlength="10" title="Código único del cliente, hasta 10 caracteres (no se puede cambiar en una modificación)" required />
+                        <input type="text" id="formCodCliente" name="codCliente" maxlength="10" placeholder="Ej: CLI001 (hasta 10 caracteres)" title="Código único del cliente, hasta 10 caracteres (no se puede cambiar en una modificación)" required />
                     </li>
                     <li>
                         <label for="formCodSucursal">Sucursal:</label>
@@ -102,12 +102,12 @@
                     </li>
                     <li>
                         <label for="formDireccionEntrega">Direccion de entrega:</label>
-                        <input type="text" id="formDireccionEntrega" name="direccionEntrega" maxlength="100" title="Dirección donde se entrega la mercadería, hasta 100 caracteres" required />
+                        <input type="text" id="formDireccionEntrega" name="direccionEntrega" maxlength="100" placeholder="Ej: Av. Cabildo 1234, CABA" title="Dirección donde se entrega la mercadería, hasta 100 caracteres" required />
                     </li>
                     <li>
                         <label for="formDiaSemanalEntrega">Dia de entrega:</label>
                         <select id="formDiaSemanalEntrega" name="diaSemanalEntrega" title="Día de la semana en que se entrega (de lunes a sábado)" required>
-                            <option value=""></option>
+                            <option value="">Seleccione...</option>
                             <option>Lunes</option>
                             <option>Martes</option>
                             <option>Miercoles</option>
@@ -118,7 +118,7 @@
                     </li>
                     <li>
                         <label for="formCostoPromedioTransporte">Costo transporte:</label>
-                        <input type="number" id="formCostoPromedioTransporte" name="costoPromedioTransporte" min="0" step="any" title="Costo promedio de transporte, número mayor o igual a 0" required />
+                        <input type="number" id="formCostoPromedioTransporte" name="costoPromedioTransporte" min="0" step="any" placeholder="Ej: 1500.50" title="Costo promedio de transporte, número mayor o igual a 0" required />
                     </li>
                     <li>
                         <label for="formFechaUltimaEntrega">Ultima entrega:</label>
@@ -285,7 +285,7 @@
         // Llena el desplegable del formulario y marca como selected la sucursal indicada
         function llenaSucursalesForm(argCodSeleccionado) {
             const objSel = document.getElementById("formCodSucursal");
-            objSel.innerHTML = '<option value=""></option>';
+            objSel.innerHTML = '<option value="">Seleccione...</option>';
             objGlobalSucursales.sucursales.forEach(function (suc) {
                 const objOpt = document.createElement("option");
                 objOpt.value = suc.codSucursal;
